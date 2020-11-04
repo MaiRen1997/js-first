@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 隐式转换和强行转换的区别
+        // 隐式转换指的是在运算过程中自动进行数据类型转换
+        // 调用函数进行数据类型转换
+
+        // 2. 将字符串转成数值有几种方式
+        // parseInt()          将字符串解析成数值 如果没有可解析的部分 则返回NaN 解析结果是一个整数
+        // parseFloat()        将字符串解析成数值 如果没有可解析的部分 则返回NaN 解析结果是一个浮点数
+        // Number()            将字符串接卸成数值 如果有不可解析的部分 则返回NaN
+        // +/-
+
+        // 3. 布尔类型的转换
+        // 非空字符串 true
+        // 空字符串   false
+        // 非0的有效数值  true
+        // 0和NaN        false
+        // undefined     false
+        // null          false
+        // 对象          true
+
+        // 4. 字符串类型的转换
+        // 数值       源值转换
+        // null       'null'
+        // undefined  'undefined'
+        // 对象        '[object Object]'
+        // 布尔值      'true' 'false'
+        // NaN         'NaN'
+
+
+        // 5. + 号
+        // 当+左右有字符串时是拼接符 将不是字符串的一个值转换成字符串 然后连接字符串
+        // 当+左右没有字符串时 算术运算符
+        // 一元 +号  可以将值转换成数值转换结果 参考(Number函数)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

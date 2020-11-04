@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // keyup
+        // 判断用户按了某个键
+
+        // 常用于 表单事件 页面(document)
+
+        document.addEventListener('keyup', function(ev) {
+            // 可以通过判断按键编码 来判断用户按下了哪个按键
+            console.log(ev.keyCode); // 返回用户的按键编码(ASKII)
+            console.log(ev.which); // 同keyCode
+
+            // 可以通过 ctrlKey shiftKey altKey  判断是否使用了组合键
+            // console.log(ev.ctrlKey);
+            // console.log(ev.shiftKey);
+            // console.log(ev.altKey);
+
+            if (ev.altKey) {
+                switch (ev.keyCode) {
+                    case 90:
+                        console.log('hello');
+                        break;
+                    case 65:
+                        console.log('world');
+                        break;
+                }
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

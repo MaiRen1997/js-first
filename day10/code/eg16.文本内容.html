@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+
+            // console.log(box.innerHTML);
+            // console.log(box.outerHTML);
+
+            // 获得元素的文本内容使用 textContent  W3C标准属性
+            // innerText  非标准属性
+
+            console.log(box.textContent);
+            // console.log(box.innerText);
+
+            // box.textContent = '<h1>123</h1>';
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="box">
+        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex excepturi expedita consequuntur, at ea quae illo nam sunt, sed adipisci assumenda suscipit! Quibusdam dolores ipsum sequi repudiandae molestiae dicta!</span>
+    </div>
+</body>
+
+</html>

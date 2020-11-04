@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = ['杭州', null, '北京', '上海', , , '深圳', '广州', '南京', '成都'];
+
+        // console.log(arr);
+
+        // for (var i = 0; i < arr.length; i++) {
+        //     console.log(arr[i]);
+        // } 
+
+        // for-in
+        // 用于遍历对象 数组也是对象 所以也可以用于遍历数组
+
+        for (var i in arr) { // index
+            // for-in 只遍历 可枚举属性
+            console.log(arr[i]);
+        }
+        for(var j of arr){
+            console.log(j);//in遍历的是key，of遍历的是value
+        }
+
+        // --------------------------------------------------------------
+
+        // 使用for-in 遍历对象
+        // for循环能否遍历对象？ 对象是无序的
+        var obj = {
+            // 名值对
+            name: 'zhanhsan',
+            age: 18,
+            sex: 'nan'
+        };
+
+        Object.defineProperty(obj, 'name', {
+            value: 'zhangsan'
+        });
+
+        console.log(obj);
+
+        for (var i in obj) { // item
+            // console.log(i);
+            console.log(i, obj[i]);
+        }
+        // for-in 只能遍历可枚举属性
+        // length    不可枚举
+        // __proto__ 不可枚举
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // new 关键字
+        // 在内存(堆)中开辟一块新的存储空间 并返回这个空间的地址
+
+        // 引用类型的赋值 赋值的是地址
+
+        // var arr = [1, 2, 3, 4, 5];
+        // var arr2 = arr;
+        // var arr3 = [1, 2, 3, 4, 5];
+
+        // console.log(arr);
+        // console.log(arr2);
+        // console.log(arr3);
+        // 引用类型比较相等性 比较的是 地址
+        // 如果地址不同 结果就为 false
+        // console.log(arr2 == arr3);
+        // console.log(arr === arr2);
+
+        // arr[0] = 0;
+        // console.log(arr2);
+
+
+        // -----------------------------------------------
+
+        var o = new Object();
+        o.name = 'zhangsan';
+        var o2 = o; // 引用类型 赋值的是地址  
+        // o 和 o2 是同一个对象
+        o2.name = 'lisi';
+
+        console.log(o.name);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

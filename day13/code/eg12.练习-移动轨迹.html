@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        span {
+            position: absolute;
+            border: 2px solid black;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.querySelector('.box');
+            var map = []; // 用于储存所有的坐标值
+
+            var timer; // 计时器
+
+            // 事件 
+            // mousedown box
+            // mousemove document
+            // mouseup   document
+
+            box.onmousedown = function(ev) {
+                var offsetx = ev.offsetX,
+                    offsety = ev.offsetY;
+
+                map.push({
+                    x: 0,
+                    y: 0
+                });
+
+                document.onmousemove = function(ev) {
+                    var pagex = ev.pageX,
+                        pagey = ev.pageY,
+                        x = pagex - offsetx,
+                        y = pagey - offsety;
+
+                    // 边界判断
+                    if (x < 0) {
+                        x = 0;
+                    } else if (x > innerWidth - box.offsetWidth) {
+                        x = innerWidth - box.offsetWidth;
+                    }
+
+                    if (y < 0) {
+                        y = 0;
+                    } else if (y > innerHeight - box.offsetHeight) {
+                        y = innerHeight - box.offsetHeight;
+                    }
+
+                    // var span = document.createElement('span');
+                    // span.style = 'top:' + y + 'px;left:' + x + 'px;';
+                    // document.body.appendChild(span);
+
+                    map.push({
+                        x: x,
+                        y: y
+                    });
+
+
+                    box.style.top = y + 'px';
+                    box.style.left = x + 'px';
+                }
+
+                document.onmouseup = function() {
+                    document.onmousemove = null;
+                    // console.log(map);
+
+                    // 执行倒回操作
+                    timer = setInterval(function() {
+                        if (map.length == 0) {
+                            clearInterval(timer);
+                            return;
+                        }
+
+                        var last = map.pop();
+
+                        box.style.top = last.y + 'px';
+                        box.style.left = last.x + 'px';
+                    }, 30);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

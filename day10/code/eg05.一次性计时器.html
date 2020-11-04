@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 计时器属于BOM
+
+        // setTimeout()
+        // 语法: setTimeout(callback,delay);
+        // 参数: callback  需要执行的函数
+        //       delay     执行前的等待时间  以毫秒为单位
+        // 返回值: id 返回计时器id  可以关闭
+
+        // clearTimeout(id) 
+        // 关闭计时器
+
+        // JavaScript运行在浏览器内核的JS引擎中
+        // JS引擎是单线程执行环境 所以JS可以被看做是单线程执行
+        // 事件轮询(event loop)
+        // 计时器 异步操作
+        // JS引擎将所有异步的操作 先行跳过 将异步操作 放入到 事件队列
+        // 主线程有限执行其他的同步代码  
+        // 当同步代码执行结束后 开始执行事件队列
+
+
+
+
+        // console.log(2);
+        // setTimeout(function() {
+        //     console.log(1);
+        // }, 0);
+        // console.log(3);
+
+        // alert(1);
+        // alert(2);
+        // alert(3);
+
+        // ---------------------------------------------
+
+        // for (var i = 0; i < 5; i++) {
+        //     setTimeout(function() {
+        //         console.log(i);
+        //     }, 0);
+        // }
+
+        //----------------------------------------------
+        // 作用域
+        // for (var i = 0; i < 5; i++) {
+        //     (function(i) {
+        //         setTimeout(function() {
+        //             console.log(i);
+        //         }, 0);
+        //     })(i);
+        // }
+
+        // for (let i = 0; i < 5; i++) {
+        //     setTimeout(function() {
+        //         console.log(i);
+        //     }, 0);
+        // }
+            
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

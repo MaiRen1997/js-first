@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // BOM没有相关标准 被广泛支持(部分通用功能)
+        // 浏览器厂商决定了BOM的功能
+
+        // window对象 是BOM的根(root)对象
+        // window也是 浏览器环境下 JS的 全局对象
+        // window表示一个浏览器的窗口 每新建一个标签页 事实上就是创建了一个window对象
+        // 它是浏览器环境中最高级别的对象
+
+        // window有非常多的子对象(属性)
+
+        // window所有的子属性 或 方法  都是全局的
+        // 访问window下的属性 或 方法  可以省略 window.
+        // window.alert(123);
+
+        // ------------------------------------
+        // function fn() {
+        //     var a = b = 3; // window.b = 3
+        //     console.log(a);
+        //     console.log(b);
+        // }
+
+        // fn();
+
+        // console.log(window.b);
+        // ------------------------------------
+
+        // 所有的全局函数和全局变量 都是window的子属性
+        // 所有全局变量和全局函数会自动绑定到window上
+
+        // function fn2() {
+        //     alert(1);
+        // }
+
+        // window.fn2();
+
+        // var num = 10;
+
+        // console.log(window.num);
+
+        // ---------------------------------------
+
+        // function fn3() {
+        //     var num = 3;
+
+        //     window.num = num; // 将函数作用域的变量赋值给全局对象
+        // }
+
+        // fn3();
+        // console.log(num);
+
+        // ---------------------------------------
+
+        // console.log(this); // this在全局环境下 指向全局对象  window
+
+        // this出现在函数中 谁调用这个函数 this就指向谁
+
+        // function fn4() {
+        //     console.log(this);
+        // }
+
+        // var o = {
+        //     fn: fn4
+        // }
+
+        // window.fn4();
+
+        // o.fn();
+
+        // var x = 5;
+        // var o = {
+        //     x: 3,
+        //     fn: function() {
+        //         console.log(this.x);
+        //     }
+        // }
+
+        // o.fn();
+        // var fn = o.fn;
+        // console.log(fn === o.fn);
+        // fn();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

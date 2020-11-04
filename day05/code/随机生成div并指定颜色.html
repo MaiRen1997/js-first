@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #box{
+            width: 1000px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        input{
+            display: inline-block;  
+        }
+        #box>div{
+            width: 100px;
+            height: 50px;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px #ccc;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        function randomColor(){
+            var color_num; 
+            var color_value= "#";
+            for(var i =0;i<6;i++){
+                color_num=parseInt(Math.random()*16);
+                //将生成的0~15的数字转成16进制
+                color_num = color_num.toString(16);
+                color_value+=color_num;
+            }
+            return color_value;
+        }
+       /* 
+       //测试生成的颜色代码是否正确
+        var color_test=randomColor();
+        console.log(color_test); */
+        window.onload = function(){
+            //获取外面盒子
+            var box = document.getElementById('box');
+            //获取按钮
+            var btn_add = document.getElementById('btn_add');
+            btn_add.onclick = function(){
+                box.innerHTML+='<div '+'style="background:'+randomColor()+'" > </div>';
+            }  
+        }
+    </script>
+</head>
+<body>
+    <input type="button" name="" value="添加div" id="btn_add">
+    <div id="box">
+    </div>
+</body>
+</html>

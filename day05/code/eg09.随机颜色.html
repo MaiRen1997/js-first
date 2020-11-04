@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        
+        #add {
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .box>div {
+            width: 120px;
+            height: 50px;
+            margin: 5px;
+            float: left;
+            border: 1px solid black;
+            box-shadow: 3px 3px 3px #ccc;
+            border-radius: 8px;
+        }
+    </style>
+
+    <script>
+        // 随机 在JavaScript 所有的和随机有关的事物 全部都是 Math.random();
+        function getColor() {
+            // #ff0000
+            var color = '#';
+
+            var randomNumber;
+            // 需要随机6次16进制的数
+            for (var i = 0; i < 6; i++) {
+                randomNumber = parseInt(Math.random() * 16);
+                color += randomNumber.toString(16);
+            }
+            return color;
+        }
+
+        // console.log(getColor());
+
+        window.onload = function() {
+            var add = document.getElementById('add');
+            var box = document.getElementById('box');
+
+            add.onclick = function() {
+                // innerHTML 获得或修改 元素内所有的HTML代码
+                // console.log(box.innerHTML);
+                // box.innerHTML += '你好世界';
+
+                box.innerHTML += '<div style="background:' + getColor() + '"></div>';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" id="add" value="添加一个元素">
+    <div id="box" class="box"></div>
+</body>
+
+</html>

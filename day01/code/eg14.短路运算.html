@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 短路运算(短路逻辑)
+        // 它是计算机的一种求值策略(最小化求值)
+
+        // 只有当第一个运算数的值无法确定逻辑运算的结果时，才对第二个运算数进行求值。
+        // 当逻辑与和逻辑或 左右不是布尔表达式时, 它会自动将其转换成布尔类型进行运算
+
+        // 逻辑与运算符 第一个操作数为假  返回第一个操作数 否则返回第二个操作数
+        // console.log(!!0 && !!1);
+        // console.log(0 && 1); // 第一个结果已经确定了逻辑与是 false  直接返回第一个操作数 不需要对第二个求值
+        // console.log(1 && 0); // 第一个操作数是true 一个操作数无法确定结果 返回第二个操作数
+
+        // 逻辑或运算符 第一个操作数为真 返回第一个操作数 否则返回第二个操作数
+        // console.log(2 || false); // 2转布尔类型为true  已经确定了逻辑或的结果 不需要对第二个求值 
+        // console.log(0 || false);
+        // console.log(null || 0);
+        // console.log('a' || 'b');
+
+        // console.log('NaN' || true);
+        // var o = new Object();
+        // console.log(o || 'abc');
+
+        var userName = 'zhangsan';
+        userName == 'zhangsan1' && console.log('你好');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

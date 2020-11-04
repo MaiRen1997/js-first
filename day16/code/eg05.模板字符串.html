@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  模板字符串是ES6新增的一种字符串的书写格式
+
+        // 使用模板字符串可以方便做拼接操作
+        // 使用反引号表示  ``
+        // ''  ""  `` 
+
+        // 1. 模板字符串可以保留原字符串格式 类似于(<pre></pre>)
+        // 2. 可以换行
+        // 3. 字符拼接时 使用 ${}
+
+        // let str = `字
+        // 符
+        // 串`;
+        // console.log(str);
+        /*
+        字
+        符
+        串
+        */
+
+        window.onload = function() {
+            let list = document.querySelector('#list');
+            let li = '';
+            for (let i = 0; i < 5; i++) {
+                li += `<li>第${i+1}个li</li>`;
+                //这样写，不需要再用  加号  拼接
+            }
+
+            list.innerHTML = li;
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="list"></ul>
+    <pre>
+        1
+        2
+        3
+        4
+        5
+    </pre>
+</body>
+
+</html>

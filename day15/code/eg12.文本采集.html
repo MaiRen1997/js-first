@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 防止 XSS 攻击 (跨站脚本攻击)
+        // 1. 替换
+        // 2. 混淆/转义 &lt; &gt;
+        window.onload = function() {
+            var input = document.getElementById('input');
+            var output = document.getElementById('output');
+            var submit = document.getElementById('submit');
+
+            submit.onclick = function() {
+                // </span>
+                output.value = input.value.replace(/<[^<>]+>/g, '');
+                //[]内的^表示非，[^<>] 表示匹配除了左右尖括号之外的内容，这样写，就能匹配所有的标签了
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <textarea id="input" cols="30" rows="10"></textarea>
+    <button id="submit">提交</button>
+    <textarea id="output" cols="30" rows="10"></textarea>
+</body>
+
+</html>

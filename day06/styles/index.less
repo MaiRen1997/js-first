@@ -1,0 +1,44 @@
+@charset 'utf-8';
+
+@import './public.less';
+// @import './header.less';
+// @import './nav.less';
+
+@bgcolor:red;  // 全局变量
+@baseurl:'../img/';
+*{
+    padding:0;
+    margin:0;
+}
+
+.nav{
+    @bgcolor:yellow;
+
+    width: 1200px;
+    background-color: @bgcolor;
+    // 层级嵌套时  默认是后带选择器
+    // 需要子代选择器
+    >ul{
+        list-style:none;
+        background:url('@{baseurl}1.png'); // 拼接变量
+        width: 1200px;
+        >li{
+            float: left;
+            margin:10px;
+            width: floor(1200px/7); // ceil()向上取整
+
+            a{
+                color:blue;
+                // & 表示当前选择器
+                &:hover{
+                    color:red;
+                }
+            }
+        }
+    }
+}
+
+.box{
+    background-color: @bgcolor;
+}
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Object.prototype.toString()
+
+        // function Foo() {
+        //     // this.toString = function() {
+        //     //     return 'abc';
+        //     // }
+        // }
+        // Foo.prototype.toString = function() {
+        //     return 'hello world';
+        // }
+        // var foo = new Foo();
+        // console.log(foo.toString()); // 自定义对象的toString方法是通过原型链的查找获得的
+        // console.log(foo.__proto__.__proto__ === Object.prototype); //返回true// Object.prototype
+
+
+        // console.log(toString === Object.prototype.toString);
+        // console.log(window.__proto__);
+
+
+        // 函数重载  
+        // 将功能相同的或相近的函数 设置成相同的函数名
+        // 参数的类型 或 数量不同 来区分不同的函数
+
+
+        // 可以自定义toString函数
+
+        // Array.prototype.toString = function() {
+        //     return this;
+        // }
+
+        // var arr = [1, 2, 3, 4, 5];
+
+        // console.log(arr.toString());
+        // Array.prototype.toString();
+
+        // console.log(arr.toString === Object.prototype.toString); // false
+
+        // ------------------------------------
+
+        // 判断数据类型
+        function getClass(o) {
+            return Object.prototype.toString.call(o).slice(8, -1);
+        }
+
+        console.log(getClass(123));//Number
+        console.log(getClass('abc'));//String
+        console.log(getClass(null));//Null
+        console.log(getClass(undefined));//Undefined
+        console.log(getClass({}));//Object
+        console.log(getClass([]));//Array
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

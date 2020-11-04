@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        #line {
+            width: 1px;
+            height: 400px;
+            background-color: black;
+            position: absolute;
+            left: 700px;
+            top: 0;
+        }
+    </style>
+    <script>
+        // 缓冲 是一个减速的过程
+        // 先快后慢
+
+        // 起始位置 当前的位置
+        // 结束位置 目标
+
+        window.onload = function() {
+            /* var box = document.querySelector('#box');
+            var speed = 0;
+            var timer;
+
+            box.onclick = function() {
+                timer = setInterval(function() {
+                    // 速度 先快后慢 
+                    // 每次让元素运动总距离的1/10  70 63 56.7
+                    speed = Math.ceil((600 - box.offsetLeft) / 10);
+
+                    let x = box.offsetLeft + speed;
+
+                    if (box.offsetLeft >= 600) {
+                        // 到达目标 关闭计时器
+                        clearInterval(timer);
+                        return;
+                    }
+
+                    box.style.left = x + 'px';
+                }, 20);
+            } */
+
+            // ------------------------------------------------
+
+            // 获得元素的样式  计算后样式
+
+            function getStyle(elm, style) {
+                elm=elm||event;
+                //兼容写法1
+                /* if (typeof getComputedStyle === 'function') {//判断浏览器是否识别该方法
+                    return getComputedStyle(elm)[style];
+                } else {
+                    return elm.currentStyle[style];
+                } */
+
+                //兼容写法2
+                /* if(elm.currentStyle){
+                    return elm.currentStyle[style];
+                }else {
+                    return getComputedStyle(elm)[style];
+                } */
+
+            } 
+
+
+            function bufferMove(elm, style, target) {
+                // elm 需要运动的元素
+                // style 需要运动的样式
+                // target 需要运动到的目标
+                var speed = 0;
+                var timer;
+                timer = setInterval(function() {
+                    // 计算速度
+                    // 需要取整 应为计算后样式是有单位的 无法运算
+                    var currentStyle = parseInt(getStyle(elm, style)); // 获得计算后样式
+
+                    speed = (target - currentStyle) / 10;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed); //速度取整
+
+                    if (currentStyle === target) clearInterval(timer); // 到达目标 关闭计时器
+
+                    elm.style[style] = currentStyle + speed + 'px';
+                }, 20);
+            }
+
+            var box = document.getElementById('box');
+
+            // bufferMove(box, 'width', 700);
+
+            bufferMove(box, 'top', 300);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+    <div id="line"></div>
+</body>
+
+</html>

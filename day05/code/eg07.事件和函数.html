@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // JS中的函数 可以被事件触发执行
+
+        // 获得页面中的 元素(Element)(标签Tag)
+        // 通过元素的id属性来获取元素
+        // 页面中每一个元素都可以拥有id属性 但是id属性在同一个页面中是唯一的
+
+        // window 窗口
+        // onload 加载完毕  load
+        // 事件 window.onload 当页面 资源(img css js) 加载完毕后执行  
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            // 你获得到的每一个元素(标签) 在JS中 都是以对象的形式存在的
+            // console.log(btn.className);
+            // console.log(btn);
+
+            // alert输出的全部都是字符串类型 如果不是字符串 会自动调用 toString()方法
+            // alert(btn); // '[object HTMLInputElement]'
+
+            // console.dir(btn);  // console.dir() 以目录的形式输出对象
+
+            // function fn() {
+            //     alert('测试');
+            // }
+
+            // btn.onclick = fn;
+
+            // 使用赋值式函数
+
+            btn.onclick = function() {
+                alert(123);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" class="abc" value="按钮" id="btn">
+</body>
+
+</html>

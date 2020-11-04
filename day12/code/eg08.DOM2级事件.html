@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var btn = document.querySelector('#btn');
+
+
+            // DOM2级事件(事件监听)
+            // elm.addEventListener(eventType,fn,boolean);
+            // 参数: eventType 事件类型 string
+            //       fn  事件触发时要执行的函数  function
+            //       boolean 冒泡(false)/捕获(true)
+
+            // DOM2级可以为一个元素的相同事件 添加多个事件处理函数
+            // 多个事件处理函数的执行顺序是按照添加顺序执行的
+
+            // // dom2级事件名没有on
+            // btn.addEventListener('click', function() {
+            //     alert(123);
+            // });
+
+            btn.addEventListener('click', function() {
+                alert(456);
+                btn.removeEventListener('click', arguments.callee);
+                console.log(arguments.callee);
+            });
+
+            // btn.removeEventListener('click', fn);
+                // console.log(this);
+
+
+            // btn.addEventListener('click', function() {
+            //     alert(789);
+            // });
+
+
+            // 移除事件监听
+            // elm.removeEventListener(eventType,fnName);
+            // 参数: eventType  事件类型  string
+            //       fnName     函数   function
+
+
+            btn.addEventListener('click', function() {
+                this.setAttribute('disabled', 'true');
+                var that = this;
+
+                var sec = 5;
+                var timer = setInterval(function() {
+
+                    if (sec == 0) {
+                        clearInterval(timer);
+                        that.innerHTML = '按钮';
+                        that.removeAttribute('disabled');
+                        return;
+                    }
+
+                    that.innerHTML = '按钮' + sec + '秒后可用';
+                    sec--;
+                }, 1000);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+</body>
+
+</html>

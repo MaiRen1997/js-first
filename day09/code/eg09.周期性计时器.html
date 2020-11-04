@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 周期性计时器(BOM)
+        // setInterval();  全局函数
+        // 语法: setInterval(callback,delay);
+        // 参数: callback(function) 需要执行的函数
+        //       delay(number)  执行函数的间隔时间 以毫秒为单位
+        // 描述: 周期性计时器setInterval 会自动计算delay事件
+        //       每次间隔时间到 就会执行依次 callback
+        // 返回值: id(number) 返回值是计时器的id
+
+        // 关闭周期性计时器
+        // clearInterval();
+        // 语法: clearInterval(id);
+        // 参数: id(number) 开启计时器时的返回值
+        // 描述: 通过id关闭周期性计时器
+
+
+
+        window.onload = function() {
+            var time = document.getElementById('time');
+            var btn = document.getElementById('btn');
+
+            var timer = setInterval(function() {
+                var d = new Date();
+                var yy = d.getFullYear();
+                var mm = d.getMonth() + 1;
+                var dd = d.getDate();
+                var h = d.getHours() > 12 ? d.getHours() - 12 : d.getHours();
+                var m = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+                var s = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
+                var dateString = '';
+                time.innerHTML = dateString.concat(yy, '-', mm, '-', dd, ' ', h, ':', m, ':', s)
+            }, 1000);
+
+            console.log('ok');
+
+            btn.onclick = function() {
+                clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="time"></h1>
+
+    <button id="btn">关闭</button>
+</body>
+
+</html>

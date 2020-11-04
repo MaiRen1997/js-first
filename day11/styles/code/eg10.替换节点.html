@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 使用新节点替换旧节点
+        // parentNode.replaceChild(newChild,oldChild);
+
+        // 将p元素替换成h1
+        window.onload = function() {
+            var p = document.querySelector('.tit');
+
+            // 新创建一个元素
+            var h1 = document.createElement('h1');
+
+            h1.innerHTML = p.innerHTML;
+
+            // 复制属性
+            var attrs = p.attributes;
+
+            for (var i = 0; i < attrs.length; i++) {
+                h1.setAttribute(attrs[i].nodeName, attrs[i].nodeValue);
+                console.log(attrs[i].nodeValue);
+
+                // attrs[1].nodeName    class
+                // attrs[2].nodeName    id
+                // attrs[3].nodeName    style
+
+                //attrs[1].nodeValue    tit    
+                //attrs[2].nodeValue    tit
+                //attrs[3].nodeValue    color:red;background:blue
+
+
+
+            }
+            
+            // 替换元素
+            document.body.replaceChild(h1, p);
+        }
+    </script>
+</head>
+
+<body>
+    <p class="tit" id="tit" style="color:red;background:blue">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui molestias id quo atque saepe officia assumenda sit, laboriosam reprehenderit perferendis neque nostrum facilis excepturi ducimus autem laudantium! Optio, consequatur adipisci!
+    </p>
+</body>
+
+</html>

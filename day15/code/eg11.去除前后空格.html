@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 编写一个trim函数
+        // 编写一个函数 去除字符串前后空格
+        window.onload = function() {
+            var username = document.querySelector('#username');
+            // ECMAScript5 已经为String 添加过 trim 方法 
+
+            if (!String.prototype.trim) { // 没有trim函数 就创建一个
+                String.prototype.trim = function() {
+                    return this.replace(/^\s+|\s+$/g, '');
+                    // /s表示空格   前面一个\s显示以空格开始
+                    //后面一个\s匹配的是以空格结束的的地方  
+                    //匹配到后，用空字符串替换
+                }
+            }
+
+            username.onchange = function() {
+                console.log(this.value.trim());
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="username">
+</body>
+
+</html>

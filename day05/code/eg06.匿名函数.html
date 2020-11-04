@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 匿名函数 指的是没有函数名的函数
+
+        // 匿名函数 在创建时 不会构建全局的对象
+        // 仅在调用时 临时创建 作用域链对象 活动对象
+        // 在函数执行结束后 活动对象会被销毁 
+
+        // 为了不照成作用域全局污染 
+        // 尽量避免使用全局变量
+        // 如果非用不可 将变量声明写在作用域的顶部 并且给予注释
+
+        // 1. 自执行函数(自调用函数，一次性函数)
+        //方式1：
+        (function() {
+            console.log(123);
+        })();
+        //方式2：
+        ! function() {
+            console.log('ok');
+        }();
+        //方式3:
+        ~ function() {
+            console.log('yes');
+        }();
+
+        // 自执行函数 也可以设置返回值
+        // var result = (function(a, b) {
+        //     // 1. 隔离作用域，避免全局作用域污染
+        //     // 2. 匿名函数 仅在调用时临时创建作用域链对象
+        //     // 3. 执行完毕后 自立释放(内存)
+        //     // console.log(a + b);
+        //     return a + b;
+        // })(1, 2);
+
+        // console.log(result);
+
+        // -------------------------------------------------------
+
+        // 2. 匿名函数还常被用作回调(callback)
+        // 回调函数(callback) 高阶函数
+
+        // 回调函数 指的是将一个函数作为参数 传递到另一个函数中使用
+
+        // function fn(callback) {
+        //     callback(); // 调用函数
+        // }
+        // fn(function() {
+        //     console.log(123);
+        // });
+
+        // function isOdd(num) {
+        //     if (num % 2) {
+        //         alert('奇数');
+        //     } else {
+        //         alert('偶数');
+        //     }
+        // }
+
+        // isOdd(5);
+
+        function isOdd(num, callback) {
+            if (num % 2) {
+                callback('奇数');
+            } else {
+                callback('偶数');
+            }
+        }
+        isOdd(4, function(msg) {
+            console.log(msg);
+            alert(msg);
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 定义一个变量 接收用户输入的一个年份
+        // 判断这个值 是否为 闰年
+        // 闰年 每4年一次
+        // 这个数字 可以被4整除但是不能被100整除 或者可以被400整除
+        // 1900 不是闰年
+
+        // 将结果输出到控制台
+        var year =parseInt(prompt("请输入年份"));
+        console.log(year);
+        if(isNaN(year)){
+            console.log("请输入一个有效年份");
+        }
+       // else if(year%4==0&&year%100!=0 || year%400==0){//该句可以简化为以下结果
+        else if(!(year%4)&&year%100|| !(year%400) ){
+            console.log("该年是闰年");
+        }else{
+            console.log("该年不是闰年");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

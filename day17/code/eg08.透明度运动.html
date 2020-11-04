@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /*标准浏览器*/
+            opacity: 0.1;
+            /*ie浏览器*/
+            filter: alpha(opacity=10);
+        }
+    </style>
+    <script>
+        function getStyle(elm, style) {
+            if (typeof getComputedStyle === 'function') {
+                return getComputedStyle(elm)[style];
+            } else {
+                return elm.currentStyle[style];
+            }
+        }
+
+
+        function bufferMove(elm, style, target, callback) {
+            // elm 需要运动的元素
+            // style 需要运动的样式
+            // target 需要运动到的目标
+
+            var speed = 0;
+
+            var timer;
+
+            timer = setInterval(function() {
+                // 计算速度
+                // 需要取整 应为计算后样式是有单位的 无法运算
+
+                // 问题1：ie浏览器的透明度 和 标准浏览器属性不同 取值的范围也不同
+                // 统一取值范围
+                // 运算时 将 标准浏览器的透明度*100
+
+
+                // 问题2：透明度没有单位 区分有没有单位的情况
+                var currentStyle;
+
+                if (style === 'opacity') {
+                    currentStyle = Math.ceil(getStyle(elm, style) * 100);
+                } else {
+                    currentStyle = parseInt(getStyle(elm, style)); // 获得计算后样式
+                }
+
+                console.log(currentStyle);
+                speed = (target - currentStyle) / 10;
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed); //速度取整
+
+                if (currentStyle === target) {
+                    clearInterval(timer); // 到达目标 关闭计时器
+                    callback && callback();
+                }
+
+                if (style === "opacity") {
+                    elm.style[style] = (currentStyle + speed) / 100;
+                    elm.style['filter'] = 'alpha(opacity=' + (currentStyle + speed) + ')';
+                } else {
+                    elm.style[style] = currentStyle + speed + 'px';
+                }
+            }, 20);
+        }
+
+        window.onload = function() {
+            var box = document.getElementById('box');
+            bufferMove(box, 'opacity', 100);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>

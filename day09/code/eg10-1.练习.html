@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 练习:
+        // 在页面上显示一个距离2020年9月30日18:00:00的倒计时
+        // 距离国庆节放假还剩:xx天XX小时XX分XX秒
+
+        // 提示:
+        // 两个时间
+        // 当前时间 未来时间
+        // 未来时间-当前时间
+
+        // Date对象允许计算
+
+        window.onload = function() {
+            var time = document.getElementById('time');
+
+            setInterval(function() {
+                var now = new Date(); // 当前时间
+                var futuer = new Date(2020, 8, 30, 18, 0, 0);
+
+                var calculate = futuer - now; // 毫秒值
+                var s = calculate / 1000; // 秒
+                var day = parseInt(s / 86400); // 计算天数
+                var hour = parseInt(s % 86400 / 3600); // 计算小时
+                var min = parseInt(s % 3600 / 60); // 分钟
+                var sec = parseInt(s % 60); //秒
+
+                time.innerHTML = '距离国庆节放假还剩:' + day + '天' + hour + '小时' + min + '分' + sec + '秒';
+
+            }, 1000);
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="time"></h1>
+</body>
+
+</html>

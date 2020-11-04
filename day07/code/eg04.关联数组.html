@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 索引数组 指的是通过索引值来访问数组成员的一种数组 有序
+        // 2. 关联数组 指的是通过key来访问数组成员的一种数组    无序
+
+        // 关联数组是通过键值对来保存数据的
+
+        var arr = [];
+        arr['name'] = 'zhangsan';
+        arr['age'] = 20;
+
+        console.log(arr);
+
+        // 无序的数组 只能使用 for-in 遍历
+        for (var i in arr) {
+            console.log(arr[i]);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

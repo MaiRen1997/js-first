@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 构造函数
+        // 在JS中 构造函数指的是用于创建对象的函数
+
+        // 如何判断函数 是否是构造函数
+        // 看调用方式
+        // 使用关键字new调用 它就是构造函数
+        // 不使用关键字new调用 它就是普通函数
+        function A() {
+            // 构造函数用于创建对象
+            // 在构造函数中 所创建对象的所有的属性 需要添加到this关键字上
+            // 在构造函数中 this关键字 指向的是就是新创建的对象
+
+            // 构造函数 默认行为 在内存空间中开辟一块存储空间
+            // 存入新创建的对象 并返回这个对象所在的 地址
+
+            // 当一个函数被当作构造函数使用时 函数内的this关键字 就会指向 新创建的对象
+            // 如果不是当作构造函数使用  this 指向调用者
+            // 如果没有调用者 则指向  window
+
+            this.a = 'aaa';
+        }
+
+        var a1 = new A(); // 调用构造函数 创建对象
+
+        var b = A(); // 普通的函数调用 函数没有返回值 默认返回 undefined
+
+        console.log(a1);
+        console.log(b);
+        console.log(a);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

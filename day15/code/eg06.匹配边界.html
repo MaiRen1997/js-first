@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var userinput = document.querySelector('#userinput');
+            var result = document.querySelector('#result');
+
+
+            // 匹配边界
+            // ^ 匹配开头
+            // $ 匹配结尾
+
+            // 验证手机号格式
+            var reg = /^1[3-9]\d{9}$/;
+
+            userinput.oninput = function() {
+                result.innerHTML = reg.test(this.value) ? '通过验证' : '未通过验证';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="userinput">
+    <span id="result"></span>
+</body>
+
+</html>

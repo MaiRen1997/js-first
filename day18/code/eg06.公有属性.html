@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Phone(cpu, ram, rom, screen1, type) {
+            this.cpu = cpu;
+            this.ram = ram;
+            this.rom = rom;
+            this.screen = screen1;
+            this.type = type;
+
+            // this指向的是新创建的对象
+            // 构造函数中this绑定的属性 私有属性
+            // this.call = function(phoneNumber) {
+            //     // 函数中this的指向
+            //     // 指向调用者
+            //     console.log(`${this.type}正在打电话给${phoneNumber}`);
+            // }
+        }
+
+
+        // 原型对象
+        // 原型是函数的一个属性 
+        // 所有函数 都拥有这个属性 prototype
+        // 所有的prototype属性中都拥有一个 constructor 属性
+        // constructor 在这里是一个指针 它指向了 该原型对象的父级函数
+
+
+        // prototype 用来保存 构造函数 实例的 公有属性
+        // 如果不被当作构造函数使用 它就没有意义
+        // prototype 中的所有成员 都可以被 实例对象访问
+
+        // console.dir(Phone);
+
+        Phone.prototype.call = function(phoneNumber) {
+            console.log(`${this.type}正在打电话给${phoneNumber}`);
+        }
+
+        Phone.prototype.play = function(gameName) {
+            console.log(`正在使用${this.type}玩${gameName}`);
+        }
+
+        var mi10 = new Phone('骁龙865', '256G', '8G', '京东方', 'mi10');
+        var huaweiP40 = new Phone('麒麟990', '256G', '8G', '三星', 'P40');
+
+        mi10.call(13666666666);
+        huaweiP40.call(13666688866);
+
+        // console.log(mi10.call === huaweiP40.call);
+
+        mi10.play('绝地求生');
+
+
+
+
+        // Array.prototype.push()
+        // var arr = []; // new Array()
+        // arr.push(123);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // String.prototype.replace();
+        // 语法: str.replace(regexp,string);
+        // 参数: regexp 正则表达式 表示需要在字符串中匹配的规则
+        //       string 需要替换的文本内容
+        // 描述: 用于匹配指定规则的内容替换字符串
+        // 返回值: 替换字符串后的新字符串
+
+        var str = 'abcdefgbcBC';
+        var str2 = str.replace(/bc/ig, '...');
+        console.log(str2);//a...defg......
+
+        // var str3 = 'hello';
+        // 正则表达式可以添加属性 g 表示全局匹配
+        // 正则表达式可以添加属性 i 表示忽略大小写
+        // var str4 = str3.replace(/l/g, 'L');
+        // console.log(str4);
+
+        window.onload = function() {
+            var text = document.getElementById('text');
+            var btn = document.getElementById('btn');
+
+            // 屏蔽敏感词
+            var reg = /cnm|qnmlgb|mmp|习大大|中国共产党/ig;
+
+            btn.onclick = function() {
+                text.value = text.value.replace(reg, '****');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <textarea id="text" cols="30" rows="10"></textarea>
+    <button id="btn">提交</button>
+</body>
+
+</html>

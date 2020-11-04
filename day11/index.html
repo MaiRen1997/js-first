@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <script>
+        window.onload=function(){
+            for(var i=0;i<btn.length;i++){
+                btn[i].index=i;
+                btn[i].onclick=function(){
+                    for (var j = 0; j < btn.length; j++){
+                        btn[j].classList.remove('checked');
+                        div_contain[j].classList.remove('display');
+                    }
+                
+                    this.classList.add('checked');
+                    var _index = this.index;
+                    div_contain[_index].classList.add('display');    
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul id="ul_tag">
+        <li class="checked">选项一</li>
+        <li>选项二</li>
+        <li>选项三</li>
+    </ul>
+    <div id="div_tag">
+        <div class="display">1111111111111Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit odit rerum enim necessitatibus distinctio, laudantium voluptates cumque libero error ab aliquam aperiam velit. Explicabo, labore cum culpa quos perspiciatis est.</div>
+        <div>22222222222222222Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus deleniti possimus quam minus recusandae quae velit fugit vel tempora a tenetur saepe, voluptate distinctio odio numquam delectus! Obcaecati, libero nemo!</div>
+        <div>3333333333333Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quidem sapiente fugit, voluptatum placeat et modi id odit quas veniam, ipsum, quisquam est nobis nostrum excepturi mollitia qui suscipit harum!</div>
+    </div>
+</body>
+</html>

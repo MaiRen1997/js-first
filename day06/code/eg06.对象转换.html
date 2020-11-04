@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var str = '{ "productId": 100001, "productName": "JavaScript高级程序设计", "productPrict": 99}';
+        // var str2 = "{ 'productId': 100001, 'productName': 'JavaScript高级程序设计', 'productPrict': 99}";
+        // console.log(typeof str);
+
+        // JSON.parse() 将JSON字符串转换成JSON对象
+        // var o = JSON.parse(str);
+        // console.log(o.productName);
+
+
+        // JSON格式书写时 一定是内层双引号 外层单引号
+        // 如果引号出错会导致 JSON解析错误
+        // var o2 = JSON.parse(str2);
+        // console.log(o2);
+
+        // ---------------------------------------------
+        // 在写JSON对象时  属性名可以没有引号
+        // 属性名的数据类型 默认是字符串类型
+        var product = {
+            productId: 100001,
+            productName: 'JavaScript高级程序设计',
+            productPrict: 99
+        };
+
+        // JSON.stringify() 将JSON对象转成JSON字符串
+        var str3 = JSON.stringify(product);
+        console.log(str3);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

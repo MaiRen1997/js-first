@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <form action="#" method="GET">
+        <input type="text" name="username">
+        <input type="text" name="password">
+        <input type="submit">
+    </form> -->
+
+    <button id="btn">按钮</button>
+    <script>
+        var btn = document.getElementById('btn');
+
+        btn.onclick = function() {
+            location.href = "./eg10.test.html?abc=123&username=zhangsan&password=123456#aaaa";
+        }
+    </script>
+</body>
+
+</html>

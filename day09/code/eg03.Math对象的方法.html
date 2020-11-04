@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // console.log(Math.abs(-3)); // 绝对值
+        // console.log(Math.ceil(4.000000000000001)); // 向上取整
+        // console.log(Math.log(2)); // 自然对数
+        // console.log(Math.floor(-3.14)); // 向下取整
+        // // console.log(parseInt(-3.14));
+        // console.log(Math.max(654, 11, 5342, 453)); // 返回最大的值
+        // console.log(Math.min(6345, 54, 32, 126)); // 返回最小的值
+        // console.log(Math.pow(2, 4)); // 计算x的y次幂
+        // console.log(Math.round(3.49999999999)); // 四舍五入
+        // console.log(Math.sqrt(9)); // 开根
+
+        
+        // // ... 操作符 来自ES6 ES2015
+        // // 展开运算符 将数组或类数组对进行展开操作
+        var arr = [453, 22, 654, 1, 4, 32, 6543, 543];
+        var obj = {
+            max: Math.max(...arr),
+            min: Math.min(...arr)
+        };
+        console.log(obj);
+
+        // -----------------------------------------------------------
+
+        // 三角函数
+        // Math.sin() = 对边/斜边
+        // Math.cos() = 邻边/斜边
+        // Math.tan() = 对边/邻边
+
+        // 勾股定理
+        // a^2+b^2=c^2
+        var a = 3;
+        var b = 4;
+        var c = Math.sqrt(a ** 2 + b ** 2);
+        console.log(c);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

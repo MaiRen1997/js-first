@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ES所有的数据类型 都可以转换成字符串类型
+        // null NaN undefined true false 都是原字符转换
+        // 'null' 'NaN' 'undefined' 'true' 'false'
+
+        // 数值也可以直接转成字符串 原值转换
+        // 35 
+        // '35'
+
+
+        // -----------------------------------------------
+        // ES中 + 拥有两种含义
+        // 1. 算术运算符 加法运算
+        // 2. 字符连接符 字符串连接
+
+        // 当 + 左右两边 没有字符串时         它就是算术运算符
+        // 当 + 左右两边 有任意一个是字符串时  它就是字符连接符
+
+        // 如果 + 被判定成字符连接符时
+        // 它会将不是字符串类型的一方转换成字符串类型
+        // 然后将两个字符串进行连接
+        // console.log(3 + 5);
+        // console.log(3 + '123'); // 字符连接符
+
+        // console.log(null + 5); // null 转成数字的结果是0
+        // console.log(undefined + 1); // undefined转数字结果是NaN 
+        // // NaN和任何值进行任何运算 结果都是NaN
+        // console.log(31 + 'true'); // '31true'
+        // console.log(true + 55); // 56
+
+        // console.log(5 + +'3'); // 这里的字符串3 被转成了数字3
+
+        // console.log(5 + -'2'); // '2' 转成了  -2
+
+        // ------------------------------------------------------------
+
+        var o = new Object();
+        // // 当+运算符是拼接符时
+        // // 如果有一边是对象 会自动将对象 toString()
+        // console.log('1234' + o); // '1234[object Object]'
+        // console.log(o.toString()); // 所有对象toString() 都是 '[object Object]'
+
+        // ----------------------------------------------------------------
+
+
+        // 快捷操作
+        // 快速将任意类型转成字符串  + ''
+        console.log(true + '');
+        console.log(undefined + '');
+
+        // 快速将任意类型转数字
+        console.log(+'25');
+        console.log(+'3.14');
+        console.log(+null);
+        console.log(+true);
+        console.log(+undefined); // NaN
+        console.log(+o); // 对象转数字是NaN
+
+        // 快速转布尔值 !!
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

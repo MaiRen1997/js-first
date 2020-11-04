@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        //获取样式及兼容问题
+        //标准浏览器获取css样式
+        //getComputedStyle(elm)['styleName'];
+        //IE低版本浏览器获取css样式
+        //elm.currentStyle['styleName']
+        //练习：关于兼容问题的封装
+        //解：
+
+        //------------------------------------------------------------
+
+        //获取事件对象
+        //标准浏览器获取事件对象
+        //elm.addEventListener('eventType',fn,'Boolean');
+        //elm.removeEventListener('eventType',fnName); //移除
+        //IE低版本浏览器获取事件对象
+        //elm.attachEvent('onEventType',fn);
+        //elm.detachEvent('onEventType',fnName);
+
+        //------------------------------------------------------------
+
+        //阻止事件冒泡
+        //标准浏览器阻止事件冒泡
+        //ev.stopPropegation()
+        //IE浏览器阻止事件冒泡
+        //event.cancelBubble = true;
+
+        //----------------------------------------------------------
+
+        //阻止事件默认事件
+        //标准浏览器
+        //ev.preventDefault()
+        //IE浏览器
+        //ev.returnValue = false
+
+        //-----------------------------------------------------------
+
+        //事件委托中
+        //标准浏览器的事件对象属于DOM 是JS引擎创建 以参数形式表现 elm.onclick = function(ev){...};
+        //在IE的事件标准中 event 是全局对象
+        //兼容方法 ev = ev || event;
+        //标准浏览器中，目标对象为 ev.target
+        //IE中，目标对象为 ev.srcElement
+        //兼容方法  var target = ev.target || ev.srcElement;
+
+        //-----------------------------------------------------------------
+
+        //获取键盘事件中获得的按键的ASCII码值
+        //code = ev.keyCode || ev.which;
+
+        //------------------------------------------------------------------------
+
+        //鼠标滚轮事件
+        //ie\标准浏览器事件函数
+        // mousewheel           ev.wheelDelta 判断滚动方向   大于0向上 小于0向下
+        //火狐浏览器事件函数
+        // DOMMouseScroll       ev.detail  判断滚动方向    大于0向下  小于0向上
+
+        //------------------------------------------------------------------------
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

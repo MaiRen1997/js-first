@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Array.prototype.reduce();
+        // 语法: arr.reduce(callback[,object]);
+        // 参数: callback(function) 
+        //       object 需要传入到回调中的对象
+        // 回调参数:
+        //      pre  上一个
+        //      next 下一个
+        // 描述: 数组归并
+        // 返回值: 归并结果
+
+        var arr = [5, 4, 3, 2, 1];
+
+        // 使用场景  求和
+        var result = arr.reduce(function(pre, next) {
+            // 遍历数组的第一次 将数组的第一个元素传入到pre
+            // next是数组中的第二个元素
+
+            // 后面每一次的遍历 pre都是上一次的回调的返回值
+            // next 按序遍历的元素
+            // console.log('pre:' + pre);
+            // console.log('next:' + next);
+            return pre + next;
+        });
+
+        console.log(result);
+
+        // -------------------------------------------------------
+        // 计算数组中有多少奇数 多少偶数
+        // 计数（统计）
+        var res2 = arr.reduce(function(obj, current) {
+            // console.log(obj, current);
+
+            // 将数组中的每一个元素的和添加到 sum
+            obj.sum += current;
+            // 判断数组中的每一个元素是奇数还是偶数
+            current % 2 ? obj.odd++ : obj.even++;
+            return obj;
+        }, {
+            even: 0,
+            odd: 0,
+            sum: 0
+        });
+
+        console.log(res2);
+
+        // -----------------------------------------------
+        // 原理分析
+        Array.prototype.reduce1 = function(callback, obj) {
+            var result; // 临时存放对象
+            if (typeof obj === 'object' && obj != null) {
+                for (var i = 0; i < this.length; i++) {
+                    result = callback(obj, this[i])
+                }
+                return result;
+            }
+        }
+
+        var arr2 = arr.reduce1(function(obj, elm) {
+            // console.log(obj);
+            elm % 2 ? obj.odd++ : obj.even++;
+            return obj;
+        }, {
+            even: 0,
+            odd: 0
+        });
+
+        console.log(arr2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

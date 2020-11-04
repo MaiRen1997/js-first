@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 函数可以设置返回值 也可以没有返回值
+        // 2. 当函数没有返回值时 默认返回 undefined
+        // 3. 使用return关键字 设置返回值
+        // 4. 每个函数只有一个返回值 如果需要返回多个数据 可以返回对象
+        // 5. 当return语句执行时 会终止函数执行
+        // 6. return语句也常被用做 终止或跳出函数的执行
+        // 7. 返回值可以是任意数据类型
+        // 8. 当函数有返回值时  可以使用变量保存返回值(赋值语句)
+
+        function fn(a, b) {
+            // console.log(a + b);
+            // console.log(2);
+            // return 'ok';
+
+            return a + b;
+        }
+
+        // 调用函数 想要一个结果 将这个结果放到其他地方使用时 
+        // 使用return 设置返回值
+        // 
+        var result = fn(3, 4);
+        console.log(result + 10);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

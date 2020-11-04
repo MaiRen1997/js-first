@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Function.prototype.bind();
+        // 语法: fn.bind(thisObj[,arg1,...argN]);
+        // 参数: thisObj 对象 函数fn中this需要指向的新对象
+        //       arg any 需要绑定给函数的实际参数
+        // 返回值:一个新函数
+        // 描述: 修改函数中的this指向 让其指向一个新的对象 
+        //       为函数绑定实际参数
+
+        /* var obj = {
+            x: 1,
+            fn: function() {
+                console.log(this.x);
+            }
+        }
+        var obj2 = {
+            x: 2
+        }
+        var x = 3;
+    //case1：
+        obj.fn();//1
+        //函数中的this直接指向调用该函数的对象，默认是obj，
+    //case2：
+        var fn = obj.fn.bind(obj2);
+        fn();//2
+        //使用bind将this指向obj2，结果就是指向obj2里面的x了
+    //case3：
+        var fn2 = obj.fn.bind(this);
+        fn2();//3 */
+        //this默认是window,这样就将函数里面的this指向了全局
+
+
+        var obj3 = {
+            x: 4,
+            fn: function(a, b, c, d) {
+                console.log(this.x + a + b);//4+2+3 结果为9
+                console.log(c, d);//undefined  undefined
+            }
+        }
+
+        // obj3.fn(2, 3);
+
+        // var x = 5;
+        // var fn3 = obj3.fn.bind(this, 1, 6); // 指向window
+        // //结果为12  5 + 1 + 6
+        // fn3(1, 2);//结果为 1 和 2
+
+        window.onload = function() {
+            // bind应用场景
+            // 所有需要使用that的场景都可以使用bind
+            var btn = document.querySelector('#btn');
+
+            btn.onclick = function() {
+                // var that = this;
+                // setTimeout(function() {
+                //     this.setAttribute('disabled', 'disabled');
+                // }.bind(this), 3000);
+
+                function fn() {
+                    console.log(this);
+                }
+
+                var fn2 = fn.bind(this);
+
+                fn2();
+            }
+        }
+
+
+        // 面试题
+        // 在使用console.log()输入内容时 在内容前 添加 '你好'
+        // 不修改this指向 只绑定实参
+        // console.log = console.log.bind(console, '你好');
+        // console.log('zhangsan'); //  你好 zhangsan
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+</body>
+
+</html>

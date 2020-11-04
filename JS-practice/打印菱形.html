@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function print(num) { //num为需要打印的行数
+        var count = 0;
+        var space = num / 2 + 1;
+        for (var i = 0; i < num; i++) {
+            if (i < num / 2) {
+                count++;
+                space--;
+            } else {
+                count--;
+                space++;
+            }
+            for (var j = 0; j < 2 * space - 1; j++) {
+                document.write('&nbsp;');
+                /* document.write('+'); */
+            }
+            for (var k = 0; k < 2 * count - 1; k++) {
+                document.write('&nbsp;');
+                document.write('*');
+            }
+
+            document.write('<br>');
+
+        }
+    }
+    print(9);
+</script>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./public.css">
+    <script>
+        window.onload = function() {
+            var add = document.querySelector('#add');
+            var tbody = document.querySelector('tbody');
+            var count = 3;
+
+            // 添加一行按钮事件
+            add.onclick = function() {
+
+                // 创建元素
+                var tr = document.createElement('tr');
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3 = document.createElement('td');
+                var inp = document.createElement('input');
+
+                // 设置属性
+                inp.setAttribute('type', 'button');
+                inp.setAttribute('value', '删除该行');
+                inp.setAttribute('class', 'btn btn-danger');
+
+                // 新按钮的点击事件
+                inp.onclick = function() {
+                    var tr = this.parentNode.parentNode;
+                    tbody.removeChild(tr);
+                }
+
+                // 为表格添加内容
+                td1.innerHTML = count < 10 ? '0' + count : count;
+                td2.innerHTML = 'aaaaaaa';
+                td3.appendChild(inp);
+
+                // 在行中插入单元格
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+
+                tbody.appendChild(tr);
+
+                count++;
+            }
+
+            // 为页面已经存在的删除按钮添加事件
+            var del = document.querySelectorAll('.del');
+
+            for (var i = 0; i < del.length; i++) {
+                del[i].onclick = function() {
+                    var tr = this.parentNode.parentNode;
+                    tbody.removeChild(tr);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center h1">表格操作</div>
+        <button class="btn btn-success btn-block" id="add">添加一行数据</button>
+        <table class="table table-bordered table-hover text-center">
+            <tr>
+                <td>编号</td>
+                <td>内容</td>
+                <td>操作</td>
+            </tr>
+
+            <tr>
+                <td>01</td>
+                <td>aaaaaaaaaa</td>
+                <td><input type="button" value="删除该行" class="btn btn-danger del"></td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>bbbbbbbbbbbbbbbbbbbbb</td>
+                <td><input type="button" value="删除该行" class="btn btn-danger del"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Regexp.prototype.exec();
+        // 语法: reg.exec(string);
+        // 参数: string 字符串
+        // 描述: 在字符串中执行一个搜所匹配，返回一个结果数组 或 null
+
+        var str = 'a21bc132de33';
+        var reg = /\d+/g;
+
+        var result = reg.exec(str);
+        console.log(result);//21
+        result = reg.exec(str);
+        console.log(result);//123
+        result = reg.exec(str);
+        console.log(result);//33
+        result = reg.exec(str);
+        console.log(result);//null
+
+        var result;
+        var arr = []; // 用于存放结果
+
+        // 当在while和do-while循环条件中放入赋值语句时
+        // 循环条件是就是赋值表达式的结果
+        while (result = reg.exec(str)) {//当reg.exec(str)不为空，循环继续，为空时，跳出循环
+            arr.push(result[0]);
+        }
+
+        console.log(arr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 递归指的是函数在执行时的自调用
+        // 递归一般执行的是相同或相似的功能，且功能可以被还原出原始问题
+        // 递归其实是循环方式 
+        // 需要为递归设置出口
+
+        function fn(n) {
+            console.log(n);
+
+            if (n == 0) { // 递归出口
+                return 0;
+            } else {
+                fn(n - 1); // 递减参数
+            }
+        }
+
+        fn(5);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

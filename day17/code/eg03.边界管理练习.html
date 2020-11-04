@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box{
+        width: 100px;
+        height: 100px;
+        position:absolute;
+        background: red;
+        left: 0;
+        top: 0;
+    }
+    #del{
+        font-size: 1.5rem;
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var box = document.querySelector('#box');
+        var del = document.querySelector('#del');
+        var timer;
+        var speedX=5;
+        var speedY=5;
+        var x ;
+        var y ;
+        box.onclick=function(){
+           timer=setInterval(function(){
+            x = box.offsetLeft + speedX;
+            y = box.offsetTop + speedY;
+            box.style.left = x+'px';
+            box.style.top = y + 'px';
+            if(x>=innerWidth-box.offsetWidth){
+                x=innerWidth-box.offsetWidth;
+                speedX*=-1;
+            }else if(x<=0){
+                x=0;
+                speedX*=-1;
+            }
+            if(y >=innerHeight -box.offsetHeight){
+                y=innerHeight - box.offsetHeight;
+                speedY*=-1;
+            }
+            else if(y<=0){
+                speedY*=-1;
+                y=0;
+            }
+            },20); 
+        }
+        del.onclick = function(){
+            box.remove();//将box删除
+        }
+    }
+</script>
+<body>
+    <div id="box">
+        <span id="del">&times;</span>
+    </div>
+</body>
+</html>

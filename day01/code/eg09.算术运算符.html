@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // % 读音 模
+        // 取余运算符
+        // 算术除法操作 获得未被除尽的余数
+
+        // var num = 10 % 3;
+        // console.log(num);
+
+        // -----------------------------------
+        // 一元运算符
+        // 只有一个数参与运算的运算符
+        // ++   一元++  自增运算符   增加1
+        // --   一元--  自减运算符   减少1
+
+        // var num = 6;
+        // num++; // 含义 num = num + 1
+
+        // num--; // 含义 num = num - 1
+        // console.log(num);
+
+        // 当 ++ / -- 出现为单条语句时  符号在前和在后没有区别
+        // var a = 3;
+        // a++;
+        // ++a;
+        // console.log(a);
+
+        // 当 ++ / -- 配合其他数值进行运算时 ++ / -- 的位置就有区别
+        // +1  -1
+        // 当 ++ / -- 配合其他数值进行运算时
+        // 当 ++ / -- 在前 先运算后使用
+        // 当 ++ / -- 在后 先使用再运算
+
+        // var b = 7;
+        // console.log(b + ++b + b++ - b-- + ++b); // 23 25 
+        // //          7 + 8   +  8  - 9   + 9
+        // //     b    7   8      9     8    9
+        // console.log(b); // 9 10
+
+
+        var k = 5;
+        console.log(k + k++ - k++ + --k + ++k + k); // 24
+        //          5 + 5   - 6  +  6   + 7  + 7
+        //     k    5   6     7     6    7
+        console.log(k); // 7
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

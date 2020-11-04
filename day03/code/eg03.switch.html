@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 在描述语法的时候  [] 中括号表示可选  可以有也可以没有
+        // switch 是一种特殊的分支结构
+        // 语法:
+        // switch(表达式 变量){
+        //      case 值:
+        //         do something...
+        //         [break;]
+        //      case 值:
+        //         do something...
+        //         [break;]
+        //      case 值:
+        //         do something...
+        //         [break;]
+        //      [default:]
+        // }
+
+        // switch case结构 一般配合break语句使用
+        // break不是必须的 需要看需求
+        // switch 做分支 其实是判断变量 等于 某个范围内的特定值 
+
+        // 如果case没有配合break语句使用 则会向下穿透执行
+        // 直到遇到break语句为止
+
+        // 所有的switch结构都可以使用if-else 代替
+        // 但是不是所有的if-else都可以用switch代替
+
+
+        // if-else 可以判断 相等 不相等 等情况 ， 适用性广
+        // switch-case 只能判断相等情况，结构清晰，效率高
+        var day = 5;
+        switch (day) {
+            case 1:
+                console.log('星期一');
+                break;
+            case 2:
+                console.log('星期二');
+                break;
+            case 3: // : 相当于 if语句中的 {
+                console.log('星期三');
+                // break; // beark; 相当于 if语句中的 }
+            case 4:
+                console.log('星期四');
+                break;
+            default: // 相当于if-else中的else
+                console.log('上面都不满足');
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

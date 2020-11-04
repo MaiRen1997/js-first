@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var userinput = document.querySelector('#userinput');
+            var result = document.querySelector('#result');
+
+            // 字符集
+            // 在正则表达式中表示在一个范围内匹配字符
+            // 字符集使用[]表示
+            // 每一个[]表示一个字符
+            // 如果^出现在中括号中 表示非
+
+            // [abc] 表示匹配 abc中任意一个字符
+            // [abc][ac] 表示匹配两个字符 第一个字符表示abc中任意一个 第二个字符表示ac中任意一个
+            // [^abc] 表示不匹配abc中的任意一个字符
+            // [0-9] 表示匹配0-9中的任意一个数字
+            // [^0-5] 表示不匹配0-5中的任意一个数
+            // [a-z] 表示匹配一个小写字母
+            // [A-Z] 表示匹配一个大写字母
+            // [A-z] 表示匹配一个大小写字母
+            // [A-Za-z] 表示匹配一个大小写字母
+            // [A-z0-9_] 表示匹配一个数字字母下划线
+            var reg = /[A-z0-9_]/;
+
+            userinput.oninput = function() {
+                result.innerHTML = reg.test(this.value) ? '通过验证' : '未通过验证';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="userinput">
+    <span id="result"></span>
+</body>
+
+</html>

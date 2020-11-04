@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* position: absolute;
+            top: 0;
+            left: 0; */
+            opacity: 1;
+        }
+    </style>
+    <script>
+        function getStyle(elm, style) {
+            if (typeof getComputedStyle === 'function') {
+                return getComputedStyle(elm)[style];
+            } else {
+                return elm.currentStyle[style];
+            }
+        }
+
+
+        function bufferMove(elm, style, callback) {
+
+            // 关闭该元素的上一个计时器
+            clearInterval(elm.timer);
+
+            // elm 需要运动的元素
+            // style 需要运动的属性 和 目标 object
+            // callback 在动画结束后的回调函数
+            // var timer;
+            var speed = 0;
+
+            elm.timer = setInterval(function() {
+                var currentStyle;
+                var flag = true; // 开关 当开关为true时  可以停止动作(动画)
+
+                for (var attr in style) {
+                    if (attr === 'opacity') {
+                        currentStyle = parseFloat(getStyle(elm, attr) * 100);
+                    } else {
+                        currentStyle = Math.ceil(parseFloat(getStyle(elm, attr)));
+                    }
+
+                    speed = (style[attr] - currentStyle) / 10;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+                    if (currentStyle != style[attr]) { // 当前值不等于目标值 表示动画未结束
+                        flag = false;
+                    }
+
+                    if (attr === 'opacity') {
+                        elm.style[attr] = (currentStyle + speed) / 100;
+                        elm.style['filter'] = 'alpha(opacity=' + (currentStyle + speed) + ')';
+                    } else {
+                        elm.style[attr] = currentStyle + speed + 'px';
+                    }
+
+
+                    if (flag) { // 关闭动画
+                        clearInterval(elm.timer);
+                        callback && callback();
+                    }
+                }
+
+            }, 20);
+        }
+
+        window.onload = function() {
+            // var box = document.getElementById('box');
+            // bufferMove(box, {
+            //     top: 200,
+            //     left: 200
+            // });
+
+            var oDiv = document.querySelectorAll('.box');
+
+            bufferMove(oDiv[0], {
+                width: 300
+            }, function() {
+                bufferMove(oDiv[0], {
+                    height: 300,
+                    'opacity': 10
+                })
+            });
+
+            // oDiv.forEach(function(elm) {
+            //     elm.onmouseover = function() {
+            //         bufferMove(this, {
+            //             width: 500
+            //         });
+            //     };
+
+            //     elm.onmouseout = function() {
+            //         bufferMove(this, {
+            //             width: 100
+            //         });
+            //     }
+            // })
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <!-- <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div> -->
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var box = document.querySelector('#box');
+            var btn = document.querySelector('#btn');
+
+            document.body.onclick = function() {
+                alert('body');
+            }
+
+            box.onclick = function(ev) {
+                ev = ev || event;
+                if (ev.stopPropagation) { // 判断是否支持该函数
+                    ev.stopPropagation(); // 阻止事件冒泡  DOM
+                } else {
+                    ev.cancelBubble = true; // 阻止事件冒泡  IE
+                }
+                alert('box');
+            }
+
+            btn.onclick = function(ev) {
+                alert('btn');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <button id="btn">按钮</button>
+    </div>
+</body>
+
+</html>

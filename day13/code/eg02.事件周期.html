@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 事件处理周期( 事件流 )
+
+        // DOM事件标准中
+        // 事件处理周期分为三个阶段
+        // 1. 事件捕获 事件沿DOM树向下传播
+        // 2. 目标触发 运行事件监听函数
+        // 3. 事件冒泡 事件沿DOM树向上传播
+
+        // ie的事件标准中 没有捕获阶段
+
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            var box = document.getElementById('box');
+
+            // 如果需要使用事件捕获 需要使用DOM2级事件
+
+            // elm.addEventListener(type,fn[,boolean=false]);
+            // 事件冒泡/事件捕获
+            // false 冒泡
+            // true  捕获
+
+            btn.addEventListener('click', function() {
+                alert(1);
+            }, true);
+
+            box.addEventListener('click', function() {
+                alert(2);
+            }, true);
+
+            document.body.addEventListener('click', function() {
+                alert(3);
+            }, true);
+
+            document.documentElement.addEventListener('click', function() {
+                alert(4);
+            }, true);
+
+
+
+
+
+
+            // box.onclick = function() {
+            //     alert(2);
+            // }
+
+            // btn.onclick = function() {
+            //     alert(1);
+            // }
+
+            // document.body.onclick = function() {
+            //     alert(3);
+            // }
+
+            // document.documentElement.onclick = function() {
+            //     alert(4);
+            // }
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <button id="btn">按钮</button>
+    </div>
+</body>
+
+</html>

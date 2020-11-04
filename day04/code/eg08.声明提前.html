@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 声明提前 来自预编译
+        // 1. 预编译
+        //    词法分析
+        //    语法分析
+        // -------------------------------------
+        //    预编译
+        //       js引擎在正式开始执行js代码之前  会先进行预编译 来提高代码的执行效率
+        //       找到所有的 函数声明 和 变量声明 将其提前
+        //       函数声明提前执行  (see它一下)
+        //       变量声明提前赋值undefined
+        //       函数(function) 在JS中是一等公民(优先级最高)
+
+        //    开始按序执行代码
+
+        //-------------------------
+
+        // console.log(a); // undefined 应为变量声明提前了
+        // var a = 10;
+        // console.log(a);
+
+        // ------------------------
+
+        // fn(); // 函数声明提前执行
+        // function fn() {
+        //     console.log('a');
+        // }
+        // fn();
+
+        // ------------------------
+
+        // fn(); //undefined
+        // 赋值式的函数 必须先声明  后使用
+        // var fn = function() {
+        //     console.log('b');
+        // }
+
+        // fn();
+
+        // -------------------------
+        fn();
+
+        var fn = 123;
+
+        function fn() {
+            console.log('ok');
+        }
+
+        fn();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

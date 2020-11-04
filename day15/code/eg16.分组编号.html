@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 分组是拥有编号的
+        // 每一个分组  ()   
+        // $1 $2 $3
+        var str = "我的电话号码是13888888888";
+        console.log(str.replace(/(13)(888)(\d+)/, '$3$3$3'));
+        //replace是将后面的数字匹配到前面去
+        //$1  $2   $3  是按照前面的分组，返回分组匹配到的内容
+
+        //上面的代码，首先通过$3获取到匹配的内容，然后通过replace函数进行替换
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

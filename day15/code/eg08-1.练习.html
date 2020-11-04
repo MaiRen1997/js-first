@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var userinput = document.querySelector('#userinput');
+            var result = document.querySelector('#result');
+
+            // 1. 编写一个正则表达式 检测 身份证号的 格式
+            // 18位
+            // 12省份
+            // 34城市
+            // 56区县
+            // 生日 8位 xxxx年xx月xx日 起始日期1900 月份01-12 日期01-31
+            // 数字 4位 最后一位有可能是x
+
+            // 2. 编写一个正则表达式 验证邮箱规则
+            // 用户名@域名
+            // 用户名6-16位 以字母开头
+            // 域名
+
+
+            // var reg = /abc/;
+
+            var idCard = /^\d{6}((19)|(20))\d{2}((0[1-9])|(1[0-2]))((0[1-9])|(1\d)|(2\d)|(3[01]))\d{3}[\dxX]$/;
+
+            // var email = /^[A-z]\w{5,15}@[A-z0-9-]{2,}\.[A-z]{2,7}\.?[A-z]*$/;
+
+            userinput.oninput = function() {
+                result.innerHTML = idCard.test(this.value) ? '通过验证' : '未通过验证';
+                // result.innerHTML = email.test(this.value) ? '通过验证' : '未通过验证';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="userinput">
+    <span id="result"></span>
+</body>
+
+</html>

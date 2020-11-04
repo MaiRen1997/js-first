@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/tabs.css">
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            $('.tabs').tabs();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="tabs">
+        <ul data-type="tabs-btn">
+            <li class="active">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+        </ul>
+        <div data-type="tabs-div" class="show">
+            内容1
+
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </div>
+        <div data-type="tabs-div">
+            内容2
+
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+        <div data-type="tabs-div">
+            内容3
+        </div>
+    </div>
+</body>
+
+</html>

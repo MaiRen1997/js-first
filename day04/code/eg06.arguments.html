@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 每个函数 都拥有一个 属于自己的 用于存储参数(实参)的对象
+        // 这个对象叫做  arguments
+        // arguments 仅在函数内有效
+        // arguments用于保存调用函数时传入的实参，并给实参进行了编号
+        // 编号 索引(index) 
+        // 在JavaScript中 所有的索引 都是从0开始标记的
+        // 第一个 索引值就是 0  
+        // 第二个 是 1
+        // 第三个 是 2
+        // ...
+
+        // 获取每一个实参 使用 索引
+        // arguments[index]
+        // arguments[0] 第一个参数
+        // arguments[1] 第二个参数
+
+        // arguments 有一个属性 用来查看参数的个数  length 
+        // function fn() {
+        //     // console.log(a, b, c, d);
+        //     console.log(arguments[3]);
+
+        //     console.log(arguments.length);
+        // }
+
+        // fn(2, 3, 4, 5, 6, 7, 8, 9);
+
+
+        // -------------------------------------------------------
+        // arguments对象 它是一个 Array Like(类数组对象)
+        // 类数组对象的特点
+        // 1. 所有的成员通过索引值访问  并且 索引值从0开始计算
+        // 2. 拥有length属性 即个数
+
+        // 遍历 类数组对象
+        // 将所有的成员都访问一边
+
+        function fn2() {
+            for (var i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+            }
+        }
+
+        fn2(65, 22, 135, 23, 43, 43)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

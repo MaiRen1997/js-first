@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // while 在JS中是关键字
+        // 用于建立循环结构
+
+        // 语法：
+        // while(布尔表达式){
+        //      需要重复执行的代码
+        // }
+
+        // while是一个循环结构 小括号内放置一个布尔表达式
+        // 当布尔表达式的结果为真(true) 则执行花括号内的语句
+        // 花括号内执行完毕会自动回到布尔表达式 继续判断 如果结果还为true则继续执行花括号内的内容
+        // 直到布尔表达式的结果为false  则跳过循环结构
+
+
+        // while (true) {
+        //     console.log(1);
+        // }
+        // 没有变成false的情况 就叫做 死循环
+        // 所谓死循环 指的是循环没有出口 一直执行
+        // 在页面中如果有死循环 会导致页面卡死
+
+        // 写循环时  需要注意给循环添加出口(让布尔表达式有变成false的情况)
+        var i = 1;
+        while (i <= 10) {
+            console.log(i);
+            i++; // 改变循环条件
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

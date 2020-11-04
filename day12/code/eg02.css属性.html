@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            font-size: 3em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" style="width: 100px;height: 100px;background-color: red;font-size: 3em;">hello</div>
+    <script>
+        window.onload = function() {
+            var box = document.querySelector('#box');
+            // 获得元素的行内样式文本
+            console.log(box.style.cssText);
+            // 添加一个自体大小
+            box.style.cssText += 'font-size:2em;';
+
+           //style 行内样式
+            console.log(box.style); // 对象 类数组对象
+            for (var i = 0; i < box.style.length; i++) {
+                console.log(box.style[i]); // 属性名
+                console.log(box.style[box.style[i]]); // 属性值
+            }
+            console.log(box.style.fontSize);  // 获得单个属性 有多个单词 使用驼峰命名法
+            console.log(box.style.backgroundColor);
+            console.log(box.style['background-color']);
+
+            box.style.backgroundColor = 'yellow';
+        }
+    </script>
+</body>
+
+</html>

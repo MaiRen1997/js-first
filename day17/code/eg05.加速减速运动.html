@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        #line {
+            width: 1px;
+            height: 400px;
+            background-color: black;
+            position: absolute;
+            top: 0;
+            left: 50%;
+        }
+    </style>
+
+    <script>
+        window.onload = function() {
+            let box = document.querySelector('#box');
+
+            var speedX = 0;
+
+            box.onclick = function() {
+                setInterval(function() {
+                    if (box.offsetLeft > 1266 / 2) {
+                        speedX--;
+                    } else {
+                        speedX++; //0 1 2 3 4 5
+                    }
+
+                    console.log(speedX);
+
+                    box.style.left = box.offsetLeft + speedX + 'px';
+                }, 20);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+    <div id="line"></div>
+</body>
+
+</html>

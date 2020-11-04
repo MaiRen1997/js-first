@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var age = parseInt(prompt('请输入一个年龄')); // 接收用户输入的内容 并取整
+        // if (isNaN(age)) { // 检测数字 是否有效
+        //     // true说明数字无效
+        //     alert('请输入正确的年龄');
+        // } else {
+        //     if (age >= 18) {
+        //         console.log('蹦迪');
+        //     } else {
+        //         console.log('学习');
+        //     }
+        // }
+
+        // 当if-else出现嵌套。且第一个条件不满足时 需要判断下一个条件
+        // 可以使用 else-if 语句
+
+        // else if语句 用来解决 if-else的嵌套问题
+        // else if会依次向下判断 当结果为true 则执行内部代码
+        // 结果为false 判断下一个else if
+        // 如果后面没有else if 则执行 else
+        if (isNaN(age)) {
+            alert('请输入正确的年龄');
+        } else if (age >= 18) {
+            console.log('蹦迪');
+        } else {
+            console.log('学习');
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

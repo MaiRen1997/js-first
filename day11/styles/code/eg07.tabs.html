@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/tabs.css">
+    <script>
+        window.onload = function() {
+            var btns = document.querySelectorAll('#tabs>ul>li');
+            var oDiv = document.querySelectorAll('#tabs>div');
+
+            // console.log(btns);
+            // btns是类数组对象 无法直接绑定事件  遍历
+            for (var i = 0; i < btns.length; i++) {
+                // btns[i].setAttribute('index', i);
+                // 为每一个li元素 添加一属性 index
+                // index的值就是 li元素的 索引
+                btns[i].index = i;
+
+                //1. 为每一个按钮绑定点击事件
+                btns[i].onmouseenter = function() {
+                    for (var j = 0; j < btns.length; j++) {
+                        // 2. 遍历所有按钮 删除active类名
+                        btns[j].classList.remove('active');
+
+                        // 4. 删除所有div元素的display类名
+                        oDiv[j].classList.remove('display');
+                    }
+                    // 3. 为被点击的元素添加类名
+                    this.classList.add('active');
+                    // 5. 为被点击元素所对应的DIV添加类名
+
+                    // var _index = this.getAttribute('index');
+                    var _index = this.index; // 通过点击li元素 获得li元素的索引值
+                    // console.log(_index);
+                    oDiv[_index].classList.add('display');
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="tabs">
+        <ul>
+            <li class="active">选项一</li>
+            <li>选项二</li>
+            <li>选项三</li>
+            <li>选项4</li>
+            <li>选项5</li>
+            <li>选项6</li>
+        </ul>
+
+        <div class="display">
+            11111111111111111111111 Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque saepe autem dolorem sequi ut nisi, voluptatem aliquid possimus totam eos, facere recusandae in quam assumenda nam, optio et voluptatum veritatis.
+        </div>
+        <div>
+            22222222222222222222222222 Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque saepe autem dolorem sequi ut nisi, voluptatem aliquid possimus totam eos, facere recusandae in quam assumenda nam, optio et voluptatum veritatis.
+        </div>
+        <div>
+            3333333333333333333333333333 Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque saepe autem dolorem sequi ut nisi, voluptatem aliquid possimus totam eos, facere recusandae in quam assumenda nam, optio et voluptatum veritatis.
+        </div>
+        <div>
+            4444444444444444 Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque saepe autem dolorem sequi ut nisi, voluptatem aliquid possimus totam eos, facere recusandae in quam assumenda nam, optio et voluptatum veritatis.
+        </div>
+        <div>
+            55555555555 Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque saepe autem dolorem sequi ut nisi, voluptatem aliquid possimus totam eos, facere recusandae in quam assumenda nam, optio et voluptatum veritatis.
+        </div>
+        <div>
+            66666666666 Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque saepe autem dolorem sequi ut nisi, voluptatem aliquid possimus totam eos, facere recusandae in quam assumenda nam, optio et voluptatum veritatis.
+        </div>
+
+    </div>
+</body>
+
+</html>

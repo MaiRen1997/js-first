@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            // node.getElementsByTagName('tagName'); 
+            // 通过标签名选取元素
+            var divElms = document.getElementsByTagName('div');
+            console.log(divElms);
+
+            // var box = document.getElementById('box');
+            // var divElms = box.getElementsByTagName('div'); // 在元素中查找
+            // console.log(divElms);
+
+
+            // document.getElementsByName('name');
+            // 通过name属性来选取元素
+
+            // var checkBox = document.getElementsByName('check');
+            // console.log(checkBox);
+
+            // allCheck
+            // checkBox[0].onclick = function() {
+            //     // console.log(this.checked);
+            //     // checkbox和redio元素 可以通过判断元素的checked(JS)属性 可以知道元素是否被选中 
+                // for (var i = 1; i < checkBox.length; i++) {
+            //         checkBox[i].checked = this.checked;
+            //     }
+            // }
+
+            // node.getElementsByClassName();  通过类名选择元素
+            // var t1 = document.getElementsByClassName('t1');
+            // console.log(t1);
+        }
+    </script>
+</head>
+
+<body>
+    <input type="checkbox" name="check">
+    <input type="checkbox" name="check" class="t1">
+    <input type="checkbox" name="check">
+    <input type="checkbox" name="check">
+    <input type="checkbox" name="check" class="t1">
+    <input type="checkbox" name="check">
+
+
+
+
+    <div id="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+
+</html>

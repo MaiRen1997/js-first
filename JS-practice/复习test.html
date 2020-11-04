@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box {
+        width: 100px;
+        height: 100px;
+        background: red;
+        color: lightblue;
+    }
+</style>
+<script>
+    window.onload = function() {
+        //几条输出语句
+        /* alert('这是alert的输出语句');
+        console.log('这是console.log的输出语句');
+        document.write('这是document.write的输出语句');
+        var result = prompt('请输入');
+        var bool = confirm('是否删除');
+        */
+        //-------------------------------------------------------------------
+        //浏览器兼容写法
+        /*
+            1.获取事件对象
+                ev = ev||event
+            2.获取事件源
+            var source  = ev.target||ev.srcElelent
+
+            3.DOM2级别为对象添加事件
+            addEventListener('click' ,function(){})
+            removerEventListener('事件'，function(){})
+            attachEvent('click' function(){})
+            detachEvent('行为',function（）{})
+            4.获取键盘按下的值
+                e.keyCode||e.which
+            5.阻止冒泡
+                elm.stoppropagation（）
+                elm.cancelBobble = true;
+            6.获取当前计算样式
+                getComputedStyle(elm)[styleName]
+                elm.currentStyle[styleName]
+            7.阻止默认事件
+                elm.preventDefaule()
+                elm.returnValue = true;
+           */
+        //----------------------------------------------------------------
+        /*
+        1.js的数据类型？判断基本数据类型的操作符是什么？ 
+            基本数据类型：1.Number 2.Boolean 3.String 4.Undefined 5.null 6.symbol
+            其他数据类型：1.Object 2.function 3.Array 4.Class 5.
+        2.document.write和console.log有什么不同？实际开发中使用使用哪个来输出测试？为什么？
+            document.write在页面中显示，console.log在控制台输出
+            实际开发中使用console.log，因为如果使用document.write进行测试，会影响页面的内容
+        3.foo=foo||bar，这行代码是什么意思？为什么要这样写？
+            ||是短路运算符，表示如果foo能够被执行识别或者返回的是true，那么foo
+        4.列举你知道的JS浏览器兼容问题。至少写出4个
+
+        5.定义一个log方法，让它可以代理console.log的方法。
+         function redefineConsole(){
+            console.log.apply(console,arguments)
+         }
+        6.请解释浏览器的事件捕捉现象是怎么回事？
+        事件周期分为3个阶段：1.事件捕捉 2.目标触发  3.事件冒泡
+         事件冒泡:从事件源朝父级一直到根元素（HTML）。当某个元素的某类型事件被触发时，那么它的父元素同类型的事件也会被触发，一直触发到根源上；
+
+        8.列举至少4种document查询标签对象的常用方法是？如有兼容问题，请给出解决方案 
+         document.getElementById('id名')
+         document.getElementByTagName('标签名')
+         document.getElementByClassName('Class名')
+         document.getElementByName('Name名')
+         document.querySelector()
+         document.querySelectorAll()
+        9.DOM操作中，如何创建新元素？如何创建文本节点？如何将一个dom元素a追加到另一个dom元素b中？
+
+            创建新的元素：createElement(标签名);
+                var div = document.createElement('div');
+
+            添加新节点：box.appendChild(); 向某节点内插入子节点 
+                span.appendChild(msg);
+            在某地方追加新节点：box.insertBefore(a,b); 向某节点中在b子节点前插入a子节点
+                div.insertBefore(strong,span);
+            删除节点：removeChild(); 父节点删除子节点，实际是把子节点剪切（删除+返回）出来
+                    box.removeChild('p');
+            替换节点：box.replaceChild(new,origin); 将父元素中的origin子元素替换成new子元素
+                    box.removeChild('p','span');
+        10.获取鼠标在页面可视区域的位置坐标使用哪个属性？
+                clientX clientY
+            相对于页面的绝对坐标（包含页面滚动的距离）如何计算？
+                pageX  pageY layerX layerY
+            获取鼠标相对于某个元素的位置使用什么属性
+                offsetX  offsetY
+        */
+        //------------------------------------------------------------------
+        /* var box = document.querySelector('#box');  */
+        /* var box = document.getElementById('box');
+        console.log(box);
+        //获取元素样式
+            //方法1:
+            console.log(box.attributes);
+            console.log(box.style['color']);
+            console.log(box.getAttribute('id'));//getAttribute不能获取CSS样式，可以获取元素标签的属性
+            console.log(box.style);
+        /* console.log(box.style['color']) ; */
+        box.style.cssText += 'background:green';
+        // console.log(box.style.backgroundColor);//必须使用小驼峰填写属性 */
+        var str = 'aaaabbbbbcccc'
+        var str2 = [];
+        str2.push(str.split(''));
+        console.log(str2);
+    }
+</script>
+
+<body>
+    <div id="box" style="color: blue;">张三</div>
+
+</body>
+
+</html>

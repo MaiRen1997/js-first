@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ES6中的箭头函数 是使用频率最高的特性之一
+        // 函数的语法糖
+
+        // let fn = n => n;
+        // console.log(typeof fn);
+        // console.log(fn(5));
+
+        // function fn(n) {
+        //     return n;
+        // }
+
+        // 箭头函数的完整语法是 ()=>{}
+        // 自执行函数  与 箭头函数
+            // (() => {
+            //     console.log(1);
+            // })();
+
+
+        // 箭头函数的应用场景 通常是 回调函数
+        var arr = [654, 2, 54, 323, 654, 123];
+        arr.sort(function(a, b) {
+            return a - b;
+        })
+
+        // 当箭头函数的函数体 只有一条语句 且这条语句是return语句时 可以省略大括号和return关键字
+        var arr = [654, 2, 54, 323, 654, 123];
+        arr.sort((a, b) => a - b);
+        console.log(arr);
+
+        // var result = arr.filter(function(elm) {
+        //     return elm % 2 == 1;
+        // });
+
+        // 当箭头函数的形参只有一个时 可以省略小括号
+        var result = arr.filter(elm => elm % 2);
+        console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

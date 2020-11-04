@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr=[
+            ['北京', '海淀', '朝阳', '丰台', '昌平', '大兴'],
+            ['上海', '宝山', '浦东', '杨浦', '闵行', '青浦', '徐汇', '静安'],
+            ['广州', '天河', '白云', '海珠', '越秀'],
+            ['杭州', '江干', '上城', '余杭', '西湖', '萧山', '滨江', '钱塘新区']
+        ]
+        window.onload=function(){
+            var city = document.getElementById('city');
+            var area = document.getElementById('area')
+            var city_option ='';//定义变量用来接收动态添加的城市option属性
+            
+            for(var i=0;i<arr.length;i++){
+                //通过字符串拼接，拼接成option选项
+                //注意value的拼接，value的属性以便后面联动二级菜单用
+                city_option+='<option value="'+i+'">'+arr[i][0]+'</option>';
+            }
+            city.innerHTML += city_option;
+            
+            //设置区域的属性
+
+            var area_index ;
+            city.onchange = function(){
+                var area_option='';
+                var area_index=this.value;//通过获取城市的value值，来确定区域有哪些选项添加
+                for(var i =1;i<arr[area_index].length;i++){
+                    area_option+='<option>'+arr[area_index][i]+'</option>';
+                }
+                area.innerHTML = area_option;
+                console.log(area_option) 
+            }
+        }
+    </script>
+</head>
+<body>
+    <select name="" id="city">
+        <option>请选择城市</option>
+    </select>
+    <select name="" id="area">
+        <option value="">请选择区域</option>
+    </select>
+</body>
+</html>

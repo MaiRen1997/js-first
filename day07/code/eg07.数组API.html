@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Array.prototype.sort();
+        // 语法: arr.sort([callback]);
+        // 参数: callback(function) 用于排序规则的回调函数
+        // 描述: sort方法用于将数组按照特定的顺序进行 排序
+        // 注意点: 直接修改原数组
+
+        // var arr = [54, 23, 4, 13, 43, 11, 54, 1, 65, 111, 526];
+        // arr.sort(); // 当sort没有参数时 默认按每一个的unicode编码进行排列
+        // console.log(arr);
+
+        // var arr2 = ['abccc', 'aaa', 'ab', 'bbc', 'acc', 'dea'];
+        // arr2.sort();
+        // console.log(arr2);
+
+        // 让数组按照数值的大小进行排列
+        // 回调函数中 返回的结果 a-b(升序)  b-a(降序)
+        // console.log(arr);
+        // arr.sort(function(a, b) {
+        //     // console.log(a - b);
+        //     return b - a;
+        // });
+
+
+        // var arr = [54, 23, 4, 13, 43, 11, 54, 1, 65, 111, 526];
+        // arr.sort(function(){
+        //     return -1;
+        // })
+        // console.log(arr);
+        // console.log(arr);
+
+        // 随机排序数组
+        // var arr = [1, 2, 3, 4, 5, 6, 7, 8];
+        // arr.sort(function() {
+           // return Math.random() - 0.5;
+        // });
+
+        // console.log(arr);
+
+        // -------------------------------------------------------
+
+        // Array.prototype.unshift();
+        // 语法: arr.unshift(value[,value2,...valueN]);
+        // 参数: value(any) 
+        // 描述: 在数组的头部依次添加一条或多条数据 将数组中原有的元素 向后移动
+        // 返回值: index(number) 添加元素后的数组新长度
+        // 注意点: 直接修改原数组
+
+        // var arr = [1, 2, 3, 4, 5];
+        // var len = arr.unshift('ok');
+        // console.log(arr);
+        // console.log(len);
+
+        // --------------------------------------------------------
+
+        // Array.prototype.splice();
+        // 语法: arr.splice(start[,deleteCount[,value1,...,valueN]]);
+        // 参数: start(number) 开始索引
+        //       deleteCount(number) 删除个数
+        //       value(any) 添加到start的元素
+        // 描述: 1. 可以从指定的索引删除数组中的元素
+        //       2. 可以在指定索引处插入新的元素
+        //       3. 可以替换数组内的原有元素
+        // 返回值: 被删除的元素组成的数组 如果没有删除元素 则返回一个长度0的空数组
+        var arr = [1, 2, 3, 4, 5];
+        var del = arr.splice(0,0,2);
+        console.log(arr);
+        console.log(del);
+
+        // arr.splice(2, 0, 'ok', true);
+        // console.log(arr);
+
+        // arr.splice(2, 2, 'ok', true);
+        // console.log(arr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

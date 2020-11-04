@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            position: relative;
+        }
+        
+        #inner {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+
+            // 鼠标左键双击
+            box.ondblclick = function() {
+                console.log('dblclick');
+            }
+
+            // 鼠标悬停
+/*            box.onmouseover = function() {
+                // this 在事件函数中 指向的是事件对象
+                // console.log(this === box);
+
+                 console.log('mouseover');
+                // this.style = 'background:yellow';
+            }
+
+            // 鼠标移出
+            box.onmouseout = function() {
+                console.log('mouseout');
+                // this.style = "background:red";
+            } */
+            //放到子元素，out和over一起出来，先out，再over，会穿透
+            // 鼠标进入
+            box.onmouseenter = function() {
+                console.log('mouseenter');
+                // this.style="background:lightblue";
+            }
+
+            //即使放在子元素上，也不会影响输出，不会触发鼠标移出事件
+            // 鼠标离开
+            box.onmouseleave = function() {
+                console.log('mouseleave');
+                // this.style="background:pink";
+            }
+
+            /* // 鼠标移动
+            box.onmousemove = function() {
+                console.log('mousemove');
+            }
+
+            // 鼠标按下
+            box.onmousedown = function() {
+                console.log('mousedown');
+            }
+
+            // 鼠标弹起
+            box.onmouseup = function() {
+                console.log('mouseup');
+            }
+
+            // 鼠标右键点击事件
+            box.oncontextmenu = function() {
+                console.log('contextmenu');
+            } */
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <div id="inner"></div>
+    </div>
+</body>
+
+</html>

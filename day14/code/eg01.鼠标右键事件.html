@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        ul {
+            border: 1px solid #ccc;
+            width: 150px;
+            box-shadow: 3px 3px 3px #ddd;
+            padding: 10px;
+            list-style: none;
+            position: absolute;
+        }
+    </style>
+    <script>
+        document.oncontextmenu = function(ev) {
+            // console.log(ev);
+            // 当点击鼠标右键时会弹出一个菜单
+            // 弹这个菜单是浏览器的 默认行为
+
+            // 事件的默认行为可以阻止
+
+            ev = ev || event;
+            // ev.preventDefault(); // 阻止事件默认行为 DOM标准
+
+            if (ev.preventDefault) {
+                ev.preventDefault();
+            } else {
+                ev.returnValue = false; // ie阻止默认行为
+            }
+            // return false;   // 不推荐使用
+            // console.log(ev.clientX, ev.clientY);
+
+            var ul = '<ul style="top:' + ev.clientY + 'px;left:' + ev.clientX + 'px;"><li><a href="https://www.baidu.com">百度</a></li></ul>'
+            document.body.innerHTML = ul;
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

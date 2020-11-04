@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border: 1px solid black;
+            color: #ff0;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // querySelector 和 querySelectorAll
+            // 最低支持到ie8
+            var box = document.querySelector('.box');
+
+            // 获得计算后样式 有兼容问题
+            // DOM标准方法
+            // getComputedStyle(elm)['styleName'];
+            console.log(getComputedStyle(box)['width']);
+
+            // 低版本ie(ie9以下)
+            // elm.currentStyle['styleName'];
+            console.log(box.currentStyle['width']);
+
+
+            function getStyle(elm, style) {
+                if (typeof getComputedStyle === 'function') {
+                    return getComputedStyle(elm)[style];
+                } else {
+                    return elm.currentStyle[style];
+                }
+            }
+
+            console.log(getStyle(box, 'color'));
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box" style="width:300px;"></div>
+</body>
+
+</html>

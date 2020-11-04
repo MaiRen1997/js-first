@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 由于ECMAScript是一个弱类型语言
+        // 声明变量时没有强制规定数据类型
+        // 需要一种方式来检测或判断数据类型
+
+
+        // ECMAScript 提供了一个 叫做 typeof 的操作符用来解决这个问题
+
+        // typeof 操作符 
+        // typeof 的返回结果是字符串类型
+        // 检测数字和NaN   结果 'number'
+        // 检测字符串      结果 'string'
+        // 检测未赋值的变量 结果 'undefined'
+        // 检测空值        结果 'object'
+        // 检测布尔类型     结果 'boolean'
+        // 检测对象         结果 'object'
+        // 检测函数         结果 'function'
+
+
+        console.log(typeof 123);
+        console.log(typeof NaN);
+
+        console.log(typeof 'abc');
+
+        var age;
+        console.log(typeof age);
+
+        var bool = true;
+        console.log(typeof bool);
+
+        var msg = null;
+        console.log(typeof msg); // object
+
+        var o = new Object();
+        console.log(typeof o);
+
+        console.log(typeof alert);
+
+
+        // -----------------
+        var num = 123;
+        console.log(typeof typeof num); //string
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

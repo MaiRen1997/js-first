@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        #contain{
+            width: 100%;
+            height: 100%;
+            padding-top: 60px;;
+        }
+        #up_operator{
+            width: 100%;
+            height: 50px;
+            background: red;
+            position: fixed;
+            line-height: 50px;
+        }
+        div ul{
+            width: 48%;
+            height: 100px;
+            background:pink;
+            float: left;
+            margin: 0 1%;
+            margin-bottom: 1%;
+        }
+        div ul li{
+            width: 50%;
+            height: 100%;
+            background: plum;
+            float: left;
+        }
+    </style>
+   <script>
+        window.onload=function(){
+            var button_add=document.getElementById('button_add');
+            var button_del=document.getElementById('button_del');
+            var contain=document.getElementById('contain');
+            console.log(contain);
+            button_add.onclick = function(){
+                contain.innerHTML += '<ul>'+'<li>'+'</li>'+'<li>'+'</li>'+'</li>'+'</ul>';
+            }
+        }
+</script>
+</head>
+<body>
+    <div id="up_operator">
+        <button id="button_add">添加时间倒计时</button>
+        <button id="button_del">删除倒计时</button>
+    </div>
+    <div id="contain">
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+
+</html>

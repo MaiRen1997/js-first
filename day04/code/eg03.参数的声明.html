@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ECMAScript 的 函数 可以带有参数 也可以没有参数
+        // 1. 参数仅在函数内部有效
+        // 2. 多个参数 可以使用逗号隔开
+        // 3. 参数可以是任意数据类型(null undefined string number boolean object function....)
+        // 4. 参数的命名 规范和变量相同
+
+        // 创建函数时的小括号 叫做形(式)参(数)列表
+        // 需要声明的参数 就写在 形参列表中 多个参数 逗号隔开
+        // 其实声明形参 就相当于 在函数中 声明变量
+
+        // 参数让函数更加灵活
+
+        // function fn(num, num2) { // 实参会自动按序赋值给形参
+        //     console.log(num + num2);
+        // }
+
+        // fn(5, 6); // 调用函数时 传入的参数 叫做实(际)参(数)
+        // fn(1, 5);
+        // fn(3, 9);
+
+        // console.log(num);  // 只在函数内有效
+
+        // ------------------------------------------------
+
+        // 当声明了形参 调用函数时未传递实参情况下  形参默认值为 undefined
+        // function fn2(num1) {
+        //     console.log(num1);
+        // }
+
+        // fn2();
+
+        // -------------------------------------------------
+
+        // 默认参数
+        // 使用短路逻辑的 逻辑或 可以为函数添加默认参数
+        function fn3(num1) {
+            num1 = num1 || 0; // 短路逻辑
+            console.log(num1);
+        }
+        fn3(1);
+
+        // 第二个种方式 使用ES6(ECMAScript 2015)的新特性 
+        // 直接为形参赋值  设置默认参数
+        function fn4(num1 = 'ok') {
+            console.log(num1);
+        }
+
+        fn4(123);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

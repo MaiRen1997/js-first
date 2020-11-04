@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // fibonacci 斐波那契数列
+        // 黄金数列
+        // 它有两个已知的值 都是1
+        // 数列后的每一位 都是前两位的和
+        // 1 1 2 3 5 8 13 21 34 .....
+
+        // 求斐波那契数列的 第n位
+        // n = fibonacci(n-1)  +  fibonacci(n-2)
+
+        // var count = 0;
+
+        function fibonacci(n) {
+            // count++;
+            if (n <= 2) {
+                return 1;
+            } else {
+                return fibonacci(n - 1) + fibonacci(n - 2);
+            }
+        }
+
+        // // console.time('fib');
+        console.log(fibonacci(5));
+        // console.timeEnd('fib');
+        // console.log(count);
+
+        // 当递归没有出口时 就会照成 栈溢出
+        // function fn() {
+        //     fn();
+        // }
+        // fn();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

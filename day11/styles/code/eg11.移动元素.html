@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            width: 300px;
+            float: left;
+            min-height: 280px;
+            padding: 10px;
+            margin: 10px;
+            list-style: none;
+            border: 1px solid black;
+        }
+    </style>
+
+    <script>
+        window.onload = function() {
+            var oBtn = document.querySelectorAll('button');
+            var left = document.querySelector('#left');
+            var right = document.querySelector('#right');
+
+            oBtn[0].onclick = function() {
+                // console.log(left.firstElementChild);
+                if (left.firstElementChild) { // 判断是否存在第一个子节点
+                    // 删除左边第一个子元素 添加到右边
+                    // var firstElement = left.removeChild(left.firstElementChild);
+
+                    // console.log(firstElement);
+                    // right.appendChild(firstElement);
+
+                    // ---------------------------------
+                    right.appendChild(left.firstElementChild);
+                }
+            }
+
+            oBtn[1].onclick = function() {
+                if (right.firstElementChild) { // 判断是否存在第一个子节点
+                    // 删除左边第一个子元素 添加到右边
+                    var firstElement = right.removeChild(right.firstElementChild);
+
+                    // console.log(firstElement);
+                    left.appendChild(firstElement);
+                }
+            }
+
+            oBtn[2].onclick = function() {
+
+                right.innerHTML += left.innerHTML;
+                left.innerHTML = '';
+
+
+
+                // var child = left.children; // 获得子元素集合
+                // for (var i = child.length - 1; i >= 0; i--) {
+                //     var del = left.removeChild(child[i]);
+                //     right.appendChild(del);
+                // }
+            }
+
+            oBtn[3].onclick = function() {
+                left.innerHTML += right.innerHTML;
+                right.innerHTML = '';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <button>&gt;</button>
+        <button>&lt;</button>
+        <button>&gt;&gt;</button>
+        <button>&lt;&lt;</button>
+    </div>
+    <ul id="left">
+        <li>第1个li元素</li>
+        <li>第2个li元素</li>
+        <li>第3个li元素</li>
+        <li>第4个li元素</li>
+        <li>第5个li元素</li>
+        <li>第6个li元素</li>
+        <li>第7个li元素</li>
+        <li>第8个li元素</li>
+        <li>第9个li元素</li>
+        <li>第10个li元素</li>
+    </ul>
+    <ul id="right"> </ul>
+</body>
+
+</html>

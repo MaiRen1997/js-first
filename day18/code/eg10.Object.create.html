@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Object.create();
+        // 方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。
+        // 创建一个新对象，使用一个现有对象作为新对象的原型
+
+        // 克隆对象
+        // 实现继承 
+        // 新对象可以访问到现有对象的属性(对象都可以访问到原型中的属性)
+
+        // 基于原型
+        // new 创建对象 
+        // 你创建的每一个对象 都可以访问原型对象
+        // 你创建的每一个对象 都是拷贝了一次原型对象 
+
+
+        var obj = {
+            name: 'zhangsan',
+            age: 20
+        };
+        var obj2 = Object.create(obj);
+        obj2.age = 25; // 在为obj2 添加 私有属性
+        console.log(obj2.age);//如果不重新赋值，那么age就是20
+        console.log(obj2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

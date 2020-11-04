@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .green {
+            color: green;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+
+            // element.attributes  获得元素节点的属性集合
+            // 类数组对象
+            // 属性集合里面保存了所有的属性节点
+            // 每一个属性节点 都是一个单独的对象
+
+            // console.log(typeof box.attributes.title);//object
+            // console.log(box.attributes['class']);//class="box"
+
+            // console.log(box.attributes['title'].nodeName); // 属性节点的节点名 属性名
+            // console.log(box.attributes['title'].nodeType); // 属性节点的节点类型  2
+            // console.log(box.attributes['title'].nodeValue); // 属性节点的节点值  属性值
+
+            // var attrs = Array.from(box.attributes);
+            // console.log(box.attributes);
+            // console.log(attrs);
+
+            // attrs.forEach(function(elm) {
+            //     console.log(elm.nodeName, elm.nodeValue);
+            // });
+
+
+            // 获得属性值
+            // 1. element.attributes[索引值].value
+            // 索引值不好确定所需要的属性的位置
+
+            // 2. element.attributes[属性名].value
+            // 获得属性集合       获得属性节点   节点值
+            // console.log(box.attributes['id'].value);
+
+            // 3. element.getAttributeNode('属性名').value
+            // 通过获得属性节点 获得属性值
+            // console.log(box.getAttributeNode('title').value);
+
+            // 4. element.getAttribute('属性名');
+            // console.log(box.getAttribute('title'));
+
+            // 设置属性
+            // 1. element.setAttribute(attrName,attrValue);
+            // box.setAttribute('class', 'red');
+
+            // 2. element.setAttributeNode(attrNode);
+            // var attr = document.createAttribute('class');
+            // attr.nodeValue = 'red';
+            // box.setAttributeNode(attr);
+
+            // 删除属性
+            // element.removeAttribute(attrName);
+            // box.removeAttribute('contenteditable');
+            // box.removeAttribute('with');
+            // 判断属性是否存在
+            // element.hasAttribute(attrName);
+            // 返回一个布尔值
+            // console.log(box.hasAttribute('class'));
+
+
+            // 类名切换
+            var flag = true;
+            box.onclick = function() {
+                // var className = ;
+                this.setAttribute('class', flag ? 'red' : 'green');
+                flag = !flag;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box" class="box" title="div element" contenteditable="true">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio recusandae quod provident, ab at nihil, ipsam eligendi facilis consequuntur mollitia magni laborum omnis sequi ad eaque ut voluptatum consectetur? At.
+    </div>
+</body>
+
+</html>

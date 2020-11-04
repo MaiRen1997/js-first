@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 访问对象的属性
+        // . 操作符 用于访问对象属性
+
+        var student = {
+            name: '小王',
+            age: 20,
+            sex: '男',
+            o: {
+                a: 1,
+                b: 2
+            }
+        };
+
+        // var a = 'name';
+        // console.log(student.name);
+        // // 对象属性的第二种访问方式
+        // // [] 中括号
+        console.log(student['age']);
+        // console.log(student[a]);
+
+        // 删除对象中的属性
+        // delete 操作符
+        delete student.age;
+
+        delete student.o;
+
+        // delete关键字 可以用于删除对象的属性 但是不能删除对象，但是可以删除的属性中，以对象类型存在的属性
+        // delete关键字 不是所有属性都能删除的，
+        // 有部分属性是禁止删除的
+        // 还有一些不可枚举属性也是不可删除的 length
+
+        //console.log(student);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

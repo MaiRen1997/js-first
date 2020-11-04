@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 通过css选择器选择所匹配的到第一个元素
+        // node.querySelector(selector);
+
+        // 2. 通过css选择器选择所有匹配的元素
+        // 返回被选元素的集合(类数组对象)
+        // node.querySelectorAll(selector);
+        window.onload = function() {
+            // var box = document.querySelector('*');
+            // console.log(box);
+
+            // var oBox = document.querySelectorAll('#box');
+            // console.log(oBox);
+
+            // var baidu = document.querySelectorAll('a[href$="baidu.com"]');
+            // console.log(baidu);
+            // var music = document.querySelectorAll('a[href*="music"]');
+            // console.log(music);
+
+            // var link = document.querySelectorAll('a:nth-child(even)');
+            // console.log(link);
+
+            var oLi = document.querySelectorAll('.list>li:nth-child(even)');
+            oLi = Array.from(oLi);
+            console.log(oLi);
+            oLi.forEach(function(elm, i) {
+                elm.style = "background:red";
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <ul class="list">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+        <li>006</li>
+        <li>007</li>
+        <li>008</li>
+        <li>009</li>
+        <li>010</li>
+    </ul>
+
+
+
+
+
+    <a href="https://www.baidu.com">百度</a>
+    <a href="https://music.baidu.com">百度音乐</a>
+    <a href="https://music.163.com">网易音乐</a>
+    <a href="https://news.baidu.com">百度新闻</a>
+    <a href="https://tieba.baidu.com">百度贴吧</a>
+    <a href="https://www.sina.com.cn">新浪</a>
+    <a href="https://www.163.com">网易</a>
+
+
+
+
+
+
+
+
+
+
+    <div class="box" id="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt reiciendis itaque voluptatum soluta odio velit quis error quasi impedit. Ea fuga, corrupti ad rem magni rerum ipsam odio cupiditate obcaecati?
+    </div>
+
+    <div class="box" id="box2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt reiciendis itaque voluptatum soluta odio velit quis error quasi impedit. Ea fuga, corrupti ad rem magni rerum ipsam odio cupiditate obcaecati?
+    </div>
+</body>
+
+</html>

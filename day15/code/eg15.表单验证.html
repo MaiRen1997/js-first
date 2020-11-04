@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            // 验证规则
+            var reg = {
+                "username": /^[A-z]\w{5,15}$/,
+                "password": /^.{6,16}$/,
+                "email": /^[A-z]\w{5,15}@[A-z0-9-]{2,}\.[A-z]{2,7}\.?[A-z]*$/,
+                "phone": /^1[3-9]\d{9}$/
+            };
+
+            var inp = document.querySelectorAll('#myform>input:not([type="submit"])');
+            var pass = document.querySelector('#myform>#pass');
+            var password = document.querySelector('#myform>#password');
+            var submit = document.querySelector('#submit');
+            // console.log(inp);
+
+            inp.forEach(function(elm) {
+                if (elm.id == 'pass') return;
+                elm.oninput = function() {
+                    // reg[this.id] 通过元素id选择正则表达式
+                    if (reg[this.id].test(this.value)) {
+                        this.nextElementSibling.innerHTML = '通过验证';
+                        this.dataset.pass = true;
+                    } else {
+                        this.nextElementSibling.innerHTML = '未通过验证';
+                        this.dataset.pass = false;
+                    }
+                    check();
+                }
+            });
+
+            pass.oninput = function() {
+                if (this.value === password.value) {
+                    this.nextElementSibling.innerHTML = '通过验证';
+                    this.dataset.pass = true;
+                } else {
+                    this.nextElementSibling.innerHTML = '未通过验证';
+                    this.dataset.pass = false;
+                }
+                check();
+            }
+
+            function check() {
+                var allPass = document.querySelectorAll('#myform>input[data-pass="true"]');
+                if (allPass.length === 5) submit.removeAttribute('disabled');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form action="#" method="GET" id="myform">
+        <label for="username">用户名</label> <!-- for 和下面标签的id名相同，这样就可以进行显式绑定了 -->
+        <input type="text" name="username" id="username">
+        <span class="username"></span>
+        <br>
+        <label for="password">密码</label>
+        <input type="password" name="password" id="password">
+        <span class="password"></span>
+        <br>
+        <label for="pass">确认密码</label>
+        <input type="password" name="pass" id="pass">
+        <span class="pass"></span>
+        <br>
+        <label for="email">邮箱</label>
+        <input type="text" name="email" id="email">
+        <span class="email"></span>
+        <br>
+        <label for="phone">手机</label>
+        <input type="text" name="phone" id="phone">
+        <span class="phone"></span>
+        <br>
+        <input type="submit" disabled id="submit">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Array.prototype.map();
+        // 语法: arr.map(callback);
+        // 参数: callback(function) 回调函数
+        // 回调参数:
+        //       currentValue
+        //       index
+        //       array
+        // 描述: 映射
+        //     1. 遍历数组 将数组的每一元素传递进回调函数
+        //     2. 操作(修改) 数组中的元素
+        //     3. 返回一个新数组
+        // 返回值: 新数组
+
+        var arr = [5, 6, 1, 4, 6];
+
+        var arr2 = arr.map(function(elm, i) {
+            console.log(elm, i);
+            if (i % 2) {
+                return elm * 2;
+            } else {
+                return elm * 3
+            }
+            // return elm * 2;
+        });
+
+        console.log(arr2);
+
+        // --------------------------------------------------
+        // 原理分析
+        var arr = [5, 6, 1, 4, 6];
+        Array.prototype.map1 = function(callback) {
+
+            var result = []; // 创建新数组
+            for (var i = 0; i < this.length; i++) { // 遍历数组
+                result.push(callback(this[i], i, this)); // 将回调函数的调用结果 放入新数组
+            }
+            return result; // 返回新数组
+        }
+
+        var arr2 = arr.map1(function(elm, i) {
+            return elm * 2;
+        });
+        console.log(arr2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

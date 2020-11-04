@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+
+            // btn.addEventListener('click', function() {
+            //     alert(1);
+            // });
+
+            // elm.attachEvent(eventType,fn);
+            // 参数: eventType 事件类型 string
+            //       fn     事件触发需要执行的函数  function
+
+
+            // 事件类型要加on
+            btn.attachEvent('onclick', function() {
+                alert(2);
+
+                // 移除事件
+                // elm.detachEvent(eventType,fn);
+                btn.detachEvent('onclick', arguments.callee);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+</body>
+
+</html>

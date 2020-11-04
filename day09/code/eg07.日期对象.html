@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Date 是 ECMASCript 的 内置对象
+        // Date 拥有构造函数  可以使用new关键字来创建对象
+
+        var d = new Date();
+        // 获得当前系统时间
+        // 标准时间对象
+        // console.dir(d);
+        // console.log(d.toString());
+        // console.log(typeof d);
+
+        // var d1 = new Date(2008, 8, 1); // 月份取值范围0-11
+        // console.log(d1);
+
+        // var d2 = new Date(2008, 4, 1, 13, 20, 11); // 年 月 日 时 分 秒
+        // console.log(d2);
+
+        // var d3 = new Date('2008,2,10');
+        // console.log(d3);
+
+        // var d4 = new Date('2008,2,10 14:35:31');
+        // console.log(d4);
+
+
+        // 获取时间的方法
+        var d = new Date();
+        // console.log(d);
+        // console.log(d.getFullYear()); // 获得年份
+        // console.log(d.getMonth() + 1); // 获得月份 取值范围是0-11
+        console.log(d.getDate()); // 获得日期 取值范围 1-31
+        console.log(d.getDay()); // 获得星期 取值范围0-6
+        // console.log(d.getHours()); // 获得小时 0-23
+        // console.log(d.getMinutes()); // 获得分钟 0-59
+        // console.log(d.getSeconds()); // 获得秒数 0-59
+        // console.log(d.getMilliseconds()); // 获得毫秒 0-999
+
+        // 时间戳
+        // getTime() 获得当前时间对象与1970年1月1日0时的 毫秒差
+        // 计算机世界中 永远不可能重复的值
+        // 20200924100035421600929800248
+        // console.log(d.getTime());
+
+        // 在时间构造函数中 传入时间戳作为参数  可以将其还原成时间对象
+        //var d2 = new Date(1600929800248);
+
+        // 快捷方式  快速获得当前时间戳
+        // console.log(Date.now());
+
+        // console.log(d.getTimezoneOffset() / 60);
+
+
+        // -----------------------------------
+
+        // 设置时间
+        // var d = new Date();
+        // d.setFullYear(2020);
+        // d.setMonth(8);
+        // d.setDate(32);
+        // console.log(d);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

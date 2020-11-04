@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 强制类型转换(手动调用函数 进行数据类型转换)
+
+        // Number()
+        // 快捷方式  +
+        // 将一个字符串解析为number类型 如果有不可解析的部分 则返回NaN
+        // console.log(Number('3.14'));
+        // console.log(Number('3.14abc'));
+        // console.log(Number(null));
+        // console.log(Number(undefined));
+
+        // ---------------------------------------------
+
+        // parseInt()
+        // 将一个字符串解析为number类型的整数 如果没有可解析部分则返回NaN
+        // console.log(parseInt('3.14')); // 3
+        // console.log(parseInt('3.14abc')); // 3
+        // console.log(parseInt('1234a')); // 1234
+        // console.log(parseInt('12a34')); // 12
+        // console.log(parseInt('a12a34')); // NaN
+        // console.log(parseInt(5.25)); // 5
+        // 可以使用parseInt函数对数值进行取整
+
+        // -----------------------------------------------
+
+        // parseFloat()
+        // 将一个字符串解析为number类型 浮点部分(带小数) 如果没有可解析的部分 则返回NaN
+        // console.log(parseFloat('3.14')); // 3.14
+        // console.log(parseFloat('3.1aa4')); // 3.1
+        // console.log(parseFloat('3a.1aa4')); // 3
+        // console.log(parseFloat('a3a.1aa4')); // NaN
+
+        // ------------------------------------------------
+
+        // Boolean()
+        // 将一个值转换成布尔类型
+        // console.log(Boolean(35)); // true
+        // 快捷方式 !!
+
+        // ------------------------------------------------
+
+        // obj.toString()
+        // 操作的是数字 则是将数字转换成字符串
+        // 快捷方式 ''+
+        // var num = 123;
+        // console.log(num.toString());
+
+        // 作用于number类型时还可以对进制数进行转换 
+        // 通常是将10进制数转换成 2进制 8进制 16进制
+        // var num = 22; // 转换二进制 1000 1111 
+        // console.log(num.toString(2)); // 将10进制转换成2进制
+
+        // var num2 = 13;
+        // console.log(num2.toString(8));
+        // // 0开头的数表示8进制数
+        // console.log(0100);
+
+        var num3 = 255;
+        console.log(num3.toString(16));
+        // 0x开头表示16进制数
+        console.log(0x1c);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

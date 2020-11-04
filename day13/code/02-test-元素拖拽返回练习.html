@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        span{
+            width: 5px;
+            height: 5px;
+            background: black;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box = document.querySelector('#box');
+            var map=[{//用来记录轨迹
+                        x:0,
+                        y:0
+                    }];
+            
+            box.onmousedown = function(ev){
+                var offsetx = ev.offsetX;
+                var offsety = ev.offsetY;
+                box.onmousemove = function(ev){
+                    var pagex = ev.pageX;
+                    var pagey = ev.pageY;
+                    var x;
+                    var y;
+                    
+                    x = pagex - offsetx;
+                    y = pagey - offsety;
+                   if(x>innerWidth-box.offsetWidth){
+                        console.log(1);
+                        x = innerWidth-box.offsetWidth;
+                    }else if(x<=0){
+                        x=0;
+                    }
+                    if(y>innerHeight-box.offsetHeight){
+                        y= innerHeight-box.offsetHeight;
+                    }else if(y<=0){
+                        y=0;
+                    }
+                    map.push({
+                        x:x,
+                        y:y
+                    })
+                    box.style.top = y+'px';
+                    box.style.left = x+'px';
+                    // var span = document.createElement('span');
+                    /* span.style.top = y + 'px';
+                    span.style.left = x + 'px';
+                    document.body.appendChild(span); */
+                    console.log(1);
+                    document.body.innerHTML += '<span style="top:'+y+'px,'+'left:'+x+'px">'+'</span>';
+                    console.log(box);
+                } 
+                box.onmouseup = function(){
+                    box.onmousemove = null;
+                    
+                    var timer = setInterval(function(){
+                        if(map.length==0){
+                            clearInterval(timer);
+                            return;
+                        }
+                        var obj = map.pop();
+                        console.log(obj.x);
+                        box.style.top = obj.y+'px';
+                        box.style.left = obj.x+'px';
+                    }, 20);
+                    
+
+                }
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var username = document.getElementById('username');
+            var title = document.getElementById('title');
+
+            // 获得焦点
+            username.onfocus = function() {
+                this.style = 'border:3px solid green';
+            }
+
+            // 失去焦点
+            username.onblur = function() {
+                this.style = "";
+            }
+
+            // 输入框输入事件
+            username.oninput = function() {
+                // 当用户输入时出发
+                title.innerHTML = this.value;
+            }
+
+            // 表单改变事件
+            username.onchange = function() {
+                // 该事件 需要两个条件才能触发
+                // 1. 当内容发生改变
+                // 2. 失去焦点
+                console.log('改变了');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" name="username" id="username">
+    <h1 id="title"></h1>
+</body>
+
+</html>

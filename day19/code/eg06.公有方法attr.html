@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            $('#btn').on('click', function() {
+                // 1. 获得被选的第一个元素的title属性
+                // console.log($('.box').attr('title'));
+
+                // 2. 为被选择的所有元素 添加一个自定义属性
+                // $('.box').attr('data-value', '123');
+
+                // 3. 为所有被选择元素 修改属性
+                // $('.box').attr('title', 'abc');
+
+                // 4. 为所有被选择元素title属性 追加内容
+                // $('.box').attr('title', function(old, i) {
+                //     // console.log(old, i);
+                //     return old + ' world';
+                // });
+
+                // $('.box').attr('title', old => old + ' world');
+
+                $('.box').removeAttr('title');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+
+    <div class="box" title="hello1"></div>
+    <div class="box" title="hello2"></div>
+    <div class="box" title="hello3"></div>
+    <div class="box" title="hello4"></div>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 解构赋值
+        // 解构赋值是一种匹配模式的赋值
+        // 指的是赋值符的左右两边 结构相同 自动拆解 进行赋值
+        // let arr = [1, 2, 3, 4];
+        // let a = arr[0];
+        // let b = arr[1];
+        // let c = arr[2];
+        // let d = arr[3];
+    //上述代码，可以用解构进行简化
+        // let [a, b, c, d] = arr;
+        // console.log(a, b, c, d);
+
+        //解构用来接收的变量，格式一定要和数组的格式相同
+        //里面如果有数组，变量也要写成数组
+        // let arr = [22, 564, 11, [65, 1245]];
+        // let [a, b, c, [d, e]] = arr;
+        // console.log(a, b, c, d, e);
+
+        //可以使用空 来占位，这样就会跳过这个数据
+        // let arr2 = [1, 2, 3, 4];
+        // let [a, , c, d] = arr2;
+        // console.log(a, c, d);
+
+        // let arr2 = [1, 2, 3, 4];
+        // let [a, ...b] = arr2;
+        // console.log(a);//1
+        // console.log(b);//[2,3,4]
+
+        // 解构赋值的默认值
+        // 取值成功使用获取的值进行赋值
+        // 取值失败 使用默认值进行赋值
+        // let [a, b, c, d = 5] = [1, 2, 3, 4];
+        // console.log(a, b, c, d);
+
+        // ---------------------------------------------
+
+        // 对象解构
+        // 对象是无序的数据结构
+        // 数组是有序的数据结构
+
+        // 解构对象时变量名需要与对象中的属性名相同
+
+        
+
+        let {
+            name,
+            age,
+            sex
+        } = obj;
+
+        let obj = {
+            name: 'zhangsan',
+            age: 20,
+            sex: 'nan'
+        }
+        
+        console.log(name, age, sex);
+
+        let {
+            random,
+            max
+        } = Math;
+
+        console.log(random());
+
+        console.log(max(1, 2, 3, 756, 22));
+
+        // https://es6.ruanyifeng.com/#docs/destructuring
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

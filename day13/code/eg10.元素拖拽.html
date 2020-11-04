@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 10;
+            left: 10;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.querySelector('.box');
+
+            // 事件 
+            // mousedown box
+            // mousemove document
+            // mouseup   document
+
+            box.onmousedown = function(ev) {
+                var offsetx = ev.offsetX,//offsetX表示鼠标点击处距离当前触发元素左上角的距离
+                    offsety = ev.offsetY;
+                    // console.log(offsetx,offsety);//鼠标点击位置距离当前点击元素左上角的距离
+                    console.log(ev.pageX,ev.pageY);//鼠标点击位置距离浏览器文档页面的距离
+                    console.log(ev.clientX,ev.clientY);//同pageX、pageY属性，兼容IE
+                document.onmousemove = function(ev) {
+                    var pagex = ev.pageX,//pageX 表示鼠标点击距离文档页面的距离
+                        pagey = ev.pageY,
+                    
+                        x = pagex - offsetx,
+                        y = pagey - offsety;
+                    box.style.top = y + 'px';
+                    box.style.left = x + 'px';
+                }
+
+                document.onmouseup = function() {
+                    document.onmousemove = null;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

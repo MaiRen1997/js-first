@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var a = 5,
+            b = 9;
+
+        // 函数的参数是按值传递的
+        // 传递给函数的参数 如果是变量 其实是将变量的值 复制了一份传递给函数
+        // 在函数内部 使用的a 是函数的形参 它的作用范围仅在函数内部有效 不会影响外部的变量
+
+        function fn(a, b) {
+            a += b; // a = a+b
+            // 上面的赋值操作 操作的是当前的参数 也不是外部的变量
+            console.log(a); //14
+        }
+
+        fn(a, b); //
+        console.log(a); // 5 14
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

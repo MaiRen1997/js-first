@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 冒泡排序
+        // 按照数组的正常顺序从左往右 相邻的两个数进行两两比较
+        // 若左边的数大于右边的数 则交换位置 继续往后进行比较
+        // 每一轮比较结束后 最大的数 一定会出现在数组的尾部
+        // 理论上 冒泡排序 最大排序轮数 为 数组长度-1
+        var arr = [543, 4, 353, 43, 1];
+        //          4  353 43 1 543
+        //          4  43  1  353
+        //          4  1  43 
+        //          1  4
+        for(var i=0;i<arr.length;i++){
+            for(var j=0;j<arr.length;j++){
+                if(arr[j]>arr[j+1]){
+                    var temp=0;
+                    temp = arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        var sum='';
+        for(var i=0;i<arr.length;i++){
+            sum= sum+'  '+arr[i]; 
+        }
+        console.log(sum);
+        // 2. 选择排序
+        var arr2 = [543, 4, 353, 43, 1];
+        for(var i=0;i<arr2.length;i++){
+            for(var j=i;j<arr2.length;j++){
+                if(arr[i]>arr[j]){
+                    var temp=0;
+                    temp = arr[i];  
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+        var sum='';
+        for(var i=0;i<arr.length;i++){
+            sum= sum+'  '+arr[i]; 
+        }
+        console.log(sum);
+        // 3. 使用数组 计算斐波那契数列第99位
+        arr3=new Array(1,1);
+        for(var i=0;i<99;i++){
+            arr3[i+2]=arr3[i]+arr3[i+1];
+        }
+        //console.log(arr[3]);
+        for(var j=0;j<99;j++){
+            document.write(arr3[j]+"<br>");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

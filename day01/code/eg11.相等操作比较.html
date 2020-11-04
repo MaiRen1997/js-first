@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ECMAScript 提供了两组操作符用来比较数据的相等性
+
+        // 1. 相等和不相等
+        // 相等操作符 由两个等号表示(==) 如果比较的两个(数)值结果相等 则返回 true 否则返回 false
+        // 不相等操作符 有一个叹号和一个等号表示(!=) 如果比较的两个(数)值不相等 则返回 true 否则返回false
+
+        // console.log(25 == 25); // true
+        // console.log(25 != 26); // true
+
+
+        // 不同数据类型的比较
+        // 当相等和不相等操作符 进行不同数据类型比较时
+        // 会先进行数据类型的转换 然后比较结果
+        // 数据类型的转换遵循以下原则:
+        // 1. 比较之前 如果有布尔值 先将布尔值转换成数值 true转成1  fasle转成0
+        // 2. 比较之前 如果一个值是字符串另外一个值是数字 将字符串转成数值 然后比较
+        // console.log(23 == '23'); // true  字符串 '23' 转成数值23
+        // console.log(true == 1); // true   布尔值 true 转成数值的1
+        // console.log('abc' == 1); // false 字符串'abc' 转成数值 结果是NaN
+        // console.log('23a' == 23); // false 字符串'23a' 转成数值NaN
+
+        // 特殊的比较
+        // console.log(undefined == null); // true
+        // console.log(NaN == NaN); // false
+        // console.log(null == 0); // false  不转换类型
+        // console.log(NaN == undefined); // false 不转换类型
+        // NaN和任何值比较相等性 结果都为false
+
+        // console.log(0 == 0.000); // true 小数点后如果全是0  则会忽略
+        // console.log(0.2 + 0.2 == 0.4); // true
+        // console.log(0.1 + 0.2 == 0.3); // false  0.30000000000000000004
+        // 如果让0.1+0.2 == 0.3
+        // 固定数值的小数位数
+        // 数值可以使用 toFixed() 方法
+        // 注意点  toFixed方法 返回的结果是字符串类型
+        // console.log((0.1 + 0.2).toFixed(2) == 0.3);  // '0.30' == 0.3 
+        // var num = 99;
+        // console.log(num.toFixed(2));
+
+        // console.log('NaN' == 'NaN');
+        // console.log(null == 'null');
+        // console.log(undefined == 'undefined');
+        // console.log(undefined == undefined);
+
+        // -----------------------------------------------------------
+        // 2. 全等和不全等
+        // 全等运算符(===)
+        // 不全等操作符(!==)
+
+        // 不转换数据类型 直接比较值
+        // 如果数据类型不同 比较全等则为false
+        // 数据类型相同的情况  比较值 值相同结果为true
+
+        console.log(31 === 31); // true  数据类型相同 并且 值也相同  
+        console.log(31 === '31'); // false 数据类型不相同
+
+        // 全等操作符更加严谨
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

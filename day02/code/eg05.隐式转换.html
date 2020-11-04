@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // JavaScript是一个弱类型语言(声明变量时没有强制约定数据类型)
+        // 数据类型是由赋值结果来决定
+
+        // JavaScript的所有数据类型 都可以被转换成3种基本数据类型
+        // number  string  boolean
+
+        // 隐式转换
+        // 指的是在运算过程中的自动数据类型转换
+
+        // 在做算术运算时 遇到不可计算的类型 则会自动转换成 number 类型
+        console.log(3 * '10'); // '10'转成10  结果 30
+        console.log('2' * '5'); // '2'转成2  '5'转成5  结果10
+        console.log(10 * null); // null转成0  结果0
+        console.log(5 / undefined); // undefined转成NaN 结果NaN
+        console.log(22 - '11'); // '11'转成11  结果11
+        console.log(23 + '11'); //  +边上有字符串 连接符 23转成'23'  结果 '2311'
+        console.log(-null);
+        console.log(+null);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./animate.css">
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        
+        .red {
+            background: red;
+        }
+        
+        h1 {
+            width: 50%;
+            margin: 100px auto;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+            // var btn = document.getElementById('btn');
+
+            var h1 = document.getElementById('h1');
+
+
+
+            btn.onclick = function() {
+                h1.classList.add('animate__heartBeat', 'animate__delay-5s');
+
+                // HTML5标准 类名API
+                // classList
+                // console.log(box.classList);
+
+                // box.classList.add('red', 'green');
+
+                // box.classList.remove('box');
+
+
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <!-- <div id="box" class="box"></div> -->
+
+    <h1 id="h1" class="animate__animated">hello world</h1>
+</body>
+
+</html>

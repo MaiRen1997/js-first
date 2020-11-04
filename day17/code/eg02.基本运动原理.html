@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* transition: left 1s; */
+        }
+        /* #box:hover {
+            left: 100px;
+        } */
+    </style>
+
+    <script>
+        window.onload = function() {
+            var box = document.querySelector('#box');
+
+            box.onclick = function() {
+                // 让元素移动 修改元素的定位值
+                // 先获得元素当前的定位值
+                // 在当前定位的基础上 进行加减操作
+
+                // 获得元素的定位 值
+                // offsetTop/offsetLeft
+
+                setInterval(function() {
+                    // 周期计时器就是循环
+                    // 进行DOM操作  
+                    // 当你改变X轴和Y轴位置时 每次改变需要进行4次DOM操作
+                    box.style.left = box.offsetLeft + 3 + 'px';
+                    box.style.top = box.offsetTop + 3 + 'px';
+                }, 20);
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>

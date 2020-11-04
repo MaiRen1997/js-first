@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        ul {
+            width: 90%;
+            margin: 0 auto;
+            list-style: none;
+            overflow: hidden;
+        }
+        
+        ul>li {
+            float: left;
+            margin: 5px 20px;
+        }
+        
+        #main {
+            width: 90%;
+            margin: 0 auto;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 3em;
+            line-height: 500px;
+            min-height: 500px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        // SPA 单页面应用
+
+        // 事件 锚点改变
+        window.onhashchange = function() {
+            var main = document.getElementById('main');
+
+            switch (location.hash) {
+                case '#/index':
+                    main.innerHTML = 'index';
+                    break;
+                case '#/news':
+                    main.innerHTML = 'news';
+                    break;
+                case '#/user':
+                    main.innerHTML = 'user';
+                    break;
+                case '#/music':
+                    main.innerHTML = 'music';
+                    break;
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#/index">首页</a></li>
+        <li><a href="#/news">新闻</a></li>
+        <li><a href="#/user">用户</a></li>
+        <li><a href="#/music">音乐</a></li>
+    </ul>
+
+    <div id="main"></div>
+</body>
+
+</html>

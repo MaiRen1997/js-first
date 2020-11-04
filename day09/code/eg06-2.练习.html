@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            background: lightblue;
+            text-align: center;
+        }
+        div span{
+            display: inline-block;
+            text-align:center;
+            line-height: 50px;
+            width: 50px;
+            height: 50px;
+            /* margin:0 50px; */
+            color: lightcoral;
+            border:5px solid lightcoral;
+            border-radius: 50%;
+
+        }
+        div span:nth-last-child(1){
+            display: inline-block;
+            text-align:center;
+            line-height: 50px;
+            width: 50px;
+            height: 50px;
+            /* margin:0 50px; */
+            color: blue;
+            border:5px solid blue;
+            border-radius: 50%;
+
+        }
+    </style>
+    <script>
+        // 双色球玩法
+        // 红色球 1-33 需要6个
+        // 蓝色球 1-16 需要1个
+        function mathRandom(min,max){
+            return Math.floor(Math.random()* (max - min + 1) + min);
+        }
+        //随机六个数字
+        var arr=new Array();
+        var arr2=new Array();//随机排列顺序
+        function randomNumber(a,b,c,arr){//a是随机的个数，b是随机的最低范围，c是随机的最高范围，d是返回的数组
+            var number=mathRandom(b,c);
+            for(var j=0;j<a;j++){
+                number=mathRandom(b,c);
+                // for(var i=0;i<arr.length;i++){
+                    // if(arr[j]!=number){
+                    //   // number=number;
+                    //      }
+                    if(arr.indexOf()!=number){
+
+                    }
+                    else{
+                        number=mathRandom(b,c);
+                       j=0;
+                    }
+                     arr.push(number);   
+                } 
+                return arr;
+        }
+       window.onload = function(){
+           var btn=document.getElementById('btn');
+           var box=document.getElementById('ball');
+           btn.onclick=function(){
+                box.innerHTML='';
+                arr.length=0;
+                randomNumber(6,1,33,arr);
+                arr.push(mathRandom(1,16));
+                console.log(box.innerHTML+'16');
+                for(var i=0;i<arr.length;i++){
+                box.innerHTML+='<span>'+arr[i]+'</span>';
+                }    
+           }
+      }
+    </script>
+</head>
+
+<body>
+    <button id="btn">获得一组随机双色球</button>
+    <div id="ball">
+        
+    </div>
+</body>
+
+</html>

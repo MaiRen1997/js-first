@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Object.assign()
+        // 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+        // 语法: Object.assign(target, ...sources)
+        // 返回值: target 目标对象
+
+        var o1 = {
+            name: 'zhangsan'
+        }
+        var o2 = {
+            age: 18,
+            name: 'lisi'
+        }
+        var o3 = {
+            name: 'wangwu'
+        }
+        // Object.assign 用于合并对象的属性 将源对象的属性添加(或合并)到 目标对象
+        // 如果 属性名存在冲突(属性名相同) 以最后一个属性值为准(和参数顺序有关)
+        Object.assign(o1, o3, o2);
+        console.log(o1);//返回一个对象，属性为：age:18 name:'lisi'
+
+
+        // ------------------------------------------------------------
+
+        // 应用场景
+        // 参数合并(为函数提供默认参数)
+        function fn(options) {
+            let defaults = {
+                name: 'zhangsan',
+                age: 20
+            };
+            Object.assign(defaults, options);
+            //如果传参，options有值，就会覆盖默认值，否则就按照默认值输出
+            console.log(defaults);
+        }
+
+        fn({
+            age: 18,
+            name: 'wangwu',
+            phone: 13888888888
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

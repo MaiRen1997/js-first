@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    //filter练习
+    //1.筛选符和条件的值
+    var arr1 = new Array(80, 70, 86, 58, 90);
+    var arr2 = new Array(10, 70, 30, 80, 90);
+    var result = arr1.filter(function(elm) {
+        return elm > 80;
+    });
+    console.log(result);
+    console.log(arr1.forEach(function(elm) { //根据数组中元素的个数进行输出
+        console.log(123);
+    }));
+
+    //----------------------------------------------------------------------
+    //求数组的交集
+    var result2 = arr1.filter(function(elm) {
+        return arr2.some(function(el) {
+            return el == elm;
+
+        })
+    });
+    console.log(result2);
+    //上述代码，使用箭头函数
+    var result3 = arr1.filter(elm => arr2.some(el => elm == el));
+    console.log(result3);
+
+    //使用indexOf查找
+    var result4 = arr1.filter(function(elm) {
+        return arr2.indexOf(elm) > -1;
+    });
+    console.log(result4);
+    var result5 = arr1.filter(elm => arr2.indexOf(elm) > -1);
+    console.log(result5);
+    // 使用箭头函数
+    //------------------------------------------------------------------------
+    //求数组的并集
+    var result6 = arr1.concat(result3);
+    console.log(result6);
+
+    // console.log(arr in arr2); //in结果返回的是布尔值 true或者false
+</script>
+
+<body>
+
+</body>
+
+</html>

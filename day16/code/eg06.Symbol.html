@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Symbol 表示独一无二的值
+        // 它是ES中的第六种 基本数据类型
+        // Symbol没有构造函数 
+        // 不能通过 new 实例这个数据
+
+        // Symbol 用于解决 对象属性重名的问题
+
+        let s1 = Symbol('username');
+        let s2 = Symbol('username');
+
+        let o = {
+
+        };
+        // o.username = 'zhangsan';
+        // o.username = 'lisi';
+
+        // 不能使用点操作符
+        o[s1] = 'zhangsan';
+        o[s2] = 'lisi';
+        console.log(o[s1]);
+        console.log(o[s2]);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

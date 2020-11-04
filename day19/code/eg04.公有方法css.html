@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            // 为被点击的li元素 添加一个字体颜色
+            $('#list>li').on('click', function() {
+                // 在事件中 this 是指向事件触发的元素
+                // 这个元素 是DOM元素 无法使用 Z的公有函数
+
+                // 需要将这个DOM元素 转成Z创建的对象
+                $(this).css('color', 'red').css('background', '#ccc');
+            });
+
+            // $('#list>li').css('color', 'green');
+
+            // $('#list>li').css({
+            //     'color': 'yellow',
+            //     'font-size': '2em',
+            //     'background': 'red'
+            // });
+        });
+    </script>
+</head>
+
+<body>
+    <ul id="list">
+        <li>第1个li</li>
+        <li style="background:pink">第2个li</li>
+        <li>第3个li</li>
+        <li>第4个li</li>
+        <li>第5个li</li>
+    </ul>
+</body>
+
+</html>

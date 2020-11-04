@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let 和 const 是ES6 新增的两个关键字
+        // 分别用于 声明 变量 和 常量
+
+        // var 声明变量 函数作用域 全局作用域
+        // 在预编译阶段 申明提前 默认赋值为undefined
+
+        // let 关键字 用于申明块级作用域的变量
+        // 块级(  在申明的花括号内有效  { }  )
+        // let 不允许重复申明
+        // let 没有申明提前
+
+        // if (true) {
+        //     let a = 5;
+        //     console.log(a);
+        // }
+
+        // console.log(a);
+
+        // for (let i = 0; i < 10; i++) {
+        //     console.log(i);
+        // }
+
+        // let a;
+        // console.log(a);
+
+        // function fn() {
+        //     let a = 3;
+        //     console.log(a);
+        //     if (true) {
+        //         console.log(a);
+        //     }
+        // }
+
+        // fn();
+
+        // -------------------------------------------------
+
+        // const 用于申明常量
+        // const 关键字申明的常量只允许赋值一次 多次赋值会报错
+        // const 命名规范 与 变量相同
+        // 用于引入外部的模块
+        // 作用域与let相同
+        // 没有申明提前
+        // const实际保证的不是变量值不允许改变,而是地址不允许改变
+
+        // const PI = 3.14;
+        // PI = 3;
+        // console.log(PI);
+
+        const obj = {
+            x: 1,
+            y: 2
+        }
+
+        obj.x = 3;
+        // obj = 1;
+        console.log(obj);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

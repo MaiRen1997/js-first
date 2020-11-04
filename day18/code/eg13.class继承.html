@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class F {
+            constructor(name) {
+                this.name = name;
+            }
+
+            getName() {
+                return this.name;
+            }
+        }
+
+
+        class S extends F { // extends 用于继承父类 继承所有的公有属性
+            constructor(name, age) {
+                // super实现的功能是从父类继承私有属性
+                // super必须在constructor开头的位置
+                super(name); // super是父类构造函数
+                this.age = age;
+            }
+        }
+
+        var s = new S('zhangsan', 18);
+
+        console.log(s);
+        // console.log(s.getName());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

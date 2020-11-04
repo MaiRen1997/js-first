@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/tabs.css">
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            let btn = $('.tabs>[data-type="tabs-btn"]>li');
+            btn.on('click', function() {
+                // alert('ok');
+                $(this).addClass('active').siblings().removeClass('active');
+                let index = btn.index(this);
+                $('.tabs>[data-type="tabs-div"]').eq(index).addClass('show').siblings().removeClass('show');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="tabs">
+        <ul data-type="tabs-btn">
+            <li class="active">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+        </ul>
+        <div data-type="tabs-div" class="show">
+            内容1
+        </div>
+        <div data-type="tabs-div">
+            内容2
+        </div>
+        <div data-type="tabs-div">
+            内容3
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            // 创建元素节点
+            // document.createElement('tagName');
+
+            var div = document.createElement('div');
+            div.setAttribute('class', 'box');
+            div.textContent = 'abc';
+            console.log(div);
+
+
+            // parentNode.appendChild(childNode);
+            // 在指定父节点的结尾添加一个子节点
+            document.body.appendChild(div);
+
+            // parentNode.insertBefore(newChild,existingChild);
+            // 在指定节点之前插入一个新节点
+
+            var title = document.querySelector('#title');
+            document.body.insertBefore(div, title);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>123</h1>
+    <h1 id="title">123</h1>
+    <h1>123</h1>
+    <h1>123</h1>
+
+</body>
+
+</html>

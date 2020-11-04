@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 实现一个 URLSearchParams 类
+        // 使用class语法完成
+        class URLSearchParams extends Array {
+            constructor(data) {
+                let temp;
+                let result = [];
+                if (typeof data === 'string') { // 判断传入的参数是否是字符串
+                    temp = data.split('&'); // 通过&符号将字符串拆分成一个数组
+                    result = temp.map(elm => elm.split('='));
+                } else if (data.constructor.name === 'Object') { // 判断传入的是否是对象
+                    for (let key in data) {
+                        result.push([key, data[key]]); // 遍历对象 将对象中的key和value传入到结果
+                    }
+                }
+                super(...result); // 调用父类的构造函数
+            }
+            get(key) {
+                let result = this.filter(elm => elm[0] === key);
+                return result.length ? result[0][1] : null;
+            }
+            set(key, value) {
+                this.forEach(elm => {
+                    if (elm[0] === key) {
+                        elm[1] = value;
+                    }
+                });
+                // 链式调用 原理 在公有函数中 return this
+                return this;
+            }
+            has(key) {
+                return this.some(elm => elm[0] === key);
+            }
+            append(key, value) {
+                if (typeof key === 'string' && typeof value === 'string' && !!key && !!value) {
+                    this.push([key, value]);
+                }
+            }
+            toString() {
+                let str = '';
+                this.forEach(elm => {
+                    str += elm.join('=') + '&';
+                });
+                return str.slice(0, str.length - 1);
+            }
+        }
+        var s1 = new URLSearchParams('foo=1&bar=2'); // ['foo=1','bar=2'];
+        var s2 = new URLSearchParams({
+            foo: 1,
+            bar: 2
+        });
+        // console.log(s1);
+        // console.log(s2);
+        console.log(s1.get('bar'));
+        s1.set('foo', '10');
+        // console.log(s1.has('abc'));
+        s1.append('foo', '100');
+        console.log(s1);
+        console.log(s1.toString());
+
+        // for (const [key, value] of s1) {
+        //     console.log([key, value]);
+        // }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

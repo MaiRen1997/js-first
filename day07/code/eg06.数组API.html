@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Array.prototype.join();
+        // 语法: arr.join([separator]);
+        // 参数: separator(string) 需要用于拼接字符串的字符
+        // 描述: join会将数组内所有的元素都做toString()操作
+        //       使用英文逗号拼接所有toString()的结果
+        //       如果传递了参数 则使用给与参数的字符串拼接toString()的结果
+        // 返回值: 一个新的字符串
+
+        // var arr = [2, 432, true, null, undefined, 'abc', {}]; // null 和 undefined是没有 toString()方法的
+        // var str = arr.join();
+        // console.log(str);
+
+        // var str2 = arr.join('-');
+        // console.log(str2);
+
+        // var str3 = arr.join('');
+        // console.log(str3);
+
+        // 数组toString() 的结果是 将数组内所有的元素都toString()使用,连接
+        // var arr2 = [123, 43, 122, [52, 32]];
+        // var str4 = arr2.join();
+        // console.log(str4);
+
+        // --------------------------------------------------------------
+
+        // Array.prorotype.reverse();
+        // 语法: arr.reverse();
+        // 描述: 用于将数组中的所有元素倒序排列
+        // 返回值: 原数组
+        // 注意点: 该方法 直接修改原有数组
+
+        // var arr = [1, 2, 3, 4, 5];
+        // arr.reverse();
+        // console.log(arr);
+
+        // ---------------------------------------------------------------
+
+        // Array.prototype.shift();
+        // 语法: arr.shift();
+        // 描述: shift方法用于删除数组的第一个元素 将数组剩余的元素向前移动一位 将数组的长度-1
+        // 返回值: 被删除的元素
+        // 注意点: 直接修改原数组
+
+        // var arr = [1, 2, 3, 4, 5];
+        // var res = arr.shift();
+        // console.log(arr);
+        // console.log(res);
+
+        // 使用 shift() 和 push()  可以实现队列功能
+
+        // ----------------------------------------------------------------
+
+        // Array.prorotype.slice();
+        // 语法: arr.slice(start[,end]);
+        // 参数: start(number) 开始索引
+        //       end(number)   结束索引
+        // 描述: slice用于截取数组片段 从start开始到end结束的位置
+        //       截取的结果 包含start索引 不包含end索引
+        //       如果没有end参数 则从start开始截取到数组的结尾处
+        // 返回值: 从start开始到end结束的一个 新数组
+        // 注意点: 不修改原数组
+        //         参数允许是负数 当参数为-1 表示最后一个元素  -2表示倒数第二个元素 以此类推
+
+        // var arr = [1, 2, 3, 4, 5, 6, 7, 8];
+        // var arr2 = arr.slice(2, 4);
+        // console.log(arr2);
+
+        // var arr3 = arr.slice(5);
+        // console.log(arr3);
+
+        // var arr4 = arr.slice(2, -2);
+        // console.log(arr4);
+
+        // 使用slice来复制数组(浅拷贝)
+        // var arr5 = arr.slice(0);
+        // arr[0] = 0;
+        // console.log(arr5);
+
+        // -----------------------------------------------------
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

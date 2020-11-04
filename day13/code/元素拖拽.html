@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box =document.querySelector('#box');
+            var btn =document.querySelector('#btn');
+            var record = []//记录元素移动的位置  
+            var count=0;//用来计数，每次获取新的位置，就++，然后放入到数组
+            var x,y;//获取元素移动的位置
+            box.onmousedown=function(ev){
+                var offsetx=ev.offsetX;//获取当前鼠标的位置
+                var offsety=ev.offsetY;
+                //初始化页面的最开始的位置
+                record.push({x:0,y:0})
+                box.onmousemove=function(ev){
+                    var pagex=ev.pageX;//获取元素左上角，距离当前页面的位置
+                    var pagey=ev.pageY;
+                    x=pagex-offsetx;
+                    y=pagey-offsety;
+                    if(x<=0){
+                        x=0;
+                    }
+                    else if(x>innerWidth-box.offsetWidth){
+                        x=innerWidth-box.offsetWidth;
+                    }
+                    if(y<=0){
+                        y=0;
+                    }
+                    else if(y>innerHeight-box.offsetHeight){
+                        y=innerHeight-box.offsetHeight;
+                    }
+                    record.push({x:x,y:y})
+                    box.style.cssText+='left:'+x+'px;'+'top:'+y+'px;';
+                }
+                box.onmouseup=function(){
+                    box.onmousemove=null;
+                    console.log(record);
+                    back();
+                }
+            }
+            var back =function(){
+                var timer =setInterval(function(){
+                    if(record.length==0){
+                        clearInterval(timer);
+                        return;//当数组为空，用来跳过后面代码的执行，要不然会读取数组为空，报错
+                    }
+                    var location=record.pop()
+                    box.style.cssText+='left:'+location.x+'px;'+'top:'+location.y+'px;';
+                },10)
+                /* console.log(record); */
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">返回路径</button>
+    <div id="box">
+
+    </div>
+</body>
+</html>

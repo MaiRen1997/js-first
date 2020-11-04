@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box::after {
+            display: inline;
+            content: attr(data-name);
+            /*content用来追加内容*/
+            /*attr(data-name)  表示用来获取data-name的值*/
+            /*然后通过content添加到box的伪元素中，最后以文本的形式在页面中显示*/
+        }
+    </style>
+    <script>
+        // 来自HTML5标准 为元素 添加自定义的属性
+        // data- 进行命名
+
+        // JS添加了自定义属性的 访问接口  dataset
+        window.onload = function() {
+            var box = document.getElementById('box');
+
+            console.log(box.dataset.name);
+
+            box.onclick = function() {
+                this.dataset.name = "hello world";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div data-name="test value" data-index="1" id="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus totam illo ipsa aut voluptas cupiditate reiciendis at facere, nihil autem sit rem ut pariatur quis harum accusamus itaque labore eligendi.</div>
+</body>
+
+</html>

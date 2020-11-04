@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 二级联动菜单
+
+        // 数据
+        // 二维数组保存
+        // 城市数据
+        var data = [
+            ['北京', '海淀', '朝阳', '丰台', '昌平', '大兴'],
+            ['上海', '宝山', '浦东', '杨浦', '闵行', '青浦', '徐汇', '静安'],
+            ['广州', '天河', '白云', '海珠', '越秀'],
+            ['杭州', '江干', '上城', '余杭', '西湖', '萧山', '滨江', '钱塘新区']
+        ];
+
+        window.onload = function() {
+            var city = document.getElementById('city');
+            var area = document.getElementById('area');
+
+            // 加载城市数据
+            var cityString = '';
+            for (var i = 0; i < data.length; i++) {
+                // 为option元素添加value属性 设置为数组的索引值
+                // 城市名称和索引值就是 一一匹配
+                cityString += '<option value="' + i + '">' + data[i][0] + '</option>'; // 拼接option
+            }
+
+            // console.log(cityString);
+            city.innerHTML += cityString; //将拼接好的option放入select
+
+            city.onchange = function() { // 城市添加 表单改变事件
+                // console.log(this.value); // option上的value 会自动成为 select 的 value
+                var _index = this.value;//由于上面的第一个for循环时，已经为每个option添加了value属性，所以这里可以直接使用
+                var areaString = ''; // 拼接地区
+                for (var i = 1; i < data[_index].length; i++) {
+                    areaString += '<option>' + data[_index][i] + '</option>';
+                }
+
+                // console.log(areaString);
+
+                area.innerHTML = areaString;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <select id="city">
+        <option selected>请选择城市</option>
+    </select>
+
+    <select id="area">
+        <option>请选择城市</option>
+    </select>
+</body>
+
+</html>

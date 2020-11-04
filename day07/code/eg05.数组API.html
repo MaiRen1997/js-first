@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // API 应用程序接口(预先设定好的 函数/方法)
+        // Array.prorotype 数组的原型
+        // 所有关于数组的API 都保存在原型中
+        // 所有的数组实例 都可以访问原型中的属性和方法
+
+        // ---------------------------------------------------
+
+        // Array.prototype.push();
+        // 语法: arr.push(value[,value2,...valueN]);
+        // 参数: value(any) 可以是任意类型
+        // 描述: 将一个或多个值依次添加到数组的结尾
+        // 返回值: length(number) 添加数据后的数组新长度
+        // 注意点: 该方法 直接修改被选数组
+
+        // var arr = [1, 2, 3, 4];
+        // console.log(arr.push(5, 6, 7));
+        // console.log(arr);
+
+        // -----------------------------------------------------
+
+        // Array.porototype.pop();
+        // 语法: arr.pop();
+        // 描述: pop方法用于删除数组的最后一个元素
+        // 返回值: 返回被删除的元素(如果没有成功删除元素 则返回undefined)
+        // 注意点: pop 直接修改被选数组
+
+        // var arr = [4, 1, 5, 2];
+        // var result = arr.pop();
+        // console.log(arr);
+        // console.log(result);
+
+        // ------------------------------------------------------
+
+        // Array.prototype.concat();
+        // 语法: arr.concat(value[,value2,...valueN]);
+        // 参数: value(any) 任意类型
+        // 描述: 将一个或多个值依次添加到数组的尾部
+        // 返回值: 返回一个新数组
+
+        var arr = [24, 432, 12];
+        var arr2 = arr.concat(544, 444, 111);
+        var arr3 = arr.concat([1,2,3]);
+        console.log(arr);//[24, 432, 12]
+        console.log(arr2);// [24, 432, 12，544, 444, 111]
+        console.log(arr3);//[24,432,12，1,2,3]
+
+        // var arr = [1, 2, 3, 4];
+        // arr.push([4, 5, 6]);
+        // console.log(arr);
+        // concat方法会自动展开第一层数组
+        // var arr2 = arr.concat([4, [5, 6]]);
+        // console.log(arr2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

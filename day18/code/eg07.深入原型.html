@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // prototype 原型
+        // 用于保存 构造函数 实例对象的公有属性
+        // 原型下所有的函数和属性都可以在实例对象(构造函数创建的对象)中被访问
+
+
+        // 对象是哪里来的?
+        // new 关键字
+        // 对象是由函数创建的
+
+        function Foo() {
+            this.foo = 'foo';
+            this.a = '123';
+        }
+
+        Foo.prototype.MAXVALUE = 99999999999;
+        Foo.prototype.a = 456;
+
+        var f = new Foo();
+        // console.log(f.MAXVALUE);
+        // console.log(f.foo);
+        // JS中的对象 可以访问到 原型中的属性和方法
+        // 为什么对象可以访问到原型的属性和方法
+
+        // JS中的每一个对象 都拥有一个 指针 __proto__
+        // __proto__ 指向的是这个对象的构造函数的原型
+
+        // console.log(f.__proto__); // Foo.prototype
+        // console.log(f.constructor); // Foo
+        // console.log(f.__proto__ === Foo.prototype);
+
+        // 对象是如何查找属性的
+        // 1. 首先找私有属性
+        // 2. 向上查找公有属性
+        // 3. 继续沿原型链向上查找 直到 Object.prototype中都没有，找到原型链中的null， 返回undefined
+
+        // console.log(f.a);
+        // console.log(f.toString()); // 哪里来的toString()
+
+        // prototype 原型 对象
+        // 是对象就一定有人创建它
+        // console.log(Foo.prototype.__proto__.constructor); // Object
+
+        // console.log(Object.prototype.toString === f.toString);
+
+        // console.log(Function.prototype.__proto__ === Object.prototype);
+
+        // JS中所有的原型对象 都是由 Object 创建的
+
+
+        // 所有的函数 都是由 Function 创建的
+        // 而Function 是由自己创建的
+        // console.log(Foo.__proto__.constructor); // Function
+        // console.log(Object.__proto__.constructor); // Function
+        // console.log(Function.__proto__.constructor); // Function
+
+
+        console.log(Object.prototype.__proto__);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

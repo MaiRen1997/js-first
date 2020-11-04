@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        
+        .red {
+            background-color: red;
+        }
+        
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            $('#btn').on('click', function() {
+                // 链式调用的好处 减少了对象的创建 并且减少都DOM的查找次数
+                // $('.box').addClass('red').addClass('active').css('width', '500px').removeClass('red');
+
+
+                // $('.box').toggleClass('red');
+
+                $('.box').replaceClass('red', 'yellow');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+
+    <div class="box red" title="hello"></div>
+    <!-- <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div> -->
+</body>
+
+</html>

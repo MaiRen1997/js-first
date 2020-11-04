@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // script元素 是成组出现的 
+        // 它可以出现在页面的任意位置
+        // 每个页面可以有多个script元素
+        // script元素 默认有一个type属性 默认值是 text/javascript
+
+        // alert();    
+        // alert是一个函数 作用是弹出一个警告框
+        // 小括号表示的是 调用该函数
+        // 语句以分号作为结尾
+        // 所有符号 都是英文符号   （） ()   ; ；
+        alert('欢迎学习JavaScript');
+
+
+        // 每一个script元素中允许有多条JS语句
+        // 代码默认从上到下 依次执行
+        alert('第二条警告框语句');
+    </script>
+    <!-- 引入外部JS文件 使用script元素 添加src属性 源 -->
+    <script src="eg01.js">
+        // 当使用script元素 引入外部文件时 
+        // 当前script标签中的所有JS代码会被忽略
+        alert('测试');
+    </script>
+
+    <script>
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

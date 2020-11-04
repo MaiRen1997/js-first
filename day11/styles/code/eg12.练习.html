@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./public.css">
+    <script>
+        window.onload=function(){
+            var tr=document.querySelector('tr');//类型为文档结构
+            var trLikeArr=document.querySelectorAll('tr');//类型为类数组
+            var tbody=document.querySelector('tbody');
+            var success_btn=document.querySelectorAll('.btn-success');
+            var del_button=document.querySelectorAll('.btn-danger');
+            var current_index;
+            var del_item;//记录需要删除的tr的索引
+
+                        //添加节点
+                success_btn[0].onclick=function(){
+                    var create_tr=document.createElement('tr');
+                    create_tr.setAttribute('class', 'box');
+                    create_tr.innerHTML+='<td>01</td><td>aaaaaaaaaa</td><td><input type="button" value="删除该行" class="btn btn-danger"></td>'
+                    tbody.appendChild(create_tr);
+                    tr=document.querySelector('tr');
+                    del_button=document.querySelectorAll('.btn-danger');
+                    console.log(del_button.length);
+                    for(var k=0;k<del_button.length;k++){
+                        del_button[k].index=k;
+                    }
+                    circle();
+                }
+                console.log(del_button.length);
+                var circle=function(){  
+                    
+                    
+                for(var i=0;i<del_button.length;i++){
+                    //for循环已经结束，i已经变成3，如何确定需要删除哪个元素
+                    del_button[i].index=i;
+                    console.dir(del_button);
+                    del_button[i].onclick=function(){
+
+                        console.log(this.index+2);
+
+                        del_item=document.querySelector('tr:nth-child('+this.index+2+')');
+                        tbody.removeChild(del_item);
+
+                        //重新给赋值长度
+                        tr=document.querySelector('tr');
+                        del_button=document.querySelectorAll('.btn-danger');
+                        //重新对下标进行索引
+                        for(var j=0;j<del_button.length;j++){
+                            del_button[j].index=j;
+                        }      
+                    }
+                 }   
+            }//方法的大括号，可以删除
+            circle();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center h1">表格操作</div>
+        <button class="btn btn-success btn-block">添加一行数据</button>
+        <table class="table table-bordered table-hover text-center">
+            <tr>
+                <td>编号</td>
+                <td>内容</td>
+                <td>操作</td>
+            </tr>
+
+            <tr>
+                <td>01</td>
+                <td>aaaaaaaaaa</td>
+                <td><input type="button" value="删除该行" class="btn btn-danger"></td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>bbbbbbbbbbbbbbbbbbbbb</td>
+                <td><input type="button" value="删除该行" class="btn btn-danger"></td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>cccccccccccccccccc</td>
+                <td><input type="button" value="删除该行" class="btn btn-danger"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

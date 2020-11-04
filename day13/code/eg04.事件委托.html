@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+
+            box.addEventListener('click', function(ev) {
+                // 判断目标元素的类名
+                console.log(ev.target.className);
+                switch (ev.target.className) {
+                    case 'h1':
+                        console.log('h1');
+                        break;
+                    case 'span':
+                        console.log('span');
+                        break;
+                    case 'div':
+                        console.log('div');
+                        break;
+                    case 'p':
+                        console.log('p');
+                        break;
+                }
+            }); 
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <h1 class="h1">hello</h1>
+        <span class="span">aaaaa</span>
+        <div class="div">bbbbbbb</div>
+        <p class="p">ccccccccccccc</p>
+    </div>
+</body>
+
+</html>

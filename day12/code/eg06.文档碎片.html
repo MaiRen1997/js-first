@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // document.createDocumentFragment();
+        // 文档碎片(用于创建DOM结构)
+        // 优化DOM操作 
+        // 设计的意义是 减少DOM操作的频次
+        // 常见DOM操作 创建 查找 修改 删除 替换
+
+        window.onload = function() {
+            var list = document.querySelector('.list');
+
+            // console.time('li');
+            // for (var i = 0; i < 50000; i++) {
+            //     var tempLi = document.createElement('li');
+            //     tempLi.innerHTML = '内容' + i;
+            //     list.appendChild(tempLi);
+            // }
+            // console.timeEnd('li');
+
+            // console.time('li');
+            var f = document.createDocumentFragment();
+            for (var i = 0; i < 50000; i++) {
+                var tempLi = document.createElement('li');
+                tempLi.innerHTML = '内容' + i;
+                f.appendChild(tempLi);
+            }
+            // list.appendChild(f);
+            // console.timeEnd('li');
+
+
+            console.time('li');
+            var temp = '';
+            for (var i = 0; i < 50000; i++) {
+                temp += '<li>内容' + i + '</li>';
+            }
+            list.innerHTML = temp;
+            console.timeEnd('li');
+        }
+    </script>
+</head>
+
+<body>
+    <ul class="list"></ul>
+</body>
+
+</html>

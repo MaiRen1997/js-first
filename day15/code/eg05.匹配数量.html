@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var userinput = document.querySelector('#userinput');
+            var result = document.querySelector('#result');
+
+            // 匹配数量
+            // 匹配字符的次数
+
+            // n? 表示匹配0次或1次字符
+            // n* 表示匹配0次或多次字符
+            // n+ 表示匹配1次或多次字符
+            // n{x} 表示匹配x次字符
+            // n{x,y} 表示匹配x至y次字符
+            // n{x,} 表示匹配至少x次字符
+            var reg = /ab?c/;//字母b可以有0次或者1次
+            var reg = /ab*c/;//字母b可以有0次或者多次
+            var reg = /ab+c/;//字母b可以有1次或者多次
+            var reg = /ab{2}c/;//字母b一定要出现2次
+            var reg = /ab{2,5}c/;//字母b可以有2次或者5次
+            var reg = /ab{2,}c/;//字母b可以有2次或者无穷次
+
+            userinput.oninput = function() {
+                result.innerHTML = reg.test(this.value) ? '通过验证' : '未通过验证';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="userinput">
+    <span id="result"></span>
+</body>
+
+</html>

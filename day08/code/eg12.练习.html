@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 字符串处理
+        var str1 = 'no,zuo,no,die'; // No Zuo No Die
+        var str2=','+str1;
+        var arr = new Array();
+        var result = '';
+        for(var i=0;i<str2.length;i++){
+            arr.push(str2.charAt(i));
+        }
+        for(var i=0;i<arr.length;i++){
+            if(arr[i]===','){
+                arr[i+1]=arr[i+1].toUpperCase();
+                arr[i]=' ';
+            }
+            
+        }
+        arr.shift();
+        result=arr.join('');
+        console.log(result);
+        // 2. 字符统计
+        var str2 = 'vbjidsyr8912heiksxjuc902GNJFE21DI56PvbfdHY8931';
+        // 统计字符串中有多少个大写字母 小写字母 数字
+        var upper=0,lower=0,number=0;
+        for(i in str2){
+            if(str2.charCodeAt(i)>=65&&str2.charCodeAt(i)<=90){
+                upper++;
+            }
+            else if(str2.charCodeAt(i)>=97&&str2.charCodeAt(i)<=122){
+                lower++;
+            }
+            else if(str2.charCodeAt(i)>=48&&str2.charCodeAt(i)<=57){
+                number++;
+            }
+        }
+        console.log('数字有'+number+'个'+'大写字母有'+upper+'个'+'小写字母有'+lower+'个');
+        // 3. 字符串压缩
+        var str3 = 'aaaabbccccccdddddeeeffgggggg'; // '4a2b6c5d3e2f6g'
+        var arr1= new Array();
+        var arr2= new Array();
+        var result ='';
+        var count=1;
+        for(var i in str3){
+            arr1[i]=str3.charAt(i);
+        }
+        for(var i=0;i<arr1.length;i++){
+            if(arr1[i]!=arr1[i+1]){
+                arr2.push(count);
+                arr2.push(arr1[i]);
+                count=1;
+            }
+            else{
+                count++;
+            }
+        }
+        result=arr2.join('');
+        console.log(arr1);
+        console.log(arr2);
+        console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

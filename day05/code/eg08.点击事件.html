@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            overflow: auto;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            var box = document.getElementById('box');
+
+            // 点击按钮 让box的字体颜色发生改变
+            // 1. 事件源 按钮
+            // 2. 事件的类型  点击
+            // 3. 事件的处理函数  function
+
+            var count = 1; // 初始值为1 记录点击的次数
+
+            // var flag = true;
+            btn.onclick = function() {
+                // alert('ok');
+                // box.style = "color:red;";
+                // if (flag) {
+                //     box.style = 'color:red';
+                // } else {
+                //     box.style = 'color:green';
+                // }
+                // // count++;
+                // flag = !flag;
+
+                box.style = count % 2 ? 'color:red;' : 'color:green;';
+                count++;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+
+    <div id="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ut beatae quasi quas voluptate, ratione porro error recusandae quam, consequatur corporis aspernatur tenetur consequuntur ducimus placeat nobis fugiat optio sapiente. Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Doloribus deleniti nobis eum? Rerum facere corporis, at deleniti, consequatur accusantium illum neque sapiente dignissimos asperiores quas quaerat labore esse possimus ex! Lorem ipsum, dolor sit amet consectetur
+        adipisicing elit. Fugit, accusantium repellendus est consequuntur voluptatibus voluptatem pariatur fuga voluptatum fugiat voluptates porro perspiciatis consequatur, debitis commodi architecto? Quidem sequi quas numquam.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quod consequatur corrupti inventore dolores. Nulla quo ratione eum voluptate quidem, ad dicta totam eligendi. Numquam officiis enim veritatis minus nulla?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex reprehenderit corporis laudantium nemo, sed voluptas eius suscipit commodi error ad amet explicabo maxime ipsum cum totam facere minima, animi non!
+    </div>
+</body>
+
+</html>

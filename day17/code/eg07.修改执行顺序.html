@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // 获得元素的样式  计算后样式
+
+            function getStyle(elm, style) {
+                if (getComputedStyle) {
+                    return getComputedStyle(elm)[style];
+                } else {
+                    return elm.currentStyle[style];
+                }
+            }
+
+
+            function bufferMove(elm, style, target, callback) {
+                // elm 需要运动的元素
+                // style 需要运动的样式
+                // target 需要运动到的目标
+
+                var speed = 0;
+
+                var timer;
+
+                timer = setInterval(function() {
+                    // 计算速度
+                    // 需要取整 应为计算后样式是有单位的 无法运算
+                    var currentStyle = parseInt(getStyle(elm, style)); // 获得计算后样式
+
+                    speed = (target - currentStyle) / 10;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed); //速度取整
+
+                    if (currentStyle === target) {
+                        clearInterval(timer); // 到达目标 关闭计时器
+                        // if (callback) {
+                        //     callback();
+                        // }
+                        callback && callback();
+                    }
+
+                    elm.style[style] = currentStyle + speed + 'px';
+                }, 20);
+            }
+
+            var box = document.getElementById('box');
+
+            // 顺序动画
+
+            bufferMove(box, 'width', 300, function() {
+                bufferMove(box, 'top', 300, function() {
+                    box.style.background = 'yellow';
+                });
+            });
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>

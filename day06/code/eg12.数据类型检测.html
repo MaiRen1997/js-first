@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // typeof 只能用于基本类型的检测
+
+        // 对于引用类型的数据检测 typeof 无能为力
+
+        // 对于弱类型语言来说 检测数据类型 非常重要 减少不必要的bug
+
+        var o = {};
+        var arr = [];
+        // console.log(typeof o);
+        // console.log(typeof arr);
+
+        // ES提供的解决方案 
+        // instanceof 关键字  实例
+        
+        var o = {};
+        var arr = [];
+        console.log(o instanceof Object);//true
+        console.log(o instanceof Array);//false
+
+        console.log(arr instanceof Array);//true
+        console.log(arr instanceof Object);//true
+
+        // -------------------------------------------------------------------
+        // 检测数据类型 方案1 使用 constructor 进行判断
+        //constructor 构造函数
+        console.log(o.constructor === Object);
+        console.log(o.constructor === Array);
+        console.log(arr.constructor === Array);
+        console.log(arr.constructor === Object);
+
+        // --------------------------------------------------------------------
+        // 检测数据类型 方案2 使用 自定义函数
+        function getType(o) {
+            return Object.prototype.toString.call(o).slice(8, -1);
+        }
+
+        console.log(getType({}));
+        console.log(getType([]));
+        console.log(getType(null));
+        console.log(getType(undefined));
+        console.log(getType(213));
+        console.log(getType(true));
+        console.log(getType('abc'));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

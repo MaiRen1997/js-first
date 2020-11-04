@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            padding: 10px;
+            margin: 50px;
+            position: relative;
+        }
+        
+        .son {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            margin: 50px;
+            position: absolute;
+            top: 50px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.querySelector('.box');
+            var son = document.querySelector('.son');
+
+            // offsetWidth/offsetHeight 
+            // 获取元素的宽高 获得元素实际大小
+            // console.log(box.offsetWidth, box.offsetHeight);
+            // 标准盒模型
+            // content+padding+border
+            // 怪异盒模型(IE盒模型)
+            // content
+
+            // offsetTop/offsetLeft
+            // 获得元素的定位位置(偏移量) 
+            // 属性受margin影响
+            // 受父元素边框和内填充影响,如果自己设置了absolute，那么就不受父元素
+               //    的padding影响
+            // 如果父元素定位了 根据父元素的左上角开始计算位置
+            // 如果父元素没有定位 根据页面左上角开始计算位置
+            // console.log(box.offsetTop, box.offsetLeft);
+            console.log(son.offsetTop, son.offsetLeft);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box" style="width:400px">
+        <div class="son"></div>
+    </div>
+</body>
+
+</html>

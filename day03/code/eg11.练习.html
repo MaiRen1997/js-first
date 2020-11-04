@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 三种循环结构
+        // while do-while for
+        // 在大部分情况下是允许互换的(明确的知道循环的次数)
+        // 一般明确循环次数 使用 for
+        // 不明确循环次数 使用 while 或 do-while
+
+        // 1. 张三入职了一家科技公司。月薪是1万元。每年公司调薪涨幅5%。50年以后他的月薪是多少？
+        var salary=10000;
+        for(var i=1;i<=49;i++){
+            salary = salary*(1.05);
+        }
+        console.log('张三50年后的工资是'+salary);
+        // 2. 在控制台打印100以内 所有7的倍数
+        for(var j=0;j<100;j+=7){
+            console.log(j);
+        }
+
+        // 3. 输出100以内 所有偶数的和
+        var sum=0;
+        for(var k=0;k<100;k+=2){
+            sum+=k;
+        }
+        console.log(sum);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

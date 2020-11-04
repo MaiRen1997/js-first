@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addEvent(elm, type, fn) {
+            if (elm.addEventListener) { // 判断是否支持该函数
+                elm.addEventListener(type, fn);
+            } else if (elm.attachEvent) {
+                elm.attachEvent('on' + type, fn); 
+            }
+        }
+
+        // 鼠标中键滚轮 
+        // 有兼容问题
+        // mousewheel      chrome/ie
+        // DOMMouseScroll  FireFox
+
+        // document.addEventListener('mousewheel', function(ev) {
+        //     // ev.wheelDelta  用于判断滚动方向
+        //     // 这个值大于0 向上滚动
+        //     // 这个值小于0 向下滚动
+        //     console.log(ev.wheelDelta > 0 ? '向上' : '向下');
+        // });
+
+        // document.addEventListener('DOMMouseScroll', function(ev) {
+        //     // ev.detail 用于判断滚动方向
+        //     // 这个值大于0 向下滚动
+        //     // 这个值小于0 向上滚动
+        //     console.log(ev.detail > 0 ? '向下' : '向上');
+        // });
+
+        // 兼容事件
+
+        function mouseScroll(ev) {
+            ev = ev || event;
+            var flag = true; // 方向
+            if (ev.wheelDelta) {
+                flag = ev.wheelDelta > 0 ? true : false;
+            } else {
+                flag = ev.detail < 0 ? true : false;
+            }
+            console.log(flag); // true 向上   false 向下
+        }
+
+        addEvent(document, 'mousewheel', mouseScroll);
+        addEvent(document, 'DOMMouseScroll', mouseScroll);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

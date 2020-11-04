@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 字母 大小写 数字 特殊符号
+        // 密码是什么?  字符串
+        // 判断组成字符串的字符种类数量
+        window.onload = function() {
+            var password = document.querySelector('#password');
+            var result = document.querySelector('#result');
+
+            // 规则制定
+            // 大写字母 小写字母 数字 特殊符号
+            // 密码长度 6,16
+            // 密码字符组合种类 2种 弱
+            // 组合种类         3种 中
+            //                  4种 强
+
+            var passReg = [
+                /^.{6,16}$/, // 限定长度
+                /[A-Z]+/, // 验证大写字母
+                /[a-z]+/, // 验证小写字母
+                /\d+/, // 验证数字
+                /[^A-z0-9]+/ // 验证特殊符号   
+            ];
+
+            password.oninput = function() {
+                var that = this;
+                var check = passReg.map(function(elm) {
+                    // 遍历数组 
+                    // 使用数组种的每一个正则 验证输入框的字符串
+                    // 将所有验证的结果 返回成一个数组  数组种存放了 5个布尔值
+                    return elm.test(that.value);
+                });
+
+                var strength = check.reduce(function(obj, current) {//判断满足几种条件
+                    current && obj.count++;
+                    return obj;
+                }, {
+                    count: 0
+                });
+
+
+                if (check[0]) {
+                    switch (strength.count) {
+                        case 3:
+                            result.innerHTML = '弱';
+                            break;
+                        case 4:
+                            result.innerHTML = '中';
+                            break;
+                        case 5:
+                            result.innerHTML = '强';
+                            break;
+                    }
+                } else {
+                    result.innerHTML = '密码长度不足6位';
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="password"><span id="result"></span>
+</body>
+
+</html>

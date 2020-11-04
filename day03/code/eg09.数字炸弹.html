@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 数字炸弹游戏 
+        // 随机给出一个数字  数字的取值范围 是0-100
+        // 由用户来猜 这个数字
+
+        // Math.random() 获得一个0-1的随机小数 (这个数字 包含0 不包含1)
+
+        var randomNumber = parseInt(Math.random() * 101);
+        var userInput;
+
+        do {
+            userInput = parseInt(prompt('请输入一个数字'));
+
+            if (isNaN(userInput)) {
+                alert('输入错误,请从新输入');
+                continue;
+            }
+
+            if (userInput === randomNumber) {
+                alert('BOOM!猜对了！');
+            } else if (userInput > randomNumber) {
+                alert('数字太大了，请从新猜');
+            } else {
+                alert('数字太小了，请从新猜');
+            }
+
+
+        } while (userInput != randomNumber); // 条件 用户猜错 循环
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

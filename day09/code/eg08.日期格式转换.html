@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var d = new Date();
+        // console.log(d.toString());
+        // console.log(d.toDateString()); // 获得日期部分
+        // console.log(d.toTimeString()); // 获得时间部分
+        // console.log(d.toLocaleString()); // 获得本地时间格式
+        // console.log(d.toLocaleDateString());
+        // console.log(d.toLocaleTimeString());
+
+        // console.log(d.toUTCString());
+        // console.log(d.toGMTString());
+
+        var yy = d.getFullYear();
+        var mm = d.getMonth() + 1;
+        var dd = d.getDate();
+        var h = d.getHours() > 12 ? d.getHours() - 12 : d.getHours();
+        var m = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+        var s = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
+        var dateString = '';
+        console.log(dateString.concat(yy, '-', mm, '-', dd, ' ', h, ':', m, ':', s));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

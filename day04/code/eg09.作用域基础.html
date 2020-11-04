@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 作用域(范围/区域)
+        // JavaScript 传统作用域分为两种
+        // 1. 全局作用域
+        // 2. 函数作用域
+
+        // 全局作用域 指的是在全局环境下定义的变量或函数
+        // 一经定义 全局可用(任何位置都可以使用)
+        // parseInt()  alert()  isNaN() ...
+
+
+        // 函数作用域 指的是在函数中定义的变量或函数
+        // 它的作用域仅限于 定义的函数内
+
+        // var a = 8;
+
+        // function fn() {
+            // var a = 10;
+            // console.log(a); // 函数内访问的a 是函数作用域中的a
+
+            // function fn2() {
+            //     // 当前作用域中 没有a
+            //     console.log(a);
+            // }
+
+            // fn2();
+        // }
+
+        // fn();
+        // console.log(a); // 全局作用域中a
+
+        // -----------------------------------------------
+
+        // 函数在执行时也有预编译阶段
+        // 预编译是将 函数声明提前执行
+        // 变量声明提前到当前作用域的顶部
+
+        var num1 = 5;
+        function fn3() {
+            console.log(num); // undefined
+            var num = 6;
+            console.log(num); // 6
+        }
+        fn3();
+
+        // ---------------------------------------------
+
+        // 没有函数 就是全局作用域
+        // if (true) {
+        //     var a = 5;
+        // }
+
+        // console.log(a);
+
+        // if (false) {
+        //     var b = 3;
+        // }
+        // console.log(b);
+
+        // for (var i = 0; i < 10; i++) {}
+        // console.log(i);
+
+        // ------------------------------------------------
+
+        // function fn() {
+        //     // 给未声明的变量直接赋值
+        //     // 这个变量默认为全局变量
+        //     var a = b = c = 5;
+        //     console.log(a, b, c);
+        // }
+
+        // fn();
+        // console.log(c);
+
+        // -----------------------------------------------
+
+        // var a = 10; 
+        // {
+        //     function fn() {
+        //         console.log(1);
+        //     }
+
+        //     fn();
+        // }
+
+
+        // fn();
+        // console.log(a);
+        // console.log(b);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

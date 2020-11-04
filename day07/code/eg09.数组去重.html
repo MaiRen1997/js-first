@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 数组去重
+        // 去除数组中的重复项
+
+        // var arr = [32, 543, 22, 54, 11, 32, 22, 22, 52, 453, 11, 3];
+
+        // 1. 比较
+        // 先排序 后比较
+        arr.sort(function(a, b) {
+            return a - b;
+        });
+
+        console.log(arr);
+        var result = []; // 空数组 用于存放去重结果
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] != arr[i + 1]) { //不重复
+                result.push(arr[i]); // 放入结果数组
+            }
+        }
+        console.log(result);
+
+        // ------------------------------------------------------------------------
+
+        // 创建一个结果数组 在结果数组中查找 原数组中的每一个元素
+        // 如果在结果数组中 存在该元素 则跳过  不存在就将该元素放入结果数组
+        // var arr = [32, 543, 22, 54, 11, 32, 22, 22, 52, 453, 11, 3];
+        // var result = [];
+
+        function findItem(arr, value) {
+            // arr 需要查找的数组
+            // value 需要查找的值
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] === value) { // 如果数组中的元素 和 传入的value值相等 就返回索引
+                    return i;
+                }
+            }
+
+            return -1; //循环结束以后 还没有找到 返回-1
+        }
+
+        for (var i = 0; i < arr.length; i++) { // 遍历原数组的每一个值
+            if (findItem(result, arr[i]) === -1) { // 如果没有找到 就将这个元素添加进结果数组
+                result.push(arr[i]);
+            }
+        }
+
+        console.log(result);
+
+        // ----------------------------------------------------------
+        // 应用 去重
+        var arr = [32, 543, 22, 54, 11, 32, 22, 22, 52, 453, 11, 3];
+        var result = [...new Set(arr)];
+        console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

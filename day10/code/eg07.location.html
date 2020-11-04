@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // location 用于保存URL(统一资源定位器)相关信息
+
+        // location.href 获取或设置URL地址
+        // location.hash 获得URL中从#开始的部分
+        // location.host 主机名和端口号
+        // location.hostname 主机名
+        // location.pathname 路径名 返回路径第一个斜杠开始的部分
+        // location.port 端口号
+        // location.protocol 协议  http://  https://  ftp:// udp:// 
+        // location.search 获取从?开始的部分
+
+
+        console.log(location);
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            location.href = 'https://www.baidu.com';
+
+            btn.onclick = function() {
+                // location = 'https://www.baidu.com'; // 快捷方式
+                location.href = 'https://www.baidu.com';
+                // console.log(location.href);
+
+                // console.log(location.hash);
+
+                // console.log(location.host);
+
+                // location.reload();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">anniu </button>
+</body>
+
+</html>

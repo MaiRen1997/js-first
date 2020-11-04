@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // class 类 自定义数据类型
+        // es6 的 class 关键字 是 构造函数的 语法糖
+        // ECMAScript 从始至终都没有 类 这个概念
+
+        // class的本质是函数
+        // 类 在编程语言中 命名规范是 大驼峰命名法
+        // 类 只有批量创建对象 才有意义
+        // 如果只想创建一个对象 使用 {}
+
+        class Student {
+            // 构造器(构造函数)
+            constructor(name, age, sex, className) {
+                // 在constructor中 this关键字 指向新创建对象
+                // 为对象添加 私有属性 对象自身拥有的属性
+                this.name = name;
+                this.age = age;
+                this.sex = sex;
+                this.className = className;
+
+                // this.goHome = function() { // 引用类型
+                //     console.log(this.name + '回家');
+                // }
+            }
+
+            // 公有函数 提供功能共享 减少内存开销
+            // 所有使用这个类 创建出来的对象  都可以调用公有方法
+            goHome() {
+                console.log(this.name + '回家');
+            }
+
+            play() {
+                console.log(this.name + 'play');
+            }
+
+            static getName() { // 静态方法
+                // 静态方法通过类名调用
+                console.log(this.name);
+            }
+
+        }
+
+        let s1 = new Student('zhangsan', 25, 'nan', 'html5-2009');
+        let s2 = new Student('lisi', 25, 'nan', 'html5-2009');
+        let s3 = new Student('wangwu', 25, 'nan', 'html5-2009');
+
+        // console.log(s1);
+        // console.log(s2);
+        // console.log(s3);
+
+        // s1.goHome();  // 调用公有方法
+        // s2.goHome(); 
+        // s3.goHome();
+
+        // s1.play();
+        // s2.play();
+
+        //String.fromCharCode()
+        //Array.from()
+        Student.getName(); // 调用静态方法
+
+        // console.log(typeof Student);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

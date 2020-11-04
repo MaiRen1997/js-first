@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 工厂函数 工厂模式
+
+        // 工厂是一个批量生产产品的地方
+        // 工厂生产产品 需要原料
+        // 原料由客户提供
+        // 工厂会对产品进行包装(封装)
+        // 工厂生产的产品都是可以直接使用的成品
+        // 生产好的产品需要还给客户
+
+        // 工厂函数的作用是生产对象 所以也采用大驼峰命名法
+        function Phone(cpu, ram, rom, scn) {
+            var phone = new Object(); // 每一件产品都是独立的新对象
+            //将原料放入产品中
+            phone.cpu = cpu;
+            phone.ram = ram;
+            phone.rom = rom;
+            phone.scn = scn;
+            return phone;
+        }
+
+        var iphoneX1 = Phone('A12', '128G', '8G', '三星');
+        console.log(iphoneX1);
+
+        var iphoneX2 = Phone('A12', '128G', '8G', '三星');
+        console.log(iphoneX2);
+
+        var iphoneX3 = Phone('A12', '128G', '8G', '三星');
+        console.log(iphoneX3);
+
+        var iphoneX4 = Phone('A12', '128G', '8G', '三星');
+        console.log(iphoneX4);
+
+        console.log(iphoneX1 === iphoneX2);//false
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #ball{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: blue;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+</style>
+<script>
+    window.onload = function(){
+        var ball = document.querySelector('#ball');
+        ball.onclick = function(){
+            ball.style.background='red';
+            //设置初始速度
+            var speedY = 3;
+            //设置y记录距离顶部的间距
+            let y;
+            //设置timer记录计时器
+            var timer;
+            
+            timer = setInterval(function(){
+                //将距离按照速度进行叠加
+                speedY +=3;
+                y = ball.offsetTop + speedY;
+                
+                if(y>=innerHeight - ball.offsetHeight){
+                    y = innerHeight - ball.offsetHeight;
+                    speedY*=-0.8;
+                }/* else if(y<=0){//当设置速度  *=-0.8时，就不要考虑上边界的问题了
+                    y=0;
+                    speedY*=-0.8;
+                } */
+                if(Math.abs(speedY)<1){
+                    speedY=0;
+                }
+                if(speedY == 0 && y == innerHeight - ball.offsetHeight){
+                    y = innerHeight - ball.offsetHeight;
+                    clearInterval(timer);
+                }
+                /* if(speedY==0){
+                    clearInterval(timer);
+                } */
+                console.log(1);
+                
+                ball.style.top = y+'px';
+
+            },20);
+        }
+        
+    }
+</script>
+<body>
+    <div id="ball">
+
+    </div>
+</body>
+</html>

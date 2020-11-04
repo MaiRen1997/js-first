@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            // var list = document.getElementById('list');
+
+            // nodeName 属性 
+            // 所有的节点都拥有该属性
+            // 只读的值 string类型
+
+            // 元素节点 元素名(大写)
+            // 文本节点 #text
+            // 属性节点 属性名
+            // 文档节点 #document
+            // 注释节点 #comment
+
+
+            // console.log(list.nodeName);
+
+            // console.log(list.firstChild.nodeName);
+
+            // console.log(document.nodeName);
+
+            // console.log(list.childNodes[3].nodeName);
+
+            var box = document.getElementById('box');
+
+            // box.children  类数组对象
+
+            // 类数组转数组的方法
+            // 1. Array.from(arrayLike);   //ES6
+
+            var arr = Array.from(box.children);
+            // console.log(arr);
+
+            // 2. [].slice.call(arrayLike);
+            // var arr2 = [].slice.call(box.children);
+            // console.log(arr2);
+
+            var result = arr.filter(function(elm) {
+                return elm.nodeName == 'DIV';
+            });
+            console.log(result);
+
+        }
+    </script>
+</head>
+
+<body>
+    <!-- <ul id="list">
+        <li>111</li>
+
+    <li>222</li>
+    <li>333</li>
+    </ul> -->
+    <div id="box">
+        <div>ghdsjibn</div>
+        <div>ghdsjibn</div>
+        <span>fbjdskb</span>
+        <!-- 123 -->
+        <h1>gdojaa</h1>
+        <h1>gfndk</h1>
+        <div>ghdsjibn</div>
+        <div>ghdsjibn</div>
+        <div>ghdsjibn</div>
+        <div>ghdsjibn</div>
+    </div>
+
+</body>
+
+</html>

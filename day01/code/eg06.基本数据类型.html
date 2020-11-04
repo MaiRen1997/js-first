@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // JavaScript 有五种 基本数据类型(原始数据类型,值类型)
+        // 1. Undefined
+        // 2. Null
+        // 3. Boolean
+        // 4. Number
+        // 5. String
+
+        // ----------------------------------
+
+        // Undefined 类型 只有一个值 undefined
+        // 它表示一个变量未赋值  是所有变量的初始值
+        // 一般不会主动赋值使用
+        // var arg = undefined;
+        var arg;
+        console.log(arg);
+
+        // -----------------------------------
+
+        // Null 类型 只有一个值  null
+        // 英文意思是空
+        // 它表示一个变量将来可能指向某个对象 但是目前什么都没有指向
+        // 它是一个空对象指针(逻辑角度理解)
+        // 用来释放引用
+        var msg = null;
+        console.log(msg);
+
+        // -------------------------------------
+
+        // Number类型 表示数字
+        // 不管是整数还是小数  在ECMAScript中 都是Number类型
+        // 特点 可以进行运算
+        var num1 = 10;
+        var num2 = 54;
+        console.log(num1 + num2);
+
+        // 当需要一个恒定的值时  这个值被称之为常量 圆周率 就是一个常量
+        // 在编程中 常量的声明 采用 全大写的方式(命名规范)
+        var PI = 3.141592653;
+        console.log(PI * 2);
+
+        // NaN     Not a Number(不是一个数字)
+        // NaN  也是Number类型的数据
+        // 它表示一个要返回数值的操作 没有返回数值的情况
+
+        console.log(3 * 2); // 乘法运算 数值可以做乘法运算
+        console.log(3 * 'a'); // 乘法运算 NaN
+        console.log(5 * 0);
+        console.log(5 / 0); // Infinity  无穷
+        // Infinity 也是Number类型
+
+        // 函数 isNaN()    is Not a Number
+        // 判断一个值 是不是非数字  
+        // isNaN() 会返回一个布尔类型的值
+
+        console.log(isNaN(123)); // false
+        console.log(isNaN(3 / 'abc')); // true 表示结果不是数字
+
+
+        // ---------------------------------------------
+        // Boolean 类型 布尔类型
+        // 布尔类型 有两个值
+        // true     真
+        // false    假
+        // 所有只有2种情况的 数据 我都可以使用布尔类型来表示
+        // 开关
+        // 性别
+        // 布尔类型 在程序中可以参与运算
+        // 在布尔类型进行运算时  
+        // true会自动转换成数字1    '男'
+        // false会自动转换成数字0   '女'
+        // ----------------------------------------------
+
+        // String 类型 字符串类型
+        // 只要写在引号中的 都是字符串类型
+        // 引号 可以是 单引号和双引号
+        // 建议使用单引号
+
+        // Java语言  单引号表示的是字符char 'a' 双引号表示字符串string "abc"
+
+        // 在字符串中使用 \ 表示转义字符
+        // 如果 \ 跟的是引号 表示输出引号  \'  \"
+        // \n 表示换行符  换行符 也是字符串
+        // \t 表示制表符
+        console.log('\'你好\n世界\'');
+    </script>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

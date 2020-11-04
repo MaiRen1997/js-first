@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .list {
+            list-style: none;
+            overflow: hidden;
+        }
+        
+        .list>li {
+            float: left;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 10px;
+            border: 3px solid red;
+            color: red;
+            text-align: center;
+            font-size: 3em;
+            line-height: 80px;
+        }
+        
+        .list>li:last-child {
+            border: 3px solid blue;
+            color: blue;
+        }
+    </style>
+    <script>
+        // 双色球玩法
+        // 红色球 1-33 需要6个
+        // 蓝色球 1-16 需要1个
+
+        function random(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            var list = document.getElementById('list');
+
+            var redBall = []; // 存放红色球
+            var redResult = []; // 抽取的红色球结果
+
+            btn.onclick = function() {
+
+                // 初始化 清空数组
+                // 清空元素
+                redBall.length = 0;
+                redResult.length = 0;
+                list.innerHTML = '';
+
+                for (var i = 0; i < 33; i++) {
+                    redBall.push(i + 1); // 放入红色球
+                }
+
+                // 随机出6个红色球
+                for (var j = 0; j < 6; j++) {
+                    // 随机一个索引值
+                    var _index = random(0, redBall.length - 1);
+                    // var temp = redBall.splice(_index, 1)[0]
+                    redResult.push(redBall.splice(_index, 1)[0]);
+                    list.innerHTML += '<li>' + redResult[j] + '</li>'; // 将结果放入页面
+                }
+
+                var blue = random(1, 16);
+                list.innerHTML += '<li>' + blue + '</li>';
+
+                // console.log(redResult);
+                // console.log(redBall);
+
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">获得一组随机双色球</button>
+    <ul class="list" id="list">
+
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Object.defineProperty() 
+        // 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象
+        // 语法: Object.defineProperty(obj, prop, descriptor)
+        // 参数: obj 需要定义属性的对象
+        //       prop 需要定义或修改的属性名 可以是字符串 也可以是Symbol
+        //       descriptor 定义或修改属性的描述符
+
+        var obj = {
+            name: 'zhangsan'
+        };
+
+        Object.defineProperty(obj, 'age', {//设置age属性
+            configurable: true, // 属性可删除  默认false
+            enumerable: true, // 属性可枚举  默认false
+            writable: true, // 属性可赋值  默认 false
+            value: 20
+        });
+
+        Object.defineProperty(obj, 'name', {
+            enumerable: false
+        })
+
+        obj.age = 21; // 没有修改成功
+
+        // delete obj.age; // 无法删除
+
+
+        // console.log(obj);
+
+        for (let key in obj) { // 无法枚举 age
+            console.log(key, obj[key]);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

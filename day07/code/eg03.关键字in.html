@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // in 关键字  
+        // 可以用于检测属性是否存在
+
+
+        var o = {
+            name: 'zhangsan',
+            age: 20
+        };
+
+        // 判断name属性是否存在
+        console.log(o.name != undefined && o.name != null);
+
+        // 语法 
+        // 属性名 in 对象
+        console.log('name1' in o);
+
+        if (o.name) {
+            console.log('存在');
+        } else {
+            console.log('不存在');
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

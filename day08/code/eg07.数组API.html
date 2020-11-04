@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Array.prorotype.every()
+        // 语法: arr.every(callback);
+        // 参数: callback(function) 回调函数
+        // 回调参数: currentValue
+        //           index
+        //           array
+        // 描述: eveny用于检测数组中所有的值是否能通过 给定的 布尔表达式的检测
+        //       如果所有元素都通过布尔表达式检测 则返回 true  否则返回false
+        // 返回值: 布尔值
+
+        // var arr = [3, 5, 43, 11, 61];
+
+        // var result = arr.every(function(elm) {
+        //     return elm % 2;
+        // });
+
+        // console.log(result);
+
+
+
+        // var students = [{
+        //     name: 'zhangsan',
+        //     age: 20
+        // }, {
+        //     name: 'lsii',
+        //     age: 14
+        // }, {
+        //     name: 'wangwu',
+        //     age: 28
+        // }, {
+        //     name: 'zhaoliu',
+        //     age: 16
+        // }, {
+        //     name: 'fengqi',
+        //     age: 20
+        // }, {
+        //     name: 'xiaowang',
+        //     age: 35
+        // }];
+
+        // var res = students.every(function(elm) {
+        //     return elm.age >= 18;
+        // });
+
+        // console.log(res);
+
+        // ----------------------------------
+        //原理分析
+        var arr = [2, 3, 4, 6];
+
+        Array.prototype.every1 = function(callback) {
+            var temp;
+            for (var i = 0; i < this.length; i++) {
+                temp = callback(this[i], i, this);
+                if (!temp) return false;
+            }
+            return true;
+        }
+
+        var res = arr.every1(function(elm) {
+            return elm % 2 == 0;
+        });
+        console.log(res);
+
+        // --------------------------------------
+
+        // Array.prototype.some();
+        // 语法: arr.some(callback);
+        // 参数: callback 回调函数
+        // 回调参数:
+        //       currentValue
+        //       index
+        //       array
+        // 描述: some函数遍历数组中的每一个元素 为每一个元素进行一个测试 
+        //       当数组中有元素通过测试 则返回true  否则返回false
+        // 返回值: 布尔值
+
+        // var arr = [11, 423, 121, 31];
+        // var res = arr.some(function(elm) {
+        // return elm % 2 == 0;  // 判断是否有偶数
+        // return elm === 31;  // 判断是否有31
+        // });
+        // console.log(res);
+
+        // --------------------------------------
+
+        // Array.prototype.find()
+        // 语法: arr.find(callback);
+        // 参数: callback 
+        // 回调参数:
+        //      currentValue
+        //      index
+        //      array
+        // 描述: 方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。
+
+        var arr = [2, 54, 3, 123, 454, 11, 21, 47, 39];
+        var res = arr.find(function(elm) {
+            return elm % 3 == 0;
+        });
+        console.log(res);
+
+        // --------------------------------------
+
+        // Array.prototype.findIndex()
+        // 语法: arr.findIndex(callback);
+        // 回调参数: 
+        //       currentValue
+        //       index
+        //       array
+        // 描述: 方法返回数组中满足提供的测试函数的第一个元素的索引。若没有找到对应元素则返回-1。
+        // 返回值: 索引或-1(number)
+
+        var arr = [2, 54, 3, 123, 454, 11, 21, 47, 39];
+        var res = arr.findIndex(function(elm) {
+            return elm % 3 == 0;
+        });
+        console.log(res);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 500px;
+            background: lightblue;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var contain = document.getElementById('box');
+            var input_word=document.getElementById('input_text');
+            //鼠标双击事件
+            contain.ondblclick=function(){
+                //console.log("张三");
+                contain.innerHTML="哈哈";
+            }
+            //鼠标单击事件
+            contain.onclick=function(){
+                contain.style="background:red";
+                this.style= "background:blue";
+            }
+            //鼠标移入
+            contain.onmouseover=function(){
+                console.log("mouseover");
+            }
+            //鼠标移出
+            contain.onmouseleave=function(){
+                console.log("mouseleave");
+            }
+            //鼠标移入
+            contain.onmouseenter = function(){
+                console.log("mouseenter");
+            }
+            //鼠标移出
+            contain.onmouseout = function(){
+                console.log("mouseout");
+            }
+            //鼠标按下
+            contain.onmousedown=function(){
+                console.log("mousedown");
+            }
+            //鼠标抬起
+            contain.onmouseup=function(){
+                console.log("mouseup");
+            }
+            //鼠标移动
+            contain.onmousemove=function(){
+                console.log("mousemove");
+            }
+            //鼠标右键
+            contain.oncontextmenu=function(){
+                console.log('contextmenu');
+            }
+
+
+            //键盘按下,要将值输入到文本框
+            input_word.onkeydown=function(){
+                console.log('keydown');
+            }
+            //键盘抬起
+            input_word.onkeyup=function(){
+                console.log('keyup');
+            }
+
+
+            //表单获得焦点
+            input_word.onfocus=function(){
+                console.log('input_focus');
+            }
+            //表单失去焦点
+            input_word.onblur=function(){
+                console.log('input_blur');
+            }
+            //表单内容改变
+            input_word.onchange=function(){
+                console.log('change');
+            }
+            //表单输入
+            input_word.oninput=function(){
+                console.log('input');
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+    </div>
+    <input type="text" name="" id="input_text">
+</body>
+</html>

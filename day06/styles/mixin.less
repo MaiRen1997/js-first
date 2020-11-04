@@ -1,0 +1,44 @@
+@charset 'utf-8';
+
+// 混合(mixin)使用类名进行命名
+
+// .text-center{
+//     text-align: center;
+// }
+
+// .center-block{
+//     display: block;
+//     margin:0 auto;
+// }
+
+// .nav{
+//     .img{
+//         img{
+//             .center-block;
+//             width: 900px;
+//         }
+//     }
+// }
+
+// ----------------------------
+// 带参数的mixin
+.yuan(@radius){
+    border-radius:@radius ;
+    -webkit-border-radius:@radius ;
+    -moz-border-radius:@radius ;
+    -ms-border-radius:@radius ;
+    -o-border-radius:@radius ;
+}
+
+.border(@borderwidth,@borderstyle,@bordercolor){
+    border:@borderwidth @borderstyle @bordercolor;
+}
+
+.nav{
+    .box{
+        .yuan(10px);
+        .border(1px,solid,#ccc);
+        width: 1200px;
+        height: 300px;
+    }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Array.prototype.filter()
+        // 语法: arr.filter(callback);
+        // 参数: callback(function) 回调函数
+        // 回调参数:
+        //     currentValue 当前操作的元素
+        //     index        当前元素对应的索引
+        //     array        当前操作的数组
+        // 描述: filter方法用于检测数组中的每一个元素 是否符合 给定布尔表达式的结果
+        //       将所有布尔表达式结果为true的元素 组成一个新的数组并返回
+        // 返回值: 新数组
+
+        var arr = [645, 32, 42, 5, 115, 4321, 655, 123, 76];
+        // 选出所有的偶数
+        // -----------------------
+        // var result = [];
+        // arr.forEach(function(elm, i) {
+        //     // if (elm % 2 == 0) {
+        //     //     result.push(elm);
+        //     // }
+        //     elm % 2 == 0 && result.push(elm);
+        // });
+        // console.log(result);
+        //--------------------------
+        var result = arr.filter(function(elm) {
+            return elm % 2 == 0;
+        });
+
+        console.log(result);
+
+        // --------------------------
+
+        // JSON数组
+        // var students = [{
+        //     name: 'zhangsan',
+        //     age: 20
+        // }, {
+        //     name: 'lsii',
+        //     age: 14
+        // }, {
+        //     name: 'wangwu',
+        //     age: 28
+        // }, {
+        //     name: 'zhaoliu',
+        //     age: 16
+        // }, {
+        //     name: 'fengqi',
+        //     age: 20
+        // }, {
+        //     name: 'xiaowang',
+        //     age: 35
+        // }];
+
+        // // console.log(JSON.stringify(students));
+
+        // var res = students.filter(function(elm) {
+        //     // console.log(elm);
+        //     return elm.age >= 18;
+        // });
+
+        // console.log(res);
+
+        // -----------------------------------------------
+        // 原理分析
+        var arr = [543, 3, 21, 54, 11, 45, 654, 21];
+
+        Array.prototype.filter1 = function(callback) {
+            var result = [];
+            for (var i = 0; i < this.length; i++) {
+                callback(this[i], i, this) && result.push(this[i]);
+            }
+            return result;
+        }
+        var res = arr.filter1(function(elm) {
+                    return elm % 2 == 0;
+                })
+
+        console.log(res);
+        // var res = arr.filter1(function(elm) {
+        //     return elm % 3 == 0;
+        // });
+
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

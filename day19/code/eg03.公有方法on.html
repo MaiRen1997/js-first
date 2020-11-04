@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            // $('#btn').on('click', function() {
+            //     alert(1);
+            // });
+
+            // $('ul>li').on('click', function() {
+            //     console.log(this); // 当前触发事件的元素
+            // })
+
+            $('ul>li').on({
+                'mouseover': function() {
+                    console.log(this.innerHTML, 'mouseover');
+                },
+                'mouseout': function() {
+                    console.log(this.innerHTML, 'mouseout');
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+
+    <ul>
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+        <li>05</li>
+    </ul>
+</body>
+
+</html>

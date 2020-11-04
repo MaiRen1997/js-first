@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 创建对象 有两种方式
+
+        // 1. 使用构造函数进行创建
+        // var o = new Object();
+        // // 对象是一组 无序的 数据与功能的集合
+        // // 数据 属性
+        // // 功能 函数
+
+        // o.name = 'zhangsan'; // 为一个不存在的属性进行赋值 添加属性
+        // o.name = 'lisi'; // 为一个已经掺杂爱的属性进行赋值  修改属性
+
+        // // 访问一个不存在的对象属性 返回结果为 undefined
+        // // console.log(o.age);
+
+        // // 如果不存在就赋值为20 否则不变
+        // if (typeof o.age === 'undefined') {
+        //     o.age = 20;
+        // } else {
+        //     o.age = o.age;
+        // }
+
+        // ----------------------------------------------------------------
+
+        // 2. 直接量创建对象  {}
+        var o = {
+            // 大括号内所有的属性和值 是以键值对(名值对)的形式书写
+            // 每一对属性的名和值之间使用冒号分割，每一组属性使用逗号分隔
+            'name': 'zhangsan',
+            'age': 25,
+            'address': '浙江杭州'
+        }; // {}的对象创建方式 和 new Object() 没有任何区别
+        // {}本质上是new Obejct的语法糖
+
+        o.phoneNumber = 13888888888;
+        // console.log(o);
+
+        // 对象的属性名 是字符串类型
+
+
+        // JSON对象  JSON(JavaScript 对象 表示法)
+        // JSON是一种轻量的数据交换格式
+        // JSON格式在其他编程语言中 是以字符串的形式存在的
+        var product = {
+            productId: 100001,
+            productName: 'JavaScript高级程序设计',
+            productPrict: 99
+        };
+
+        // JSON字符串
+        // 格式要求
+        // 属性名带双引号 属性值如果是字符串类型带双引号
+        // 最外层的引号为 单引号
+        var str = '{ "productId": 100001, "productName": "JavaScript高级程序设计", "productPrict": 99}';
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

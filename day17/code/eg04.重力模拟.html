@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            let box = document.querySelector('#box');
+
+            let speedY = 3;
+
+            let timer;
+
+            box.onclick = function() {
+                timer = setInterval(function() {
+                    speedY += 3; // 模拟加速度
+                    let y = box.offsetTop + speedY;
+
+                    if (y >= innerHeight - box.offsetHeight) {
+                        y = innerHeight - box.offsetHeight;
+                        speedY *= -0.8; // 模拟力的损耗
+                    }
+
+                    if (Math.abs(speedY) < 1) { // 最小的像素值为1 当小于1时设置为0
+                        speedY = 0;
+                    }
+
+                    console.log(speedY);
+
+                    if (speedY == 0 && y == innerHeight - box.offsetHeight) { // 当速度为0且元素在底部时 停止计时器
+                        clearInterval(timer);
+                    }
+
+                    box.style.top = y + 'px';
+                }, 20);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>

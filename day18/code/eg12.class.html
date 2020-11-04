@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ES6 关键字 class
+        // 本质是函数 构造函数的语法糖
+
+        function Student(name, age) {
+            this.name = name;
+            this.age = age;
+            Object.defineProperty(this, 'age', {//设置不可修改的属性
+                value: age
+            });
+        }
+
+        var s1 = new Student('zhangsan', 12);
+        console.log(s1);
+        // ---------------------------------------
+        class Student {
+            constructor(name, age) {
+                // 私有属性
+                this.name = name;
+                this.age = age;
+            }
+            // 公有属性
+            // 所有的公有属性依旧是在原型上
+            // 通过实例访问
+            sayName() {
+                console.log(this.name);
+            }
+            // 静态属性通过类名访问
+            static className = 'html5-2009';
+        }
+        var s2 = new Student('lisi', 15);
+        console.log(s2);
+        // console.log(typeof Student);
+        s2.sayName();
+
+        console.log(Student.className);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

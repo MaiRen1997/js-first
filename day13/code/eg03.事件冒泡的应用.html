@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+
+            // 事件委托(事件委派)
+            // 将事件添加给目标的父级元素(祖先级元素) 
+            // 通过事件冒泡的原理 实现事件添加的功能
+
+            // 事件委托的好处
+            // 1. 减少DOM的查找
+            // 2. 减少事件的添加次数
+            // 3. 给未来元素添加事件
+
+
+
+
+
+            // 在每一个事件触发时 JS引擎会创建一个对应的Event对象 并传入到事件处理函数中
+            // 在IE的事件标准中 event 是全局对象 window.event  所有全局对象可以省略window.  属于BOM
+            // 标准浏览器中 事件对象 属于DOM
+            box.onclick = function(ev) {
+                ev = ev || event;
+                console.log(ev);
+                // ev.target 事件目标对象  标准浏览器属性
+                // ev.srcElement 事件目标对象  IE浏览器属性
+
+                // console.log(ev.target);//button   标准浏览器中用ev.target表示
+
+                // console.log(ev.srcElement);//button   IE浏览器中用srcElement表示
+                var target = ev.target || ev.srcElement;
+
+                // console.log(target);
+
+                // 给未来元素(JS创建的元素)添加事件
+
+                if (target.nodeName === 'BUTTON') {
+                    var newbtn = document.createElement('button');
+                    newbtn.innerHTML = '按钮';
+                    box.appendChild(newbtn);
+                }
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <button id="btn">按钮</button>
+    </div>
+</body>
+
+</html>

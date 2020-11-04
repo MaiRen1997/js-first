@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // arguments.callee  它是一个指针
+        // 它指向了当前函数的引用
+        // function fib() {
+        //     // console.log(arguments.callee);
+        //     // console.log(fib);
+        //     // console.log(arguments.callee === fib);
+
+        //     arguments.callee();
+
+        // }
+
+        // fib();
+
+
+        function fn(m, n) {
+            var r = m % n;
+            m = n;
+            n = r;
+            if (r == 0) {
+                return m;
+            } else {
+                return fn(m, n);
+            }
+        }
+
+        console.log(fn(81, 27));
+        console.log(fn(49, 21));
+        console.log(fn(25, 10));
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

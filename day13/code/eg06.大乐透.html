@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            text-align: center;
+        }
+        
+        h1 {
+            box-shadow: 6px 3px 8px #ccc, -3px 3px 8px #ccc;
+            margin: 30px auto;
+            width: 1330px;
+            padding: 10px;
+            border-radius: 8px;
+            user-select: none;
+            background-image: linear-gradient(to bottom, yellow, rgb(238, 253, 19), gold);
+        }
+        
+        .users {
+            width: 1366px;
+            margin: 0 auto;
+        }
+        
+        .users>ul {
+            overflow: hidden;
+            width: 1350px;
+            margin: 0 auto;
+        }
+        
+        .users>ul>li {
+            list-style: none;
+            width: 95px;
+            border: 1px solid #ddd;
+            margin: 7px;
+            float: left;
+            text-align: center;
+            line-height: 40px;
+            height: 40px;
+            border-radius: 5px;
+            user-select: none;
+            font-size: 20px;
+            box-shadow: 2px 2px 2px #ccc;
+        }
+        
+        .users>ul>li:not(.mid) {
+            background: #ddd;
+        }
+        
+        .users>ul>li.mid {
+            border: none;
+            box-shadow: none;
+        }
+        
+        .users>ul>li.student {
+            background-color: aquamarine!important;
+        }
+        
+        .users>ul>li.active {
+            background-color: yellow!important;
+        }
+        
+        #start {
+            width: 150px;
+            height: 50px;
+            font-size: 26px;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var data = {
+                row7: ['李旭', '', '', '', '', '', '', '王玉强', '万能', '吴健', '刘鑫', ''],
+                row6: ['', '', '', '', '', '杨彬', '', '周嘉诚', '黄霖荣', '翁江源', '尹琦航', '张宇浩'],
+                row5: ['刘林浩', '陈嘉婴', '蔡宏伟', '余浚清', '潘明旭', '薛以鹏', '', '项方浩', '', '徐常君', '', '张凯丽'],
+                row4: ['陈天明', '闫堃', '', '', '牟欣荣', '张聪', '', '曾笛', '', '太洲泉', '', ''],
+                row3: ['', '', '胡泽徽', '胡伟强', '陈田', '蔡声学', '', '王徐敏', '郑璐璐', '郑倩倩', '何敬', ''],
+                row2: ['陈若', '吕慧笑', '曾腾飞', '', '', '', '', '', '褚昭阳', '纪诚', '谷金飞', ''],
+                row1: ['', '', '李英健', '范鑫', '郑德豪', '王北京', '', '金超群', '张璐璐', '吴禄豪', '毛苏玲', '']
+            };
+
+            // 变量申明
+
+            var students, //保存所有学生
+                randomNumber, // 随机数
+                startBtn, // 开始按钮
+                timer; // 计时器
+
+
+
+            // 1.初始化 将数据放入页面
+            function init() {
+                var users = document.querySelector('.users'),
+                    list, // ul元素
+                    tempLi; //li元素
+
+                for (var i in data) {
+                    list = document.createElement('ul'); // 创建一个列表 表示一行数据
+                    for (var j = 0; j < data[i].length; j++) { // 遍历每一行数据
+                        tempLi = document.createElement('li'); // 创建li元素 创建位置
+                        tempLi.innerHTML = data[i][j]; // 放入数据
+                        // 区别座位是否有人
+                        data[i][j] && tempLi.setAttribute('class', 'student');
+                        j == 6 && tempLi.setAttribute('class', 'mid'); // 走廊的样式
+                        list.appendChild(tempLi); // 将所有li放入list
+                    }
+                    users.appendChild(list); // 整行数据放入页面
+                }
+
+                startBtn = document.querySelector('#start');
+                students = document.querySelectorAll('.student');
+
+            }
+
+            init();
+
+            // 2. 抽奖功能
+            function start() {
+                if (startBtn.innerHTML == '开始') {
+                    startBtn.innerHTML = '停止';
+                    timer = setInterval(function() {
+                        if (typeof randomNumber != 'undefined') { // 判断之前有没有生成过随机数
+                            students[randomNumber].classList.remove('active'); // 删除上一个类名
+                        }
+                        randomNumber = Math.floor(Math.random() * students.length); // 随机出一个索引值
+                        students[randomNumber].classList.add('active');
+                    }, 100);
+                } else {
+                    startBtn.innerHTML = '开始';
+                        clearInterval(timer);
+                    
+                }
+
+            }
+
+            startBtn.onclick = start;
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>HZ-HTML5-2009 Super Lotto</h1>
+    <div class="users">
+    </div>
+    <button id="start" data-flag="start">开始</button>
+</body>
+
+</html>

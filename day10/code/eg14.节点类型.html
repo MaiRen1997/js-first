@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            // 节点类型 nodeType
+            // number值
+            // 元素节点 1
+            // 属性节点 2
+            // 文本节点 3
+            // 注释节点 8
+            // 文档节点 9
+
+            var box = document.getElementById('box');
+            var arr = Array.from(box.childNodes);
+
+            // arr.forEach(function(elm) {
+            //     console.log(elm.nodeName, elm.nodeType);
+            // });
+
+            // console.log(document.nodeType);
+
+            // 找出所有元素
+            var elmList = arr.filter(function(elm) {
+                return elm.nodeType == 1;
+            });
+
+            console.log(elmList);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <div>111</div>
+        <p>111</p>
+        <!-- 11122233 -->
+        <div>222</div>
+        <span>655</span>
+        <!-- 11122233 -->
+        <span>222222222</span>
+        <div>333</div>
+    </div>
+</body>
+
+</html>
